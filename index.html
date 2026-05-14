@@ -1,0 +1,4018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	<link rel="stylesheet" href="CSS/footer.css">
+
+	<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script> -->
+
+
+	<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+	<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero-section">
+
+    <div class="hero-slider">
+		<div class="hero-slide active" style="background-image: url('assests/images/hero.png');"></div>
+        <div class="hero-slide" style="background-image: url('assests/images/hero2.png');"></div>
+		<div class="hero-slide" style="background-image: url('assests/images/hero4.png');"></div>
+        <div class="hero-slide" style="background-image: url('assests/images/hero3.png');"></div>
+        
+        <div class="hero-slide" style="background-image: url('assests/images/hero5.png');"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span></span>
+            PREMIUM PACKAGING & BRANDING
+        </div>
+
+        <h1>
+            From Small Quantities <br>
+            to Mass Production
+        </h1>
+
+        <h2>
+            we image your imagination
+        </h2>
+
+        <p>
+            Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">
+                Explore Packaging
+            </a>
+            <a href="#" class="btn-secondary">
+                Get Quote
+            </a>
+        </div>
+    </div>
+
+</section>
+	
+<style>
+	/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f5f5;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+/* =========================
+   HERO SECTION & SLIDER
+========================= */
+
+.hero-section{
+    padding-top:var(--navbar-height);
+}
+
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 5%;
+    /* REMOVED the static background from here */
+}
+
+/* Slider Container */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Sits behind everything */
+}
+
+/* Individual Slides */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0; /* Hidden by default */
+    transform: scale(1.1); /* Start slightly zoomed in */
+    transition: opacity 1.5s ease-in-out, transform 6s ease-out; /* Smooth fade */
+}
+
+/* The Active Slide */
+.hero-slide.active {
+    opacity: 1; /* Make visible */
+    transform: scale(1); /* Slowly zoom out to normal size */
+}
+
+/* Overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.15) 0%,
+        rgba(255,255,255,0.12) 45%,
+        rgba(255,255,255,0.02) 100%
+    );
+    z-index: 1; /* Above slider, below content */
+}
+
+/* Content */
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    text-align: center;
+    /* Added transitions for smooth JS text swapping */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ... Keep all your other CSS for badges, headings, and buttons exactly the same ... */
+
+/* Badge */
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px 22px;
+
+    border-radius:60px;
+
+    background:rgba(255,255,255,0.72);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1px;
+
+    color:#1d3d8f;
+
+    margin-bottom:28px;
+}
+
+.hero-badge span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ff0088;
+}
+
+/* Heading */
+
+.hero-content h1{
+    font-size:61px;
+    line-height:1.05;
+    font-weight:800;
+
+    color:#142c72;
+
+    margin-bottom:20px;
+}
+
+/* Tagline */
+
+.hero-content h2{
+    font-size:30px;
+    font-weight:500;
+
+    color:#d40087;
+
+    margin-bottom:25px;
+}
+
+/* Paragraph */
+
+.hero-content p{
+    font-size:18px;
+    line-height:1.8;
+
+    color:#333;
+
+    max-width:650px;
+    margin:auto;
+
+    margin-bottom:40px;
+}
+
+/* Buttons */
+
+.hero-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+/* Primary */
+
+.btn-primary{
+    text-decoration:none;
+
+    background:#17398b;
+    color:#fff;
+
+    padding:18px 38px;
+
+    border-radius:60px;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:.4s ease;
+
+    box-shadow:0 12px 25px rgba(23,57,139,0.25);
+}
+
+.btn-primary:hover{
+    background:#ff9800;
+    transform:translateY(-5px);
+}
+
+/* Secondary */
+
+.btn-secondary{
+    text-decoration:none;
+
+    padding:18px 38px;
+
+    border-radius:60px;
+
+    border:2px solid #17398b;
+
+    color:#17398b;
+
+    background:rgba(255,255,255,0.55);
+
+    backdrop-filter:blur(10px);
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:.4s ease;
+}
+
+.btn-secondary:hover{
+    background:#17398b;
+    color:#fff;
+}
+
+/* Animation */
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+    .hero-content h1{
+        font-size:62px;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .hero-content h1{
+        font-size:52px;
+    }
+
+    .hero-content h2{
+        font-size:26px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-section{
+        min-height:auto;
+        padding:140px 20px 100px;
+        background-position:center;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-content h2{
+        font-size:22px;
+    }
+
+    .hero-content p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        max-width:320px;
+        text-align:center;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+    .hero-content h2{
+        font-size:19px;
+    }
+
+    .hero-badge{
+        font-size:12px;
+        padding:10px 18px;
+    }
+
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    /* =========================
+       HERO SLIDESHOW LOGIC
+    ========================= */
+    const slides = document.querySelectorAll(".hero-slide");
+    const heroContent = document.querySelector(".hero-content");
+    
+    // Target the specific text elements we want to change
+    const badgeText = document.querySelector(".hero-badge");
+    const headingText = document.querySelector(".hero-content h1");
+    const taglineText = document.querySelector(".hero-content h2");
+    const descText = document.querySelector(".hero-content p");
+
+    let currentSlideIndex = 0;
+    const slideDuration = 6000; // 5 seconds per slide
+
+    // Custom text tailored to each of your 4 images
+    const slideData = [
+		{
+            // For hero2.png (Incense Sticks)
+            badge: "PREMIUM PACKAGING & BRANDING",
+            heading: "From Small Quantities <br>to Mass Production",
+            tagline: "we image your imagination",
+            desc: " Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
+        },
+
+
+        {
+            // For hero2.png (Incense Sticks)
+            badge: "PREMIUM PACKAGING",
+            heading: "Elevate Your Senses <br> With Premium Boxes",
+            tagline: "Bespoke Incense Packaging",
+            desc: "Beautifully crafted boxes that capture the essence, aroma, and luxury of your premium incense products."
+        },
+
+		{
+            // For hero4.png (Vibrant Spices & Tea)
+            badge: "RETAIL BRANDING",
+            heading: "A Burst of Flavor <br> On Every Shelf",
+            tagline: "Vibrant Spice & Tea Boxes",
+            desc: "Eye-catching retail packaging that protects freshness while making your brand completely irresistible."
+        },
+
+        {
+            // For hero3.png (Kraft Pizza & Burger Boxes)
+            badge: "ECO-FRIENDLY KRAFT",
+            heading: "Fresh Out of the Oven <br> To Your Customers",
+            tagline: "Sustainable Food Cartons",
+            desc: "Durable, grease-resistant, and eco-friendly packaging designed to keep your delicious food hot and fresh."
+        },
+        
+        {
+            // For hero5.png (Colorful Food/Pasta/Wraps)
+            badge: "CUSTOM PRINTING",
+            heading: "Taste the Goodness <br> In Every Bite",
+            tagline: "Appetizing Culinary Packaging",
+            desc: "High-quality, food-safe custom printed boxes that make your ready-to-eat meals look as good as they taste."
+        }
+    ];
+
+    function nextSlide() {
+        // 1. Fade out current background and text
+        slides[currentSlideIndex].classList.remove("active");
+        heroContent.style.opacity = "0"; 
+        heroContent.style.transform = "translateY(20px)"; // Drops down slightly
+        
+        // 2. Move to the next slide index
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        
+        // 3. Wait for text to fade out (600ms), then swap text and fade back in!
+        setTimeout(() => {
+            // Swap the text
+            badgeText.innerHTML = `<span></span>${slideData[currentSlideIndex].badge}`;
+            headingText.innerHTML = slideData[currentSlideIndex].heading;
+            taglineText.innerHTML = slideData[currentSlideIndex].tagline;
+            descText.innerHTML = slideData[currentSlideIndex].desc;
+            
+            // Fade the background and new text back in
+            slides[currentSlideIndex].classList.add("active");
+            heroContent.style.opacity = "1";
+            heroContent.style.transform = "translateY(0)";
+        }, 600); 
+    }
+
+    // Start the automatic slider
+    setInterval(nextSlide, slideDuration);
+
+
+    /* =========================
+       HERO PARALLAX EFFECT
+    ========================= */
+    window.addEventListener("mousemove", (e) => {
+        let x = (window.innerWidth / 2 - e.pageX) / 90;
+        let y = (window.innerHeight / 2 - e.pageY) / 90;
+
+        // Apply the parallax shift to ALL slides so it doesn't jump during transitions
+        slides.forEach(slide => {
+            slide.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+        });
+    });
+
+});
+</script>	
+
+
+<!-- =========================
+     BRAND BUILD SECTION
+========================= -->
+
+<section class="brand-build-section">
+
+    <div class="brand-container">
+
+        <!-- LEFT CONTENT -->
+
+        <div class="brand-content">
+
+            <span class="section-tag">
+                BUILD • PRINT • PACKAGE • BRAND
+            </span>
+
+            <h2>
+                From Idea To Final Product —
+                We Build Complete Brand Experiences
+            </h2>
+
+            <p class="section-description">
+
+                Visualbox Advertising helps businesses transform
+                ideas into market-ready products through creative
+                branding, premium packaging, professional printing
+                and strategic visual communication.
+
+            </p>
+
+            <!-- FEATURES -->
+
+            <div class="brand-features">
+
+                <!-- ITEM -->
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>
+                            Brand Identity Design
+                        </h3>
+
+                        <p>
+                            Logos, color systems, typography and
+                            creative brand visuals designed from scratch.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM -->
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>
+                            Custom Packaging Solutions
+                        </h3>
+
+                        <p>
+                            Luxury boxes, cartons and packaging
+                            crafted for modern businesses and products.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM -->
+
+                <!-- <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>
+                            Printing & Production
+                        </h3>
+
+                        <p>
+                            High-quality printing for labels,
+                            brochures, product packaging and branding.
+                        </p>
+
+                    </div>
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT IMAGES -->
+
+        <div class="brand-images">
+
+            <!-- IMAGE 1 -->
+
+            <div class="image-box large-box">
+
+                <img src="assests/images/boxx.png" alt="Packaging Design">
+
+            </div>
+
+            <!-- IMAGE 2 -->
+
+            <div class="image-box small-box top-box">
+
+                <img src="assests/images/custom-packaging-.jpg" alt="Brand Packaging">
+
+            </div>
+
+            <!-- IMAGE 3 -->
+
+            <div class="image-box small-box bottom-box">
+
+                <img src="assests/images/packaging.jpg" alt="Printing Work">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+	/* =========================
+   BRAND BUILD SECTION
+========================= */
+
+.brand-build-section{
+    position:relative;
+    width:100%;
+    padding:120px 6%;
+    background:#f8f5f1;
+    overflow:hidden;
+}
+
+/* CONTAINER */
+
+.brand-container{
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:80px;
+
+    align-items:center;
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.section-tag{
+    display:inline-block;
+
+    padding:12px 22px;
+
+    background:#fff;
+
+    border-radius:60px;
+
+    color:#17398b;
+
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1.5px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+
+    margin-bottom:28px;
+}
+
+/* HEADING */
+
+.brand-content h2{
+    font-size:46px;
+    line-height:1.1;
+    font-weight:800;
+
+    color:#1a1a1a;
+
+    margin-bottom:25px;
+}
+
+/* DESCRIPTION */
+
+.section-description{
+    font-size:18px;
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:50px;
+
+    max-width:650px;
+}
+
+/* FEATURES */
+
+.brand-features{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+/* CARD */
+
+.feature-card{
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+
+    background:#fff;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    transition:.4s ease;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.05);
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+/* ICON */
+
+.feature-icon{
+    min-width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#17398b;
+
+    color:#fff;
+
+    font-size:28px;
+
+    box-shadow:0 10px 20px rgba(23,57,139,0.2);
+}
+
+/* TEXT */
+
+.feature-text h3{
+    font-size:24px;
+    color:#111;
+    margin-bottom:10px;
+}
+
+.feature-text p{
+    font-size:16px;
+    line-height:1.8;
+    color:#666;
+}
+
+/* =========================
+   RIGHT SIDE IMAGES
+========================= */
+
+.brand-images{
+    position:relative;
+    min-height:720px;
+}
+
+/* COMMON */
+
+.image-box{
+    position:absolute;
+
+    overflow:hidden;
+
+    border-radius:35px;
+
+    background:#fff;
+
+    box-shadow:0 25px 50px rgba(0,0,0,0.1);
+
+    transition:.5s ease;
+}
+
+.image-box:hover{
+    transform:translateY(-10px);
+}
+
+/* IMAGE */
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* LARGE */
+
+.large-box{
+    width:420px;
+    height:560px;
+
+    top:70px;
+    left:0;
+}
+
+/* SMALL TOP */
+
+.top-box{
+    width:270px;
+    height:240px;
+
+    top:0;
+    right:0;
+}
+
+/* SMALL BOTTOM */
+
+.bottom-box{
+    width:300px;
+    height:270px;
+
+    bottom:40px;
+    right:20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+    .brand-content h2{
+        font-size:46px;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .brand-container{
+        grid-template-columns:1fr;
+    }
+
+    .brand-images{
+        min-height:650px;
+        margin-top:40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .brand-build-section{
+        padding:90px 20px;
+    }
+
+    .brand-content h2{
+        font-size:38px;
+    }
+
+    .section-description{
+        font-size:16px;
+    }
+
+    .feature-card{
+        flex-direction:column;
+    }
+
+    .brand-images{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+
+        min-height:auto;
+    }
+
+    .image-box{
+        position:relative !important;
+
+        width:100% !important;
+        height:320px !important;
+
+        top:auto !important;
+        left:auto !important;
+        right:auto !important;
+        bottom:auto !important;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .brand-content h2{
+        font-size:32px;
+    }
+
+    .feature-text h3{
+        font-size:21px;
+    }
+
+}
+</style>
+
+
+
+<!-- =========================
+     PRINTING SERVICES SECTION
+========================= -->
+
+<!-- =========================
+     PRINT STUDIO SECTION
+========================= -->
+
+<!-- =========================
+     VISUALBOX SERVICES
+========================= -->
+
+<section class="vb-services">
+
+    <!-- TOP HEADER -->
+
+    <div class="vb-services-top">
+
+        <div class="vb-heading">
+
+            <span class="vb-mini-title">
+                — OUR PRINT SERVICES
+            </span>
+
+            <h2>
+                Explore Our Services:
+                <span>
+                    We Image Your Imagination
+                </span>
+            </h2>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <a href="#" class="vb-view-btn">
+
+            <span>+</span>
+
+            View All Services
+
+        </a>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="vb-slider-wrapper">
+
+        <div class="vb-slider">
+
+            <!-- CARD 1 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Packaging Boxes
+                    </h3>
+
+                    <p>
+                        Premium custom packaging
+                        for modern product brands.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/custom-packaging-.jpg" alt="Packaging Boxes">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Brochure Design
+                    </h3>
+
+                    <p>
+                        Creative brochures and
+                        marketing presentation prints.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/corporate.jpg" alt="Brochure Design">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Business Cards
+                    </h3>
+
+                    <p>
+                        Elegant business cards with
+                        premium finishing quality.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/business-card.jpg" alt="Business Cards">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 4 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Flyers & Posters
+                    </h3>
+
+                    <p>
+                        Promotional print materials
+                        that attract attention instantly.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/digital-marketing.webp" alt="Flyers">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+
+			  <!-- CARD 1 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Plain Boxes
+                    </h3>
+
+                    <p>
+                        Premium custom packaging
+                        for modern product brands.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/plain-boxes.jpg" alt="plain-Boxes">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Rigid Boxes
+                    </h3>
+
+                    <p>
+                        Creative brochures and
+                        marketing presentation prints.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/rigid-boxes.jpg" alt="Brochure Design">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Pizza Boxes
+                    </h3>
+
+                    <p>
+                        Elegant business cards with
+                        premium finishing quality.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/pizza-boxes.jpg" alt="Business Cards">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+            <!-- CARD 4 -->
+
+            <div class="vb-card">
+
+                <div class="vb-card-content">
+
+                    <h3>
+                        Soap Boxes
+                    </h3>
+
+                    <p>
+                        Promotional print materials
+                        that attract attention instantly.
+                    </p>
+
+                </div>
+
+                <div class="vb-card-image">
+
+                    <img src="assests/images/soap-boxes.jpg" alt="Flyers">
+
+                </div>
+
+                <div class="vb-card-btn">
+                    ↗
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM CATEGORY -->
+
+    <div class="vb-bottom-tags">
+
+        <span>Packaging Boxes ✷</span>
+        <span>Brochures ✷</span>
+        <span>Business Cards ✷</span>
+        <span>Flyers & Posters ✷</span>
+        <span>Branding Prints ✷</span>
+
+    </div>
+
+</section>
+
+<!-- SWIPER -->
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+<style>
+/* =========================
+   VISUALBOX SERVICES
+========================= */
+
+.vb-services{
+    position:relative;
+
+    width:100%;
+
+    padding:110px 6%;
+
+    background:#165848;
+
+    overflow:hidden;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.vb-services-top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+
+    gap:30px;
+
+    margin-bottom:60px;
+
+    flex-wrap:wrap;
+}
+
+/* MINI TITLE */
+
+.vb-mini-title{
+    display:block;
+
+    font-size:14px;
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    color:#d9f5ec;
+
+    margin-bottom:18px;
+}
+
+/* HEADING */
+
+.vb-heading h2{
+    font-size:58px;
+    line-height:1.1;
+
+    color:#fff;
+
+    font-weight:700;
+
+    max-width:700px;
+}
+
+/* YELLOW TEXT */
+
+.vb-heading h2 span{
+    display:block;
+
+    color:#f6c42f;
+
+    font-style:italic;
+
+    margin-top:8px;
+}
+
+/* BUTTON */
+
+.vb-view-btn{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    text-decoration:none;
+
+    background:#f6c42f;
+
+    color:#111;
+
+    padding:18px 30px;
+
+    border-radius:60px;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:.4s ease;
+}
+
+.vb-view-btn span{
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:#165848;
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.vb-view-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.vb-slider{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+}
+
+/* CARD */
+
+.vb-card{
+    position:relative;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    padding:20px;
+
+    backdrop-filter:blur(8px);
+
+    transition:.4s ease;
+
+    overflow:hidden;
+}
+
+.vb-card:hover{
+    transform:translateY(-10px);
+
+    background:rgba(255,255,255,.18);
+}
+
+/* CONTENT */
+
+.vb-card-content h3{
+    font-size:22px;
+
+    color:#fff;
+
+    margin-bottom:12px;
+}
+
+.vb-card-content p{
+    font-size:14px;
+    line-height:1.8;
+
+    color:rgba(255,255,255,.8);
+
+    margin-bottom:20px;
+}
+
+/* IMAGE */
+
+.vb-card-image{
+    width:100%;
+    height:230px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+}
+
+.vb-card-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s ease;
+}
+
+.vb-card:hover img{
+    transform:scale(1.08);
+}
+
+/* BUTTON */
+
+.vb-card-btn{
+    position:absolute;
+
+    bottom:18px;
+    right:18px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    background:#f6c42f;
+
+    color:#111;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.4s ease;
+}
+
+.vb-card-btn:hover{
+    transform:rotate(45deg);
+}
+
+/* =========================
+   BOTTOM TAGS
+========================= */
+
+.vb-bottom-tags{
+    margin-top:60px;
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+
+    justify-content:center;
+}
+
+.vb-bottom-tags span{
+    color:#fff;
+
+    font-size:16px;
+    font-weight:500;
+
+    opacity:.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+    .vb-slider{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vb-services{
+        padding:90px 20px;
+    }
+
+    .vb-heading h2{
+        font-size:40px;
+    }
+
+    .vb-slider{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .vb-heading h2{
+        font-size:32px;
+    }
+
+    .vb-card-content h3{
+        font-size:20px;
+    }
+
+}
+</style>
+
+
+<script>
+/* =========================
+   GSAP ANIMATION
+========================= */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* HEADING */
+
+gsap.from(".vb-heading",{
+
+    scrollTrigger:{
+        trigger:".vb-services",
+        start:"top 80%"
+    },
+
+    y:80,
+    opacity:0,
+
+    duration:1.2
+});
+
+/* BUTTON */
+
+gsap.from(".vb-view-btn",{
+
+    scrollTrigger:{
+        trigger:".vb-services",
+        start:"top 80%"
+    },
+
+    x:80,
+    opacity:0,
+
+    duration:1
+});
+
+/* CARDS */
+
+gsap.from(".vb-card",{
+
+    scrollTrigger:{
+        trigger:".vb-slider",
+        start:"top 80%"
+    },
+
+    y:100,
+    opacity:0,
+
+    stagger:.2,
+
+    duration:1
+});
+
+/* BOTTOM TAGS */
+
+gsap.from(".vb-bottom-tags span",{
+
+    scrollTrigger:{
+        trigger:".vb-bottom-tags",
+        start:"top 90%"
+    },
+
+    opacity:0,
+    y:40,
+
+    stagger:.1,
+
+    duration:.8
+});
+
+/* HOVER FLOAT EFFECT */
+
+document.querySelectorAll(".vb-card").forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width)-0.5)*10;
+        const rotateX = ((y / rect.height)-0.5)*-10;
+
+        card.style.transform = `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)
+        `;
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform = `
+        perspective(1000px)
+        rotateX(0)
+        rotateY(0)
+        translateY(0)
+        `;
+    });
+
+});
+</script>
+
+
+
+<!-- <section class="adv-section">
+    
+    <div class="adv-bg-orb orb-blue"></div>
+    <div class="adv-bg-orb orb-red"></div>
+    <div class="adv-bg-orb orb-yellow"></div>
+
+    <div class="adv-container">
+        <div class="adv-layout">
+            
+            <div class="adv-center-core">
+                <div class="adv-center-icon">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <div class="adv-ping-wrapper">
+                      <span class="adv-ping-anim"></span>
+                      <span class="adv-ping-solid"></span>
+                    </div>
+                </div>
+                
+                <span class="adv-subtitle">Everything You Need</span>
+                <h2 class="adv-title">
+                    All Solutions Under <br>
+                    <span class="adv-text-gradient">One Roof.</span>
+                </h2>
+                <p class="adv-desc">
+                    Stop juggling multiple agencies. From dominating search engines to printing eye-catching flyers, we build, market, and scale your brand comprehensively.
+                </p>
+            </div>
+
+            <div class="adv-card adv-card-tl" data-speed="-2">
+                <div class="adv-card-inner border-magenta">
+                    <div class="adv-icon icon-magenta">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3>Social Media Ads</h3>
+                    <p>Viral campaigns, influencer marketing, and targeted ads that convert scrollers into buyers.</p>
+                </div>
+            </div>
+
+            <div class="adv-card adv-card-tr" data-speed="2">
+                <div class="adv-card-inner border-cyan">
+                    <div class="adv-icon icon-cyan">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3>Digital & SEO</h3>
+                    <p>Rank #1 on Google. We optimize your website and run powerful digital funnels to capture leads.</p>
+                </div>
+            </div>
+
+            <div class="adv-card adv-card-bl" data-speed="1.5">
+                <div class="adv-card-inner border-yellow">
+                    <div class="adv-icon icon-yellow">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3>Press & Media</h3>
+                    <p>Get featured. We handle PR, media outreach, and strategic publications to build massive authority.</p>
+                </div>
+            </div>
+
+            <div class="adv-card adv-card-br" data-speed="-1.5">
+                <div class="adv-card-inner border-green">
+                    <div class="adv-icon icon-green">
+                        <i class="fa-solid fa-print"></i>
+                    </div>
+                    <h3>Banners & Flyers</h3>
+                    <p>High-impact offline marketing. We design and print everything from hand-to-hand flyers to massive hoardings.</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="adv-mobile-cta">
+            <a href="contact.html" class="adv-btn">
+                Explore All Services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section> -->
+
+
+<style>
+	/* =========================================
+   ADVERTISING "ONE ROOF" SECTION STYLES
+========================================= */
+
+/* Section & Background Orbs */
+.adv-section {
+    position: relative;
+    padding: 6rem 0;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.adv-bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+.orb-blue { top: 20%; left: -10%; width: 500px; height: 500px; background-color: #00AEEF; filter: blur(150px); opacity: 0.2; }
+.orb-red { bottom: -10%; right: -5%; width: 600px; height: 600px; background-color: #E3000F; filter: blur(150px); opacity: 0.15; }
+.orb-yellow { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background-color: #FBC02D; filter: blur(200px); opacity: 0.1; }
+
+.adv-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.adv-layout {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Central Core Typography & Icon */
+.adv-center-core {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.adv-center-icon {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7B1FA2;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #f3f4f6;
+    position: relative;
+}
+
+/* Ping Animation for Green Dot */
+@keyframes advPing { 75%, 100% { transform: scale(2); opacity: 0; } }
+.adv-ping-wrapper { position: absolute; top: -8px; right: -8px; width: 24px; height: 24px; }
+.adv-ping-anim { position: absolute; width: 100%; height: 100%; border-radius: 50%; background-color: #8CC63F; opacity: 0.75; animation: advPing 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.adv-ping-solid { position: relative; display: inline-flex; width: 100%; height: 100%; border-radius: 50%; background-color: #8CC63F; border: 2px solid #ffffff; }
+
+.adv-subtitle { color: #E3000F; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.875rem; margin-bottom: 1rem; display: block; }
+.adv-title { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; color: #1a1a1a; line-height: 1.2; }
+.adv-text-gradient { background: linear-gradient(to right, #7B1FA2, #E3000F, #F57C00); -webkit-background-clip: text; color: transparent; }
+.adv-desc { font-family: 'Outfit', sans-serif; color: #4b5563; font-size: 1.125rem; max-width: 36rem; margin: 0 auto; line-height: 1.625; }
+
+/* Floating Cards (Glassmorphism) */
+.adv-card {
+    position: absolute;
+    width: 320px;
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.adv-card-inner {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.adv-card:hover { z-index: 30; }
+.adv-card:hover .adv-card-inner {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+}
+
+/* Card Borders & Icons */
+.border-magenta { border-top: 4px solid #E4405F; }
+.border-cyan { border-top: 4px solid #00AEEF; }
+.border-yellow { border-top: 4px solid #FBC02D; }
+.border-green { border-top: 4px solid #8CC63F; }
+
+.adv-icon { width: 3.5rem; height: 3.5rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
+.icon-magenta { background: rgba(228, 64, 95, 0.1); color: #E4405F; }
+.icon-cyan { background: rgba(0, 174, 239, 0.1); color: #00AEEF; }
+.icon-yellow { background: rgba(251, 192, 45, 0.1); color: #d49e1e; }
+.icon-green { background: rgba(140, 198, 63, 0.1); color: #8CC63F; }
+
+.adv-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: #1a1a1a; margin-top: 0; margin-bottom: 0.5rem; }
+.adv-card p { font-family: 'Outfit', sans-serif; color: #6b7280; font-size: 0.875rem; margin: 0; line-height: 1.5; }
+
+/* Mobile CTA Button */
+.adv-mobile-cta { display: none; text-align: center; margin-top: 3rem; position: relative; z-index: 30; }
+.adv-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 9999px; font-family: 'Syne', sans-serif; font-weight: 700; color: #ffffff; text-decoration: none; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); background: linear-gradient(to right, #7B1FA2, #E3000F); transition: transform 0.3s ease; }
+.adv-btn:hover { transform: scale(1.05); color: #fff; }
+
+/* Desktop Positioning (Floating on Edges) */
+@media (min-width: 1024px) {
+    .adv-section { padding: 8rem 0; }
+    .adv-title { font-size: 3.75rem; }
+    .adv-card-tl { top: 0; left: 0; }
+    .adv-card-tr { top: 10%; right: 0; }
+    .adv-card-bl { bottom: 0; left: 5%; }
+    .adv-card-br { bottom: 10%; right: 5%; }
+}
+
+/* Mobile Positioning (Stacked nicely instead of absolute) */
+@media (max-width: 1023px) {
+    .adv-layout { flex-direction: column; min-height: auto; gap: 2rem; }
+    .adv-center-core { position: relative; margin-bottom: 3rem; }
+    .adv-card { position: relative; width: 100%; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; }
+    .adv-mobile-cta { display: block; }
+}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		/* ==========================================
+       ADVERTISING SECTION ANIMATIONS
+    ========================================== */
+    
+    // 1. Scroll Reveal Animation
+    if (document.querySelector(".adv-section")) {
+        
+        // Pop in the center hub
+        gsap.fromTo(".adv-center-core", 
+            { y: 50, scale: 0.9, opacity: 0 },
+            {
+                scrollTrigger: {
+                    trigger: ".adv-section",
+                    start: "top 75%"
+                },
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "back.out(1.5)"
+            }
+        );
+
+        // Float in the Edge Cards
+        gsap.fromTo(".adv-card", 
+            { y: 60, opacity: 0 },
+            {
+                scrollTrigger: {
+                    trigger: ".adv-section",
+                    start: "top 60%"
+                },
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                clearProps: "all" // Very important so parallax works after!
+            }
+        );
+
+        // 2. Mouse Parallax Floating Effect (Desktop Only)
+        const advSection = document.querySelector(".adv-section");
+        const advCards = document.querySelectorAll(".adv-card");
+
+        advSection.addEventListener("mousemove", (e) => {
+            // Only do parallax on desktop screens
+            if (window.innerWidth >= 1024) {
+                // Calculate mouse position relative to the center of the section
+                const rect = advSection.getBoundingClientRect();
+                const xPos = (e.clientX - rect.left - (rect.width / 2)) / 50;
+                const yPos = (e.clientY - rect.top - (rect.height / 2)) / 50;
+
+                advCards.forEach(card => {
+                    // Grab the custom speed attribute from the HTML
+                    const speed = card.getAttribute("data-speed");
+                    
+                    // Move the cards in opposite directions based on their speed
+                    gsap.to(card, {
+                        x: xPos * speed,
+                        y: yPos * speed,
+                        duration: 1,
+                        ease: "power1.out"
+                    });
+                });
+            }
+        });
+
+        // Reset positions when mouse leaves the section
+        advSection.addEventListener("mouseleave", () => {
+            if (window.innerWidth >= 1024) {
+                gsap.to(advCards, {
+                    x: 0,
+                    y: 0,
+                    duration: 1.5,
+                    ease: "elastic.out(1, 0.3)" // Gives it a nice bounce back to center
+                });
+            }
+        });
+    }
+		});
+</script>
+
+
+<!-- =========================================
+     VISUALBOX ADVERTISING SECTION
+========================================= -->
+
+<section class="vb-advertising-section">
+
+    <!-- FLOATING BOXES -->
+
+    <img src="assests/images/pizza-boxes.jpg"
+         class="vb-floating-box box-left"
+         alt="Packaging Box">
+
+    <img src="assests/images/custom-packaging.jpg"
+         class="vb-floating-box box-right"
+         alt="Tea Packaging">
+
+    <!-- SHAPES -->
+
+    <div class="vb-shape vb-shape1"></div>
+    <div class="vb-shape vb-shape2"></div>
+
+    <div class="vb-ad-container">
+
+        <!-- LEFT CONTENT -->
+
+        <div class="vb-ad-left">
+
+            <span class="vb-tag">
+                ONE ROOF BRAND SOLUTIONS
+            </span>
+
+            <h2>
+                From Packaging <br>
+                To Powerful <span>Brand Advertising</span>
+            </h2>
+
+            <p>
+                Visualbox Advertising helps brands grow with complete
+                creative solutions under one roof — from custom
+                packaging, product branding and printing to digital
+                marketing, social media advertising, SEO, websites,
+                press media, banners, flyers and promotional campaigns.
+            </p>
+
+            <!-- SERVICES -->
+
+            <div class="vb-service-grid">
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>Packaging Design</h3>
+                </div>
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h3>Digital Marketing</h3>
+                </div>
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>Website & SEO</h3>
+                </div>
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <h3>Social Media Ads</h3>
+                </div>
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-print"></i>
+                    <h3>Flyers & Brochures</h3>
+                </div>
+
+                <div class="vb-service-card">
+                    <i class="fa-solid fa-tv"></i>
+                    <h3>Press & Media</h3>
+                </div>
+
+            </div>
+
+            <a href="contact.html" class="vb-ad-btn">
+                Start Your Brand
+            </a>
+
+        </div>
+
+        <!-- RIGHT VISUAL -->
+
+        <div class="vb-ad-right">
+
+            <div class="vb-main-card">
+
+                <div class="vb-screen">
+
+                    <div class="vb-screen-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <img src="assests/images/advertising.jpg"
+                         alt="Visualbox Branding">
+
+                    <div class="vb-social-icons">
+
+                        <div><i class="fa-brands fa-instagram"></i></div>
+                        <div><i class="fa-brands fa-facebook-f"></i></div>
+                        <div><i class="fa-brands fa-google"></i></div>
+                        <div><i class="fa-brands fa-youtube"></i></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+	/* =========================================
+   ADVERTISING SECTION
+========================================= */
+
+.vb-advertising-section{
+    position:relative;
+    overflow:hidden;
+    padding:130px 7%;
+    background:#f7f4ef;
+}
+
+/* FLOATING BOXES */
+
+.vb-floating-box{
+    position:absolute;
+    width:220px;
+    z-index:1;
+    opacity:.95;
+}
+
+.box-left{
+    left:-60px;
+    top:140px;
+    transform:rotate(-14deg);
+}
+
+.box-right{
+    right:-40px;
+    bottom:120px;
+    transform:rotate(12deg);
+}
+
+/* SHAPES */
+
+.vb-shape{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.18;
+}
+
+.vb-shape1{
+    width:350px;
+    height:350px;
+    background:#ff0088;
+    top:-100px;
+    right:-100px;
+}
+
+.vb-shape2{
+    width:320px;
+    height:320px;
+    background:#00c6ff;
+    bottom:-100px;
+    left:-100px;
+}
+
+/* CONTAINER */
+
+.vb-ad-container{
+    max-width:1500px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:90px;
+    align-items:center;
+
+    position:relative;
+    z-index:5;
+}
+
+/* LEFT */
+
+.vb-tag{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:60px;
+    background:#ffffff;
+    color:#5f3dc4;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:1px;
+    margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.vb-ad-left h2{
+    font-size:52px;
+    line-height:1.05;
+    color:#121212;
+    font-weight:800;
+    margin-bottom:28px;
+}
+
+.vb-ad-left h2 span{
+    color:#5f3dc4;
+}
+
+.vb-ad-left p{
+    font-size:20px;
+    line-height:2;
+    color:#555;
+    max-width:760px;
+    margin-bottom:50px;
+}
+
+/* SERVICES */
+
+.vb-service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-bottom:50px;
+}
+
+.vb-service-card{
+    background:#fff;
+    border-radius:28px;
+    padding:28px 22px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+.vb-service-card:hover{
+    transform:translateY(-10px);
+}
+
+.vb-service-card i{
+    font-size:34px;
+    margin-bottom:18px;
+    color:#5f3dc4;
+}
+
+.vb-service-card h3{
+    font-size:18px;
+    color:#222;
+    line-height:1.5;
+}
+
+/* BUTTON */
+
+.vb-ad-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px 40px;
+    border-radius:60px;
+    text-decoration:none;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+
+    background:linear-gradient(
+        135deg,
+        #5f3dc4,
+        #00c6ff
+    );
+
+    transition:.4s;
+}
+
+.vb-ad-btn:hover{
+    transform:translateY(-6px);
+}
+
+/* RIGHT */
+
+.vb-main-card{
+    position:relative;
+}
+
+.vb-screen{
+    background:#fff;
+    border-radius:36px;
+    padding:25px;
+    box-shadow:0 40px 100px rgba(0,0,0,.12);
+}
+
+.vb-screen-top{
+    display:flex;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.vb-screen-top span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#ddd;
+}
+
+.vb-screen img{
+    width:100%;
+    border-radius:24px;
+    display:block;
+}
+
+/* SOCIAL */
+
+.vb-social-icons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:25px;
+}
+
+.vb-social-icons div{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#f5f5f5;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+    color:#5f3dc4;
+
+    transition:.4s;
+}
+
+.vb-social-icons div:hover{
+    background:#5f3dc4;
+    color:#fff;
+    transform:translateY(-5px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    .vb-ad-container{
+        grid-template-columns:1fr;
+    }
+
+    .vb-ad-left h2{
+        font-size:58px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vb-advertising-section{
+        padding:90px 20px;
+    }
+
+    .vb-service-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .vb-ad-left h2{
+        font-size:42px;
+    }
+
+    .vb-ad-left p{
+        font-size:17px;
+    }
+
+    .vb-floating-box{
+        display:none;
+    }
+
+}
+
+@media(max-width:560px){
+
+    .vb-service-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+
+<script>
+	/* =========================================
+   ADVERTISING SECTION ANIMATION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* TITLE */
+
+gsap.from(".vb-ad-left h2",{
+    scrollTrigger:{
+        trigger:".vb-advertising-section",
+        start:"top 75%"
+    },
+
+    y:80,
+    opacity:0,
+    duration:1.2
+});
+
+/* TEXT */
+
+gsap.from(".vb-ad-left p",{
+    scrollTrigger:{
+        trigger:".vb-ad-left p",
+        start:"top 85%"
+    },
+
+    y:50,
+    opacity:0,
+    duration:1
+});
+
+/* CARDS */
+
+gsap.from(".vb-service-card",{
+    scrollTrigger:{
+        trigger:".vb-service-grid",
+        start:"top 85%"
+    },
+
+    y:80,
+    opacity:0,
+    stagger:.12,
+    duration:1
+});
+
+/* RIGHT CARD */
+
+gsap.from(".vb-main-card",{
+    scrollTrigger:{
+        trigger:".vb-main-card",
+        start:"top 80%"
+    },
+
+    x:100,
+    opacity:0,
+    duration:1.3
+});
+
+/* FLOATING */
+
+gsap.to(".box-left",{
+    y:-25,
+    duration:3,
+    repeat:-1,
+    yoyo:true,
+    ease:"power1.inOut"
+});
+
+gsap.to(".box-right",{
+    y:25,
+    duration:3,
+    repeat:-1,
+    yoyo:true,
+    ease:"power1.inOut"
+});
+
+});
+</script>
+
+
+
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+
+<section id="about" class="about-section">
+            
+            <!-- Background Elements -->
+            <svg class="about-bg-pattern" fill="currentColor" viewBox="0 0 100 100">
+                <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="2"></circle>
+                </pattern>
+                <rect x="0" y="0" width="100" height="100" fill="url(#dots)"></rect>
+            </svg>
+            <div class="about-circle-1"></div>
+            <div class="about-circle-2"></div>
+
+            <div class="container about-grid">
+                
+                <!-- Left: Creative Overlapping Layout -->
+                <div class="creative-layout">
+                    
+                    <!-- Center Diamond -->
+                    <div class="center-diamond">
+                        <i class="ph ph-package center-icon"></i>
+                    </div>
+
+                    <!-- Top Left: Yellow -->
+                    <div class="box-container box-tl">
+                        <div class="box-inner">
+                             <!-- Placeholder image for visual structure -->
+                            <img src="assests/images/box.jpg" alt="Packaging" class="box-img" >
+                        </div>
+                    </div>
+
+                    <!-- Top Right: Blue -->
+                    <div class="box-container box-tr">
+                        <div class="box-inner">
+                            <img src="assests/images/tarah.jpg" alt="Packaging" class="box-img" >
+                        </div>
+                    </div>
+
+                    <!-- Bottom Left: Magenta (FMCG) -->
+                    <div class="box-container box-bl">
+                        <div class="box-inner">
+                            <img src="assests/images/box-design.jpg" alt="FMCG Cartons" class="box-img" style="max-height: 60%;">
+                            <span class="box-label label-magenta">FMCG Cartons</span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Right: Dark (Pharma) -->
+                    <div class="box-container box-br">
+                        <div class="box-inner">
+                            <img src="assests/images/pharma-boxes.jpg" alt="Pharma Boxes" class="box-img" style="max-height: 60%; ">
+                            <span class="box-label label-dark">Pharma Boxes</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="about-text-content">
+                    
+                    <div class="section-label">
+                        <span class="label-text">About Us</span>
+                        <div class="label-line"></div>
+                    </div>
+
+                    <h2 class="section-title">
+                        Leading Manufacturer of <br />
+                        <span class="text-gradient">Quality Packaging</span>
+                    </h2>
+
+                    <p class="section-desc-main">
+                        <span class="brand-highlight">Visualbox Advertising</span> takes the lead in manufacturing top-notch packaging for diverse industries. We excel in creating exceptional solutions, ensuring our clients receive premium products on time and within budget.
+                    </p>
+
+                    <p class="section-desc-sub">
+                        Serving a wide array of sectors including <span class="bold-text">Government, Electronic, Agricultural, and Pharma</span>, we are committed to delivering high-quality products tailored precisely to your specifications. Our commitment lies in building strong client relationships, prioritizing your satisfaction over financial gains.
+                    </p>
+
+                    <div class="stat-box">
+                        <div class="stat-circle">
+                            <span class="stat-number">9+</span>
+                        </div>
+                        <div>
+                            <h3 class="stat-title">Years of Industry Excellence</h3>
+                            <p class="stat-desc">Our dynamic company benefits profoundly from our founder's extensive 9 years of hands-on industry experience.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="#contact" class="btn-primary">
+                            Discover Our Services <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+<style>
+ .about-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-bg-pattern {
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            color: #e5e7eb;
+            width: 8rem;
+            height: 8rem;
+            pointer-events: none;
+        }
+        
+        .about-circle-1, .about-circle-2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid #f3f4f6;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .about-circle-1 { right: -10rem; width: 24rem; height: 24rem; }
+        .about-circle-2 { right: -5rem; width: 16rem; height: 16rem; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* The Custom overlapping card layout */
+        .creative-layout {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Shared box properties */
+        .box-container {
+            position: absolute;
+            background-color: #f0f2f5; /* Light gray to simulate inner border padding */
+            padding: 0.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+        
+        .box-container:hover {
+            transform: translateY(-5px);
+            z-index: 10;
+        }
+        
+        .box-inner {
+            background-color: var(--white);
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .box-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            
+            /* Forces the image to be fully visible */
+            opacity: 1 !important; 
+            
+            /* Makes the colors pop and darkens the shadows slightly */
+            filter: brightness(1.05) contrast(1.1) saturate(1.1); 
+            
+            /* MAGIC TRICK: If your images have a white background, this makes the white invisible so they blend perfectly into your cards! */
+            mix-blend-mode: multiply; 
+            
+            transition: all 0.3s ease;
+        }
+        
+        /* Specific Box Styling */
+        .box-tl {
+            top: 0;
+            left: 0;
+            width: 45%;
+            height: 48%;
+            border: 2px solid #eab308; /* Yellow */
+            /* TR, TL, BL rounded, BR straight */
+            border-radius: 2.5rem 2.5rem 0 2.5rem;
+        }
+        .box-tl .box-inner { border-radius: 2rem 2rem 0 2rem; }
+        
+        .box-tr {
+            top: 2%;
+            right: 0;
+            width: 50%;
+            height: 52%;
+            border: 2px solid #60a5fa; /* Blue */
+             /* TL, TR, BR rounded, BL straight */
+            border-radius: 2.5rem 2.5rem 2.5rem 0;
+        }
+        .box-tr .box-inner { border-radius: 2rem 2rem 2rem 0; }
+        
+        .box-bl {
+            bottom: 0;
+            left: 2%;
+            width: 52%;
+            height: 45%;
+            border: 2px solid #d946ef; /* Magenta/Pink */
+            /* TL, BL, BR rounded, TR straight */
+            border-radius: 2.5rem 0 2.5rem 2.5rem;
+            z-index: 2;
+        }
+        .box-bl .box-inner { 
+            border-radius: 2rem 0 2rem 2rem; 
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 1rem;
+        }
+        
+        .box-br {
+            bottom: 5%;
+            right: 2%;
+            width: 42%;
+            height: 38%;
+            border: 2px solid #374151; /* Dark Gray/Black */
+             /* TR, BR, BL rounded, TL straight */
+            border-radius: 0 2.5rem 2.5rem 2.5rem;
+            z-index: 2;
+        }
+        .box-br .box-inner { 
+            border-radius: 0 2rem 2rem 2rem;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 1rem;
+        }
+
+        .box-label {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+        }
+        .label-magenta { color: #d946ef; }
+        .label-dark { color: #4b5563; }
+
+        /* Central Diamond */
+        .center-diamond {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: var(--brand-blue);
+            border-radius: 0.5rem;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .center-icon {
+            transform: rotate(-45deg); /* Counter-rotate icon */
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Text Content Side */
+        .about-text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .label-text {
+            color: var(--brand-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+        }
+        
+        .label-line {
+            width: 3rem;
+            height: 2px;
+            background-color: rgba(242, 140, 40, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-desc-main {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .brand-highlight {
+            color: var(--brand-blue);
+            font-weight: 700;
+        }
+        
+        .section-desc-sub {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        .bold-text {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        .stat-box {
+            background-color: var(--brand-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .stat-circle {
+            background-color: var(--white);
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--brand-orange);
+        }
+        
+        .stat-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-desc {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        @media (min-width: 640px) {
+            .hero-actions {
+                flex-direction: row;
+                justify-content: center;
+                width: auto;
+            }
+            .contact-links {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            
+            
+            .about-section { padding: 8rem 0; }
+            .creative-layout { height: 600px; }
+            .section-title { font-size: 3rem; }
+        }
+
+        @media (min-width: 1024px) {
+           
+            .about-grid { grid-template-columns: 1fr 1fr; }
+        }
+</style>
+
+<script>
+/* =========================
+   GSAP
+========================= */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* LEFT CARDS */
+
+gsap.from(".yellow",{
+
+    scrollTrigger:{
+        trigger:".about-vb",
+        start:"top 80%"
+    },
+
+    x:-100,
+    opacity:0,
+
+    duration:1
+});
+
+gsap.from(".blue",{
+
+    scrollTrigger:{
+        trigger:".about-vb",
+        start:"top 80%"
+    },
+
+    y:-100,
+    opacity:0,
+
+    duration:1.1
+});
+
+gsap.from(".pink",{
+
+    scrollTrigger:{
+        trigger:".about-vb",
+        start:"top 80%"
+    },
+
+    x:-100,
+    opacity:0,
+
+    duration:1
+});
+
+gsap.from(".black",{
+
+    scrollTrigger:{
+        trigger:".about-vb",
+        start:"top 80%"
+    },
+
+    y:100,
+    opacity:0,
+
+    duration:1.1
+});
+
+/* RIGHT CONTENT */
+
+gsap.from(".about-right > *",{
+
+    scrollTrigger:{
+        trigger:".about-right",
+        start:"top 75%"
+    },
+
+    y:60,
+    opacity:0,
+
+    stagger:.15,
+
+    duration:1
+});
+</script>
+
+
+
+<section class="pkg-section" id="packaging-categories">
+        <div class="pkg-overlay"></div>
+        
+        <div class="pkg-content-panel">
+            <div class="pkg-header-wrap">
+                <p class="pkg-subtitle">Custom Solutions</p>
+                <h2 class="pkg-title-main">Industry Packaging</h2>
+            </div>
+
+            <div class="pkg-icon-grid" id="pkgCategoryGrid">
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-hamburger"></i></div>
+                    <p class="pkg-item-label">Food<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-plant"></i></div>
+                    <p class="pkg-item-label">Rice<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-bag"></i></div>
+                    <p class="pkg-item-label">Pulses<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-mortar-pestle"></i></div>
+                    <p class="pkg-item-label">Masala<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-drop"></i></div>
+                    <p class="pkg-item-label">Oil<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-snowflake"></i></div>
+                    <p class="pkg-item-label">Frozen Food<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-pill"></i></div>
+                    <p class="pkg-item-label">Pharma<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-cake"></i></div>
+                    <p class="pkg-item-label">Sweets<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-cookie"></i></div>
+                    <p class="pkg-item-label">Snacks<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-coffee"></i></div>
+                    <p class="pkg-item-label">Coffee/Tea<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-wine"></i></div>
+                    <p class="pkg-item-label">Beverages<br>Packaging</p>
+                </a>
+                <a href="#" class="pkg-item-card">
+                    <div class="pkg-icon-wrap"><i class="ph ph-sparkle"></i></div>
+                    <p class="pkg-item-label">Incense Sticks<br>Packaging</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+<style>
+        .pkg-section, .pkg-section * {
+            box-sizing: border-box;
+        }
+
+        .pkg-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            /* Uses the specific background image provided */
+            background-image: url('assests/images/boxx.png');
+            background-size: cover;
+            background-position: center left;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Strictly aligns the interactive panel to the right */
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pkg-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, transparent 0%, transparent 20%, rgba(10, 12, 14, 0.7) 60%, rgba(10, 12, 14, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .pkg-content-panel {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 850px; /* Constrains the grid on the right side */
+            padding: 40px 60px;
+        }
+
+        .pkg-header-wrap {
+            margin-bottom: 40px;
+            text-align: right;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: pkgFadeDown 1s ease forwards 0.2s;
+        }
+
+        .pkg-title-main {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .pkg-subtitle {
+            color: #d4af37; /* Premium Gold */
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .pkg-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .pkg-item-card {
+            background-color: rgba(20, 24, 28, 0.85); /* Dark glassmorphism */
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+            border-radius: 16px;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+            cursor: pointer;
+        }
+
+        .pkg-icon-wrap {
+            margin-bottom: 15px;
+            color: #7fb069; /* Eco Green */
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pkg-item-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .pkg-item-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background-color: rgba(10, 12, 14, 0.98);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
+            z-index: 2;
+        }
+
+        .pkg-item-card:hover .pkg-icon-wrap {
+            color: #d4af37; /* Changes to gold on hover */
+            transform: scale(1.1);
+        }
+
+        .pkg-item-card:hover .pkg-item-label {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Keyframes specifically for this section */
+        @keyframes pkgFadeDown {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pkgCardEntrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1200px) {
+            .pkg-icon-grid { grid-template-columns: repeat(3, 1fr); }
+            .pkg-content-panel { padding: 40px; }
+            .pkg-overlay { background: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.95) 100%); }
+        }
+
+        @media (max-width: 768px) {
+            .pkg-section {
+                justify-content: center;
+                background-position: center; 
+            }
+            .pkg-overlay {
+                background: rgba(10, 12, 14, 0.85); /* Solid dark overlay on mobile */
+            }
+            .pkg-content-panel {
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .pkg-header-wrap { text-align: center; }
+            .pkg-icon-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .pkg-item-card { padding: 25px 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .pkg-icon-grid { grid-template-columns: 1fr 1fr; gap: 10px;}
+            .pkg-title-main { font-size: 2rem; }
+            .pkg-icon-wrap { font-size: 2rem; margin-bottom: 10px;}
+            .pkg-item-label { font-size: 0.8rem; }
+            .pkg-item-card { padding: 20px 10px; }
+        }
+    </style>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select only the cards within this specific section to avoid global conflicts
+            const pkgCards = document.querySelectorAll('.pkg-item-card');
+            
+            // Apply staggered entrance animation
+            pkgCards.forEach((card, index) => {
+                // Calculate cascading delay
+                const delay = 0.3 + (index * 0.08); 
+                card.style.animation = `pkgCardEntrance 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${delay}s`;
+            });
+
+            // Handle clicks cleanly without jumping to top of page
+            pkgCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Extract text for analytics or routing
+                    const category = this.querySelector('.pkg-item-label').innerText.replace('\n', ' ');
+                    console.log('Viewing category:', category);
+                });
+            });
+        });
+    </script>
+
+
+
+
+<!-- =========================
+     OUR CLIENTS SECTION
+========================= -->
+
+<section class="vb-clients-section">
+
+    <!-- TOP -->
+
+    <div class="vb-clients-top">
+
+        <span class="vb-client-mini">
+            TRUSTED BY BRANDS
+        </span>
+
+        <h2>
+            Our Valuable Clients
+        </h2>
+
+        <p>
+            We proudly work with growing brands,
+            businesses and industries by delivering
+            premium packaging and printing solutions.
+        </p>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="vb-client-slider">
+
+        <div class="vb-client-track">
+
+            <!-- LOGO 1 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/APPA.jpeg" alt="Client Logo">
+            </div>
+
+            <!-- LOGO 2 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/frootsnac.jpg" alt="Client Logo">
+            </div>
+
+            <!-- LOGO 3 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/ranka.webp" alt="Client Logo">
+            </div>
+
+            <!-- LOGO 4 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/img50.jpg" alt="Client Logo">
+            </div>
+
+            <!-- LOGO 5 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/img51.jpg" alt="Client Logo">
+            </div>
+
+            <!-- LOGO 6 -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/img52.jpg" alt="Client Logo">
+            </div>
+
+            <!-- DUPLICATE FOR LOOP -->
+
+            <div class="vb-client-card">
+                <img src="assests/logos/logo_greenest_wealth_1000_x_280.jpg" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logos/NewPowercoils.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logos/wellness.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logos/space_magni.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logos/lets-read-logo.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logos/download.png" alt="Client Logo">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+	/* =========================
+   CLIENT SECTION
+========================= */
+
+.vb-clients-section{
+    position:relative;
+
+    width:100%;
+
+    padding:100px 0;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff,
+        #f7f8fc
+    );
+
+    overflow:hidden;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.vb-clients-top{
+    text-align:center;
+
+    max-width:800px;
+
+    margin:auto;
+    margin-bottom:70px;
+
+    padding:0 20px;
+}
+
+/* MINI */
+
+.vb-client-mini{
+    display:inline-block;
+
+    padding:12px 22px;
+
+    border-radius:60px;
+
+    background:#edf3ff;
+
+    color:#17398b;
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
+}
+
+/* TITLE */
+
+.vb-clients-top h2{
+    font-size:68px;
+    line-height:1.1;
+
+    color:#0b2d70;
+
+    font-weight:800;
+
+    margin-bottom:22px;
+}
+
+/* TEXT */
+
+.vb-clients-top p{
+    font-size:19px;
+    line-height:1.9;
+
+    color:#6f7d9b;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.vb-client-slider{
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+}
+
+/* GRADIENT SIDES */
+
+.vb-client-slider::before,
+.vb-client-slider::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:180px;
+    height:100%;
+
+    z-index:3;
+}
+
+.vb-client-slider::before{
+    left:0;
+
+    background:linear-gradient(
+        90deg,
+        
+        transparent
+    );
+}
+
+.vb-client-slider::after{
+    right:0;
+
+    background:linear-gradient(
+        -90deg,
+        
+        transparent
+    );
+}
+
+/* TRACK */
+
+.vb-client-track{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    width:max-content;
+
+    animation:clientSlide 28s linear infinite;
+}
+
+/* CARD */
+
+.vb-client-card{
+    min-width:240px;
+    height:160px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.06);
+
+    transition:.4s ease;
+
+    border:1px solid rgba(0,0,0,.04);
+}
+
+/* HOVER */
+
+.vb-client-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.12);
+}
+
+/* LOGO */
+
+.vb-client-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:grayscale(0%);
+
+    opacity: 1;
+
+    transition:.4s ease;
+}
+
+/* HOVER LOGO */
+
+.vb-client-card:hover img{
+    filter:grayscale(0);
+
+    opacity:1;
+
+    transform:scale(1.05);
+}
+
+/* ANIMATION */
+
+@keyframes clientSlide{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    .vb-clients-top h2{
+        font-size:52px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vb-clients-section{
+        padding:90px 0;
+    }
+
+    .vb-clients-top{
+        margin-bottom:50px;
+    }
+
+    .vb-clients-top h2{
+        font-size:40px;
+    }
+
+    .vb-clients-top p{
+        font-size:16px;
+    }
+
+    .vb-client-card{
+        min-width:180px;
+        height:100px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .vb-clients-top h2{
+        font-size:32px;
+    }
+
+}
+</style>
+
+<script>
+	/* =========================
+   GSAP ANIMATION
+========================= */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* TOP CONTENT */
+
+gsap.from(".vb-clients-top > *",{
+
+    scrollTrigger:{
+        trigger:".vb-clients-section",
+        start:"top 80%"
+    },
+
+    y:60,
+    opacity:0,
+
+    stagger:.15,
+
+    duration:1
+});
+
+/* CLIENT CARDS */
+
+gsap.from(".vb-client-card",{
+
+    scrollTrigger:{
+        trigger:".vb-client-slider",
+        start:"top 85%"
+    },
+
+    y:80,
+    opacity:0,
+
+    stagger:.1,
+
+    duration:1
+});
+
+/* PAUSE ON HOVER */
+
+const track = document.querySelector(".vb-client-track");
+
+track.addEventListener("mouseenter",()=>{
+
+    track.style.animationPlayState = "paused";
+
+});
+
+track.addEventListener("mouseleave",()=>{
+
+    track.style.animationPlayState = "running";
+
+});
+</script>
+
+
+
+
+<section class="tst-wrapper" id="testimonials">
+        <div class="tst-overlay"></div>
+        
+        <div class="tst-content-area">
+            <div class="tst-header">
+                <span class="tst-subtitle">Client Success</span>
+                <h2 class="tst-title">What Our Clients <span>Say</span></h2>
+            </div>
+
+            <div class="tst-viewport">
+                <div class="tst-track" id="tstSliderTrack">
+                    
+                    <!-- Slide 1 -->
+                    <div class="tst-slide">
+                        <div class="tst-card">
+                            <i class="ph-fill ph-quotes tst-quote-icon"></i>
+                            <p class="tst-text">"Visual Box Packaging Solutions exceeded our expectations! They brought our vision to life through innovative packaging, and their dedication to client satisfaction is unmatched. A truly reliable partner for our branding needs."</p>
+                            <div class="tst-author-wrap">
+                                <div class="tst-avatar">NC</div>
+                                <div class="tst-author-info">
+                                    <h4 class="tst-author-name">Nishant Chaudhari</h4>
+                                    <p class="tst-author-role">Satisfied Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="tst-slide">
+                        <div class="tst-card">
+                            <i class="ph-fill ph-quotes tst-quote-icon"></i>
+                            <p class="tst-text">"Working with Visual Box was a game-changer for us. Their attention to detail in design and commitment to delivering on time showcased their professionalism. We highly recommend their services!"</p>
+                            <div class="tst-author-wrap">
+                                <div class="tst-avatar">SG</div>
+                                <div class="tst-author-info">
+                                    <h4 class="tst-author-name">Sakshi Gajare</h4>
+                                    <p class="tst-author-role">Satisfied Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="tst-slide">
+                        <div class="tst-card">
+                            <i class="ph-fill ph-quotes tst-quote-icon"></i>
+                            <p class="tst-text">"Visual Box Packaging Solutions understands the power of visual storytelling, transforming our ideas into impactful designs and packaging, leaving a lasting impression on our audience. A go-to agency for innovative and compelling solutions."</p>
+                            <div class="tst-author-wrap">
+                                <div class="tst-avatar">RG</div>
+                                <div class="tst-author-info">
+                                    <h4 class="tst-author-name">Rashmi Gupta</h4>
+                                    <p class="tst-author-role">Satisfied Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="tst-slide">
+                        <div class="tst-card">
+                            <i class="ph-fill ph-quotes tst-quote-icon"></i>
+                            <p class="tst-text">"Choosing Visual Box for our packaging needs was the best decision for our marketing campaign. Their unique approach and personalized service set them apart. The results spoke for themselves — a boost in brand visibility and customer engagement."</p>
+                            <div class="tst-author-wrap">
+                                <div class="tst-avatar">VJ</div>
+                                <div class="tst-author-info">
+                                    <h4 class="tst-author-name">Vedant Jain</h4>
+                                    <p class="tst-author-role">Satisfied Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <div class="tst-controls">
+                <button class="tst-btn" id="tstPrevBtn" aria-label="Previous Testimonial">
+                    <i class="ph ph-caret-left"></i>
+                </button>
+                <div class="tst-dots" id="tstDotsContainer">
+                    <!-- Dots generated by JS -->
+                </div>
+                <button class="tst-btn" id="tstNextBtn" aria-label="Next Testimonial">
+                    <i class="ph ph-caret-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+ <style>
+        .tst-wrapper, .tst-wrapper * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tst-wrapper {
+            position: relative;
+            padding: 100px 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Replace the URL below with your actual box image path */
+            background-image: url('assests/images/testimonial.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Creates a premium parallax effect */
+            overflow: hidden;
+            margin: 0;
+        }
+
+        /* Dark overlay to make the glassmorphism pop */
+        .tst-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 12, 14, 0.65) 0%, rgba(31, 58, 100, 0.65) 100%);
+            z-index: 1;
+        }
+
+        .tst-content-area {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .tst-header {
+            margin-bottom: 40px;
+        }
+
+        .tst-subtitle {
+            color: #F28C28; /* Brand Orange */
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tst-title {
+            color: #ffffff;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .tst-title span {
+            color: #d4af37; /* Premium Gold */
+        }
+
+        /* Slider Container */
+        .tst-viewport {
+            overflow: hidden;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .tst-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth easing */
+            width: 100%;
+        }
+
+        .tst-slide {
+            min-width: 100%;
+            padding: 0 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Glassmorphism Card */
+        .tst-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .tst-quote-icon {
+            color: #F28C28;
+            font-size: 3rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .tst-text {
+            color: #e5e7eb;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            font-style: italic;
+            font-weight: 300;
+            margin: 0 0 30px 0;
+        }
+
+        .tst-author-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .tst-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1F3A64, #F28C28);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .tst-author-info {
+            text-align: left;
+        }
+
+        .tst-author-name {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 2px 0;
+        }
+
+        .tst-author-role {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Controls */
+        .tst-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tst-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .tst-btn:hover {
+            background: #F28C28;
+            border-color: #F28C28;
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+
+        .tst-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tst-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .tst-dot.active {
+            background: #F28C28;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(242, 140, 40, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tst-wrapper { padding: 60px 15px; }
+            .tst-title { font-size: 2rem; }
+            .tst-card { padding: 30px 20px; }
+            .tst-text { font-size: 1.05rem; }
+        }
+    </style>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('tstSliderTrack');
+            const slides = document.querySelectorAll('.tst-slide');
+            const prevBtn = document.getElementById('tstPrevBtn');
+            const nextBtn = document.getElementById('tstNextBtn');
+            const dotsContainer = document.getElementById('tstDotsContainer');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let autoPlayTimer;
+
+            // Generate dots dynamically based on number of slides
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('tst-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    resetAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = document.querySelectorAll('.tst-dot');
+
+            function goToSlide(index) {
+                // Loop around logic
+                if (index < 0) {
+                    currentIndex = totalSlides - 1;
+                } else if (index >= totalSlides) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
+
+                // Move track
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+            }
+
+            // Button listeners
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+                resetAutoPlay();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+                resetAutoPlay();
+            });
+
+            // Auto-play logic
+            function startAutoPlay() {
+                autoPlayTimer = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 5000); // Slides every 5 seconds
+            }
+
+            function resetAutoPlay() {
+                clearInterval(autoPlayTimer);
+                startAutoPlay();
+            }
+
+            // Pause on hover
+            const wrapper = document.querySelector('.tst-wrapper');
+            wrapper.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+            wrapper.addEventListener('mouseleave', startAutoPlay);
+
+            // Initialize auto-play
+            startAutoPlay();
+        });
+    </script>
+
+
+<script src="js/navbar.js"></script>
+
+<script>
+fetch("navbar.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById(
+        "navbar-placeholder"
+    ).innerHTML = data;
+});
+</script>
+
+
+
+<div id="footer-placeholder"></div>
+
+<script src="js/footer.js"></script>
+
+
+</body>
+</html>

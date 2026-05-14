@@ -1,0 +1,192 @@
+/* =========================================
+   PLAIN CSS FOOTER (NO TAILWIND NEEDED)
+========================================= */
+
+/* Main Footer Container */
+.vb-footer {
+    position: relative;
+    background-color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    color: transparent;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden; /* Keeps the video inside */
+}
+
+/* --- Content & Grid --- */
+.vb-footer-content {
+    position: relative;
+    z-index: 10; /* Keeps text above the video */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 220px 40px;
+}
+
+.vb-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+/* Mobile Responsiveness for the Grid */
+@media (max-width: 1024px) {
+    .vb-footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .vb-footer-grid { grid-template-columns: 1fr; }
+    .vb-footer-content { padding: 40px 20px; }
+}
+
+/* --- Columns & Typography --- */
+.vb-footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #444444;
+    margin-bottom: 25px;
+	margin-top: -115px;
+    letter-spacing: 0.5px;
+}
+
+.vb-footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vb-footer-col ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.vb-footer-col ul li a {
+    text-decoration: none;
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.vb-footer-col ul li a:hover {
+    color: #00AEEF; /* Visualbox Cyan */
+}
+
+.vb-contact-info li {
+    margin-bottom: 20px !important;
+}
+
+/* --- Social Media Icons --- */
+.vb-social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.vb-social {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vb-social:hover {
+    transform: translateY(-4px);
+    color: #ffffff;
+}
+
+/* Brand Colors for Icons */
+.vb-social.fb { background-color: #1877F2; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4); }
+.vb-social.ig { background-color: #E4405F; box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4); }
+.vb-social.in { background-color: #0A66C2; box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4); }
+.vb-social.yt { background-color: #FF0000; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); }
+.vb-social.tw { background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.4); }
+
+/* --- Animated Video Background --- */
+.vb-footer-video-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Sits behind the text */
+    pointer-events: none; /* Allows clicking links through the video */
+}
+
+.vb-footer-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    mix-blend-mode: multiply; /* MAGICAL TRICK: Makes the white background of the video invisible! */
+    opacity: 0.8;
+}
+
+/* --- Bottom Copyright Bar --- */
+.vb-footer-bottom {
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+    padding: 20px;
+    text-align: center;
+}
+
+.vb-footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+    color: #888888;
+}
+
+.vb-footer-bottom a {
+    color: #4A148C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.vb-footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.vb-footer-bottom .divider {
+    margin: 0 10px;
+    color: #cccccc;
+}
+
+@media (max-width: 600px) {
+    .vb-footer-bottom .divider { display: none; }
+    .vb-footer-bottom p { display: flex; flex-direction: column; gap: 5px; }
+}
+
+/* --- Floating Purple Sidebar Buttons --- */
+.vb-floating-sidebar {
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.vb-float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4A148C; /* Deep Purple */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.4);
+    transition: all 0.3s ease;
+}
+
+.vb-float-btn:hover {
+    background-color: #7B1FA2;
+    transform: scale(1.1) translateX(-5px);
+    color: #ffffff;
+}

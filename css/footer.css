@@ -119,7 +119,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    mix-blend-mode: multiply; /* MAGICAL TRICK: Makes the white background of the video invisible! */
+    /* mix-blend-mode: multiply; MAGICAL TRICK: Makes the white background of the video invisible! */
     opacity: 0.8;
 }
 

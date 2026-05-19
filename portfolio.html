@@ -160,7 +160,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
                 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="packaging">
-                    <img src="https://images.unsplash.com/photo-1616628188550-808682f3926d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cosmetic Packaging">
+                    <img src="assests/images/sweets.png" alt="Cosmetic Packaging">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#FBC02D] text-[#1a1a1a] font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Packaging</span>
@@ -171,7 +171,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="branding">
-                    <img src="assets/images/box.jpg" alt="Corporate Branding">
+                    <img src="assests/images/box.jpg" alt="Corporate Branding">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#7B1FA2] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Branding</span>
@@ -182,7 +182,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="printing">
-                    <img src="assets/images/custom-packaging-.jpg" alt="Offset Printing">
+                    <img src="assests/images/custom-packaging-.jpg" alt="Offset Printing">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#00AEEF] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Printing</span>
@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="advertisement">
-                    <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Billboard Ad">
+                    <img src="assests/images/piza.png" alt="Billboard Ad">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#E3000F] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Advertisement</span>
@@ -204,7 +204,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="digital">
-                    <img src="assets/images/box-design.jpg" alt="Social Media Campaign">
+                    <img src="assests/images/box-design.jpg" alt="Social Media Campaign">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#8CC63F] text-[#1a1a1a] font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Digital</span>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="packaging">
-                    <img src="assets/images/boxes.jpg" alt="Food Packaging">
+                    <img src="assests/images/boxes.jpg" alt="Food Packaging">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#FBC02D] text-[#1a1a1a] font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Packaging</span>
@@ -226,7 +226,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="branding">
-                    <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logo Design">
+                    <img src="assests/images/snacks-packaging.png" alt="Logo Design">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#7B1FA2] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Branding</span>
@@ -237,7 +237,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="printing">
-                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Cards">
+                    <img src="assests/images/rigid-boxes.jpg" alt="Business Cards">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#00AEEF] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Printing</span>
@@ -248,7 +248,7 @@
                 </div>
 
                 <div class="portfolio-item h-[400px] group portfolio-card" data-category="advertisement">
-                    <img src="assets/images/tarah.jpg" alt="Magazine Ad">
+                    <img src="assests/images/tarah.jpg" alt="Magazine Ad">
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-text">
                             <span class="inline-block px-3 py-1 bg-[#E3000F] text-white font-bold text-[10px] uppercase tracking-widest rounded-md mb-3">Advertisement</span>
@@ -549,5 +549,23 @@
     </script>
     
     <script src="js/script.js"></script>
+
+    <script>
+fetch("navbar.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById(
+        "navbar-placeholder"
+    ).innerHTML = data;
+});
+</script>
+
+<script src="js/sweets-packaging.js"></script>
+<div id="footer-placeholder"></div>
+
+<script src="js/footer.js"></script>
+
+
+
 </body>
 </html>

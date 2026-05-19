@@ -503,6 +503,23 @@
             }
         });
     </script>
+
+    <script src="js/navbar.js"></script>
+
+<script>
+fetch("navbar.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById(
+        "navbar-placeholder"
+    ).innerHTML = data;
+});
+</script>
+
+
+
+<div id="footer-placeholder"></div>
+
     
     <!-- Global Script -->
     <script src="js/script.js"></script>

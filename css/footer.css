@@ -1,24 +1,24 @@
 /* =========================================
-   PLAIN CSS FOOTER (NO TAILWIND NEEDED)
-========================================= */
+   PLAIN CSS FOOTER (REPAIRED & MOBILE OPTIMIZED)
+   ========================================= */
 
 /* Main Footer Container */
 .vb-footer {
     position: relative;
     background-color: #ffffff;
     font-family: 'Outfit', sans-serif;
-    color: transparent;
+    color: #444444; /* Changed from transparent to prevent invisible text bugs */
     border-top: 1px solid #f0f0f0;
-    overflow: hidden; /* Keeps the video inside */
+    overflow: hidden;
 }
 
-/* --- Content & Grid --- */
+/* --- Content & Grid Layout System --- */
 .vb-footer-content {
     position: relative;
-    z-index: 10; /* Keeps text above the video */
+    z-index: 10;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 220px 40px;
+    padding: 100px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
 }
 
 .vb-footer-grid {
@@ -27,23 +27,14 @@
     gap: 40px;
 }
 
-/* Mobile Responsiveness for the Grid */
-@media (max-width: 1024px) {
-    .vb-footer-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-    .vb-footer-grid { grid-template-columns: 1fr; }
-    .vb-footer-content { padding: 40px 20px; }
-}
-
-/* --- Columns & Typography --- */
+/* --- Typography Formatting Changes --- */
 .vb-footer-col h4 {
     font-family: 'Syne', sans-serif;
     font-size: 20px;
     font-weight: 700;
-    color: #444444;
-    margin-bottom: 25px;
-	margin-top: -115px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    margin-top: 0; /* REMOVED negative desktop margins to completely prevent mobile overlapping text layout bugs */
     letter-spacing: 0.5px;
 }
 
@@ -54,7 +45,7 @@
 }
 
 .vb-footer-col ul li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -70,19 +61,20 @@
 }
 
 .vb-contact-info li {
-    margin-bottom: 20px !important;
+    margin-bottom: 16px !important;
 }
 
-/* --- Social Media Icons --- */
+/* --- Social Media Branding Links --- */
 .vb-social-icons {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    margin-bottom: 20px; /* Added spacing buffer below icon line arrays */
 }
 
 .vb-social {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -98,38 +90,36 @@
     color: #ffffff;
 }
 
-/* Brand Colors for Icons */
-.vb-social.fb { background-color: #1877F2; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4); }
-.vb-social.ig { background-color: #E4405F; box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4); }
-.vb-social.in { background-color: #0A66C2; box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4); }
-.vb-social.yt { background-color: #FF0000; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); }
-.vb-social.tw { background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.4); }
+.vb-social.fb { background-color: #1877F2; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.2); }
+.vb-social.ig { background-color: #E4405F; box-shadow: 0 4px 10px rgba(228, 64, 95, 0.2); }
+.vb-social.in { background-color: #0A66C2; box-shadow: 0 4px 10px rgba(10, 102, 194, 0.2); }
+.vb-social.yt { background-color: #FF0000; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2); }
+.vb-social.tw { background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.2); }
 
-/* --- Animated Video Background --- */
+/* --- Animated Video Background Floor Area --- */
 .vb-footer-video-wrapper {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1; /* Sits behind the text */
-    pointer-events: none; /* Allows clicking links through the video */
+    z-index: 1;
+    pointer-events: none;
 }
 
 .vb-footer-video {
     width: 100%;
     height: auto;
     object-fit: cover;
-    /* mix-blend-mode: multiply; MAGICAL TRICK: Makes the white background of the video invisible! */
     opacity: 0.8;
 }
 
-/* --- Bottom Copyright Bar --- */
+/* --- Bottom Copyright Bar Block --- */
 .vb-footer-bottom {
     position: relative;
     z-index: 10;
     background-color: #ffffff;
     border-top: 1px solid #eeeeee;
-    padding: 20px;
+    padding: 24px 20px;
     text-align: center;
 }
 
@@ -137,29 +127,61 @@
     margin: 0;
     font-size: 14px;
     color: #888888;
+    line-height: 1.6;
 }
 
 .vb-footer-bottom a {
     color: #4A148C;
     font-weight: bold;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .vb-footer-bottom a:hover {
+    color: #7B1FA2;
     text-decoration: underline;
 }
 
-.vb-footer-bottom .divider {
+.vb-footer-bottom class="divider" {
     margin: 0 10px;
     color: #cccccc;
 }
 
-@media (max-width: 600px) {
-    .vb-footer-bottom .divider { display: none; }
-    .vb-footer-bottom p { display: flex; flex-direction: column; gap: 5px; }
+/* ==========================================================================
+   CLEAN RESPONSIVE LAYOUT MATRIX FORK (MEDIA QUERIES FIX)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .vb-footer-content {
+        padding: 80px 40px;
+    }
+    .vb-footer-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 40px 30px;
+    }
 }
 
-/* --- Floating Purple Sidebar Buttons --- */
+@media (max-width: 600px) {
+    .vb-footer-content { 
+        padding: 60px 24px; /* Clean mobile safe-bounds margins */
+    }
+    .vb-footer-grid { 
+        grid-template-columns: 1fr; /* Pure linear column listing flow */
+        gap: 36px; /* Uniform structural row splits gap intervals */
+    }
+    .vb-footer-bottom {
+        padding: 20px 16px;
+    }
+    .vb-footer-bottom .divider { 
+        display: none; /* Strip inline punctuation marks on small viewports */
+    }
+    .vb-footer-bottom p { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 8px; 
+    }
+}
+
+/* --- Floating Actions Controls Sidebar --- */
 .vb-floating-sidebar {
     position: fixed;
     right: 20px;
@@ -174,19 +196,19 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #4A148C; /* Deep Purple */
+    background-color: #4A148C;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .vb-float-btn:hover {
     background-color: #7B1FA2;
-    transform: scale(1.1) translateX(-5px);
+    transform: scale(1.08) translateY(-4px);
     color: #ffffff;
 }

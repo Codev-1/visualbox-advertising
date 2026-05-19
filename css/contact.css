@@ -1,0 +1,477 @@
+/* ==========================================================================
+   1. CORE STYLE PARAMS, BODY NORMALIZATION & VARIABLES 
+   ========================================================================== */
+:root {
+    --color-pure-white: #ffffff;
+    --color-soft-dark: #5f578e;
+    --color-muted-gray: #666666;
+    --color-border-light: rgba(0,0,0,0.06);
+    
+    /* Active Core Palette Matrix Nodes */
+    --accent-red: #cf404d;
+    --accent-cyan: #00AEEF;
+    --accent-green: #8CC63F;
+    --accent-yellow: #FBC02D;
+    
+    /* Fonts definitions */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.fresh-contact-body {
+    background-color: var(--color-pure-white);
+    color: var(--color-soft-dark);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.font-syne { font-family: var(--font-heading); }
+.font-outfit { font-family: var(--font-body); }
+
+/* Custom Gradient Text Clip engine nodes */
+.text-glow-gradient {
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-green) 50%, var(--accent-yellow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   2. HERO BANNER COMPONENTS: TEXT DIRECTLY MOUNTED OVER GRAPHIC ELEMENT
+   ========================================================================== */
+.creative-hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-soft-dark);
+}
+
+.hero-parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+/* Vignette overlay shading mask ensuring strict visual hierarchy rules */
+.hero-vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(17, 17, 17, 0.45) 0%, 
+        rgba(17, 17, 17, 0.7) 70%, 
+        var(--color-pure-white) 100%);
+    z-index: 2;
+}
+
+.hero-center-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    max-width: 950px;
+    padding: 0 24px;
+    margin-top: -40px;
+}
+
+.hero-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    display: block;
+    margin-bottom: 24px;
+}
+
+.hero-display-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-pure-white);
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero-tagline {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Micro-interaction structural scroll tracker node */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--color-soft-dark);
+}
+
+.hero-scroll-indicator p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.mouse-wheel {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--color-soft-dark);
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-wheel::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 8px;
+    background-color: var(--accent-red);
+    border-radius: 2px;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollIndicatorTrack 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollIndicatorTrack {
+    0% { top: 6px; opacity: 1; }
+    50% { top: 18px; opacity: 0.3; }
+    100% { top: 6px; opacity: 1; }
+}
+
+/* ==========================================================================
+   3. SYSTEM CONNECTOR MAIN BODY MATRIX GRID DESIGNS
+   ========================================================================== */
+.main-matrix-container {
+    width: 100%;
+    padding: 140px 0;
+    background-color: var(--color-pure-white);
+}
+
+.flex-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 50px;
+    align-items: start;
+}
+
+.matrix-info-pane { grid-column: span 5; }
+.matrix-form-pane { grid-column: span 7; }
+
+/* Sticky Left Block Management Layer */
+.sticky-lock-panel {
+    position: sticky;
+    top: 100px;
+    width: 100%;
+}
+
+.intro-pane-header { margin-bottom: 40px; }
+.pane-title { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -1px; }
+.pane-subtitle { color: var(--color-muted-gray); line-height: 1.6; font-size: 1.05rem; }
+
+/* Asymmetrical Strip Components Layer */
+.touchpoint-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.interactive-info-strip {
+    display: flex;
+    align-items: start;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 24px;
+    border: 1px solid var(--color-border-light);
+    background-color: var(--color-pure-white);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.interactive-info-strip:hover {
+    transform: translateX(8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.strip-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.bg-red-tint { background-color: #fff1f2; color: var(--accent-red); }
+.bg-green-tint { background-color: #f7fee7; color: var(--accent-green); }
+.bg-cyan-tint { background-color: #ecfeff; color: var(--accent-cyan); }
+
+.strip-details { display: flex; flex-direction: column; }
+.strip-label { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-gray); letter-spacing: 1px; margin-bottom: 6px; }
+.strip-details h4 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+.strip-details p { color: var(--color-muted-gray); line-height: 1.5; font-size: 0.95rem; }
+
+.anchor-column-layout { display: flex; flex-direction: column; margin-top: 4px; gap: 2px; }
+.strip-details a { color: var(--color-soft-dark); font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
+.strip-details a:hover { color: var(--accent-cyan); }
+.interactive-info-strip:nth-child(3) a:hover { color: var(--accent-red); }
+.break-anchor { word-break: break-all; }
+
+/* ==========================================================================
+   4. INNOVATIVE TEXT FLOATING FIELD MECHANICS (VANILLA ASYMMETRIC ENGINE)
+   ========================================================================== */
+.asymmetric-form-card {
+    background-color: var(--color-pure-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.02);
+}
+
+.form-title-area { margin-bottom: 44px; }
+.form-title-area h3 { font-family: var(--font-heading); font-size: 1.85rem; font-weight: 700; margin-bottom: 8px; }
+.form-title-area p { color: var(--color-muted-gray); font-size: 0.95rem; line-height: 1.5; }
+
+.asymmetric-input-engine {
+    display: flex;
+    flex-direction: column;
+    gap: 36px; /* Expanded spatial intervals for premium design rules tracking */
+}
+
+.input-twin-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.premium-input-group {
+    position: relative;
+    width: 100%;
+}
+
+/* Floating Structural Engine Config nodes */
+.minimal-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #e5e7eb;
+    background-color: transparent;
+    padding: 12px 4px;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--color-soft-dark);
+    outline: none;
+    transition: border-color 0.4s ease;
+}
+
+.floating-field-title {
+    position: absolute;
+    top: 12px;
+    left: 4px;
+    font-size: 1.05rem;
+    color: #9ca3af;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Transform coordinates floating tag tracking native focuses */
+.minimal-input:focus ~ .floating-field-title,
+.minimal-input:not(:placeholder-shown) ~ .floating-field-title {
+    top: -16px;
+    left: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-soft-dark);
+}
+
+.input-focus-bar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red));
+    transition: all 0.4s ease;
+}
+
+.minimal-input:focus ~ .input-focus-bar {
+    width: 100%;
+    left: 0;
+}
+
+.minimal-input:focus {
+    border-color: transparent;
+}
+
+/* Dropdown specific reset node systems overrides */
+.selection-box-fix .native-dropdown-override {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.dropdown-arrow-node {
+    position: absolute;
+    right: 12px;
+    top: 16px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.minimal-input:focus ~ .dropdown-arrow-node {
+    transform: rotate(180deg);
+    color: var(--color-soft-dark);
+}
+
+/* Adjust select option matrix elements tags */
+.select-label { top: 12px; }
+.native-dropdown-override:focus ~ .select-label,
+.native-dropdown-override:valid ~ .select-label {
+    top: -16px;
+    font-size: 0.75rem;
+}
+
+.textarea-block { resize: none; min-height: 100px; }
+
+/* Premium Action Launch Interface Button Configuration */
+.action-submit-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.magnetic-submit-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--color-soft-dark);
+    color: var(--color-pure-white);
+    border: none;
+    padding: 8px 8px 8px 32px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.btn-icon-bubble {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-pure-white);
+    color: var(--color-soft-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.magnetic-submit-action:hover {
+    background-color: var(--accent-red);
+}
+
+.magnetic-submit-action:hover .btn-icon-bubble {
+    transform: scale(0.9) rotate(15deg);
+    color: var(--accent-red);
+}
+
+/* ==========================================================================
+   5. MAP HOUSING VIEW DESIGN MODULE
+   ========================================================================== */
+.geographic-portal-section {
+    width: 100%;
+    padding: 0 0 140px 0;
+    background-color: var(--color-pure-white);
+}
+
+.section-title-block { margin-bottom: 56px; }
+.section-display-heading { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; margin-top: 4px; }
+
+.asymmetric-map-canvas-container {
+    width: 100%;
+    height: 560px;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.04);
+    border: 1px solid var(--color-border-light);
+    background-color: #e5e3df;
+}
+
+.fullscreen-iframe-map-engine {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   6. DYNAMIC SYSTEM COMPACT VIEW RULES (BREAKPOINTS FORKING)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-display-title { font-size: 3.5rem; }
+    .flex-matrix-grid { grid-template-columns: 1fr; gap: 60px; }
+    .matrix-info-pane, .matrix-form-pane { grid-column: span 1; }
+    .sticky-lock-panel { position: static; }
+    .asymmetric-form-card { padding: 40px; }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .hero-display-title { font-size: 2.75rem; letter-spacing: -1px; }
+    .hero-tagline { font-size: 1.1rem; }
+    .input-twin-columns { grid-template-columns: 1fr; gap: 36px; }
+    .asymmetric-map-canvas-container { height: 420px; border-radius: 24px; }
+    .section-display-heading { font-size: 2.25rem; }
+    .main-matrix-container { padding: 100px 0; }
+    .geographic-portal-section { padding-bottom: 100px; }
+}

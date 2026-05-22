@@ -636,3 +636,89 @@ body{
         padding-left: 5px !important;
     }
 }
+
+
+/* =========================================
+   GLOBAL REUSABLE BREADCRUMBS STYLES
+========================================= */
+/* =========================================
+   GLOBAL REUSABLE BREADCRUMBS STYLES
+========================================= */
+/* ==========================================================================
+   GLOBAL DETACHED TRANSPARENT BREADCRUMBS (BREAKOUT ENGINE FIXED)
+   ========================================================================== */
+.vb-breadcrumb-global-overlay {
+    position: absolute;
+    top: 92px; /* Places it exactly below your 92px desktop fixed navbar line */
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    background-color: transparent !important;
+    z-index: 9990; /* Sits perfectly above hero templates but beneath dropdown popups */
+    pointer-events: none; /* Prevents container overlay boundaries from blocking form field clicks */
+}
+
+.vb-breadcrumb-nav {
+    width: 100%;
+    padding: 24px 5%;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+}
+
+.vb-breadcrumb-list {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    pointer-events: auto; /* Re-enables links inside the trail layer to work perfectly */
+}
+
+/* Light text styling so the trail contrast pops cleanly against dark image masks */
+.vb-breadcrumb-item, 
+.vb-breadcrumb-item a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: color 0.25s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Subtle shadow ensures clean reading over light image patches */
+}
+
+.vb-breadcrumb-item a:hover {
+    color: #f6c42f !important; /* Visualbox Signature Gold highlight on focus hover states */
+}
+
+.vb-breadcrumb-separator {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* Terminal page location highlight text node */
+.vb-breadcrumb-item.active-node {
+    color: #ffffff !important;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+/* Clean compact mobile adjustments safely handling lower screen real estate breaks */
+@media (max-width: 768px) {
+    .vb-breadcrumb-global-overlay {
+        top: 84px; /* Matches your 84px mobile header tracking line layout adjustments */
+    }
+    .vb-breadcrumb-nav {
+        padding: 16px 5%;
+    }
+    .vb-breadcrumb-item, 
+    .vb-breadcrumb-item a {
+        font-size: 12px;
+    }
+}

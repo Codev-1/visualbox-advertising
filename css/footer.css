@@ -30,10 +30,10 @@
 /* --- Typography Formatting Changes --- */
 .vb-footer-col h4 {
     font-family: 'Syne', sans-serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 20px;
+    color: #0f0f0f;
+    margin-bottom: 37px;
     margin-top: 0; /* REMOVED negative desktop margins to completely prevent mobile overlapping text layout bugs */
     letter-spacing: 0.5px;
 }
@@ -45,19 +45,19 @@
 }
 
 .vb-footer-col ul li {
-    margin-bottom: 12px;
-    font-size: 16px;
+    margin-bottom: 10px;
+    font-size: 18px;
     line-height: 1.5;
 }
 
 .vb-footer-col ul li a {
     text-decoration: none;
-    color: #666666;
+    color: #2d2d2d;
     transition: color 0.3s ease;
 }
 
 .vb-footer-col ul li a:hover {
-    color: #00AEEF; /* Visualbox Cyan */
+    color: #6c0ae3; /* Visualbox Cyan */
 }
 
 .vb-contact-info li {
@@ -110,15 +110,15 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 /* --- Bottom Copyright Bar Block --- */
 .vb-footer-bottom {
     position: relative;
     z-index: 10;
-    background-color: #ffffff;
-    border-top: 1px solid #eeeeee;
+    background-color: transparent;
+    /* border-top: 1px solid #eeeeee; */
     padding: 24px 20px;
     text-align: center;
 }
@@ -126,7 +126,7 @@
 .vb-footer-bottom p {
     margin: 0;
     font-size: 14px;
-    color: #888888;
+    color: #767676;
     line-height: 1.6;
 }
 
@@ -142,7 +142,7 @@
     text-decoration: underline;
 }
 
-.vb-footer-bottom class="divider" {
+.vb-footer-bottom  {
     margin: 0 10px;
     color: #cccccc;
 }

@@ -5,7 +5,7 @@
     --color-pure-white: #ffffff;
     --color-soft-dark: #5f578e;
     --color-muted-gray: #666666;
-    --color-border-light: rgba(0,0,0,0.06);
+    --color-border-light: rgba(0, 0, 0, 0.406);
     
     /* Active Core Palette Matrix Nodes */
     --accent-red: #cf404d;
@@ -59,7 +59,7 @@ body.fresh-contact-body {
    ========================================================================== */
 .creative-hero-section {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -90,7 +90,7 @@ body.fresh-contact-body {
     background: linear-gradient(to bottom, 
         rgba(17, 17, 17, 0.45) 0%, 
         rgba(17, 17, 17, 0.7) 70%, 
-        var(--color-pure-white) 100%);
+        var(--color-pure-white) 150%);
     z-index: 2;
 }
 
@@ -214,7 +214,11 @@ body.fresh-contact-body {
 .touchpoint-cards-stack {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
+    border-radius: 24px;
+    background-color: var(--color-pure-white);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.03);
 }
 
 .interactive-info-strip {
@@ -222,26 +226,27 @@ body.fresh-contact-body {
     align-items: start;
     gap: 24px;
     padding: 24px;
-    border-radius: 24px;
-    border: 1px solid var(--color-border-light);
-    background-color: var(--color-pure-white);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.interactive-info-strip:last-child {
+    border-bottom: 0;
 }
 
 .interactive-info-strip:hover {
-    transform: translateX(8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-    border-color: rgba(0, 0, 0, 0.12);
+    background-color: rgba(0, 174, 239, 0.04);
 }
 
 .strip-icon-box {
-    width: 56px;
-    height: 56px;
+    width: 66px;
+    height: 66px;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.35rem;
+    font-size: 1.75rem;
     flex-shrink: 0;
 }
 
@@ -446,6 +451,16 @@ body.fresh-contact-body {
     box-shadow: 0 40px 80px rgba(0,0,0,0.04);
     border: 1px solid var(--color-border-light);
     background-color: #e5e3df;
+    position: relative;
+}
+
+.asymmetric-map-canvas-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .fullscreen-iframe-map-engine {

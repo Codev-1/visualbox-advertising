@@ -18,13 +18,15 @@
     z-index: 10;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 100px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
+    
+    padding: 190px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
 }
 
 .vb-footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+     transform:translateY(-65px);
 }
 
 /* --- Typography Formatting Changes --- */

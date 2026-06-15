@@ -50,11 +50,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <section class="hero-section">
 
     <div class="hero-slider">
-		<div class="hero-slide active" style="background-image: url('assests/images/hero.png');"></div>
-		<div class="hero-slide" style="background-image: url('assests/images/hero4.png');"></div>
-        <div class="hero-slide" style="background-image: url('assests/images/hero2.png');"></div>
-		 <div class="hero-slide" style="background-image: url('assests/images/hero5.png');"></div>
-        <div class="hero-slide" style="background-image: url('assests/images/hero3.png');"></div>
+		<div class="hero-slide active" style="background-image: url('assests/images/hero6.png');"></div>
+		<div class="hero-slide" style="background-image: url('assests/images/hero5.png');"></div>
+        <div class="hero-slide" style="background-image: url('assests/images/branding.png');"></div>
+		 <div class="hero-slide" style="background-image: url('assests/images/printing.png');"></div>
+        <div class="hero-slide" style="background-image: url('assests/images/digital-marketing.png');"></div>
         
        
     </div>
@@ -124,14 +124,18 @@ body{
 
 
 .hero-section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 120px 5%;
+    position:relative;
+    min-height:calc(100vh - 110px);
+
+    margin-top:93px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:0 5%;
     /* REMOVED the static background from here */
 }
 
@@ -141,7 +145,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 95%;
     z-index: 0; /* Sits behind everything */
 }
 
@@ -433,52 +437,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const descText = document.querySelector(".hero-content p");
 
     let currentSlideIndex = 0;
-    const slideDuration = 4000; // 5 seconds per slide
+    const slideDuration = 6000; // 4 seconds per slide
 
-    // Custom text tailored to each of your 4 images
+    // Custom text tailored to each of your 5 images
     const slideData = [
-		{
+        {
             // For hero2.png (Incense Sticks)
             badge: "PREMIUM PACKAGING & BRANDING",
             heading: "From Small Quantities <br>to Mass Production",
-            tagline: "we image your imagination",
-            desc: " Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
+            tagline: "We Image Your Imagination",
+            desc: "Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
         },
-
-		{
+        {
             // For hero4.png (Vibrant Spices & Tea)
             badge: "RETAIL BRANDING",
-            heading: "A Burst of Flavor <br> On Every Shelf",
-            tagline: "Vibrant Spice & Tea Boxes",
+            heading: "From Concept <br> To Creation",
+            tagline: "We Deliver Custom Packaging Solutions For Every Industries",
             desc: "Eye-catching retail packaging that protects freshness while making your brand completely irresistible."
         },
+       {
+    badge: "BRAND IDENTITY",
 
+    heading: "Transform Ideas Into <br> Memorable Brands",
 
+    tagline: "Creative Branding & Design",
+
+    desc: "We craft impactful brand identities through innovative design, consistent visual storytelling, and professional marketing materials. "
+},
+       {
+    badge: "CUSTOM PRINTING",
+
+    heading: "Bring Your Ideas <br> To Life In Print",
+
+    tagline: "Premium Printing Solutions",
+
+    desc: "From brochures, flyers, posters, catalogs, business cards, and marketing materials to large-format prints, we deliver vibrant, high-quality printing that leaves a lasting impression."
+},
         {
-            // For hero2.png (Incense Sticks)
-            badge: "PREMIUM PACKAGING",
-            heading: "Elevate Your Senses <br> With Premium Boxes",
-            tagline: "Bespoke Incense Packaging",
-            desc: "Beautifully crafted boxes that capture the essence, aroma, and luxury of your premium incense products."
-        },
-
-		 {
-            // For hero5.png (Colorful Food/Pasta/Wraps)
-            badge: "CUSTOM PRINTING",
-            heading: "Taste the Goodness <br> In Every Bite",
-            tagline: "Appetizing Culinary Packaging",
-            desc: "High-quality, food-safe custom printed boxes that make your ready-to-eat meals look as good as they taste."
-        },
-
-        {
-            // For hero3.png (Kraft Pizza & Burger Boxes)
-            badge: "ECO-FRIENDLY KRAFT",
-            heading: "Fresh Out of the Oven <br> To Your Customers",
-            tagline: "Sustainable Food Cartons",
-            desc: "Durable, grease-resistant, and eco-friendly packaging designed to keep your delicious food hot and fresh."
+            // NEW LAYER: For watermarked_img_4703323948691782088.png (Digital Marketing)
+            badge: "GROWTH MARKETING",
+            heading: "Dominate the Feed. <br> Own the Search.",
+            tagline: "Stop Scrolling. Start Scaling.",
+            desc: "."
         }
-        
-       
     ];
 
     function nextSlide() {
@@ -487,19 +488,21 @@ document.addEventListener("DOMContentLoaded", () => {
         heroContent.style.opacity = "0"; 
         heroContent.style.transform = "translateY(20px)"; // Drops down slightly
         
-        // 2. Move to the next slide index
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        // 2. Move to the next slide index based on the full data length array
+        currentSlideIndex = (currentSlideIndex + 1) % slideData.length;
         
         // 3. Wait for text to fade out (600ms), then swap text and fade back in!
         setTimeout(() => {
-            // Swap the text
-            badgeText.innerHTML = `<span></span>${slideData[currentSlideIndex].badge}`;
-            headingText.innerHTML = slideData[currentSlideIndex].heading;
-            taglineText.innerHTML = slideData[currentSlideIndex].tagline;
-            descText.innerHTML = slideData[currentSlideIndex].desc;
+            // Swap the text safely
+            if(badgeText) badgeText.innerHTML = `<span></span>${slideData[currentSlideIndex].badge}`;
+            if(headingText) headingText.innerHTML = slideData[currentSlideIndex].heading;
+            if(taglineText) taglineText.innerHTML = slideData[currentSlideIndex].tagline;
+            if(descText) descText.innerHTML = slideData[currentSlideIndex].desc;
             
-            // Fade the background and new text back in
-            slides[currentSlideIndex].classList.add("active");
+            // Fade the background slide asset and new layout text back in
+            if(slides[currentSlideIndex]) {
+                slides[currentSlideIndex].classList.add("active");
+            }
             heroContent.style.opacity = "1";
             heroContent.style.transform = "translateY(0)";
         }, 600); 
@@ -523,18 +526,568 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-</script>	
+</script>
+
+
+<section class="vb-about-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="vb-about-image">
+
+        <video autoplay loop muted playsinline class="vb-about-video">
+            <source src="assests/images/about-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="vb-about-content">
+
+        <span class="vb-about-tag">
+            About Visualbox
+        </span>
+
+        <h2>
+            Premium Packaging <br>
+            That Elevates Brands
+        </h2>
+
+        <p class="vb-about-short">
+            We excel in creating exceptional packaging solutions,
+            ensuring our clients receive top-notch products
+            on time and within budget.
+        </p>
+
+        <p class="vb-about-text">
+            Visual Box Advertising takes the lead in manufacturing
+            quality packaging for diverse industries, including
+            Government, Electronic, Agricultural, and Pharma.
+
+            Committed to delivering high-quality products tailored
+            to specifications within specified timelines, our
+            three year old company benefits from the founder’s
+            9 years of industry experience.
+
+            Our commitment lies in building strong client
+            relationships, prioritizing satisfaction over
+            financial gains.
+        </p>
+
+        <!-- STATS -->
+        <!-- <div class="vb-about-stats">
+
+            <div class="vb-stat-box">
+                <h3>9+</h3>
+                <span>Years Experience</span>
+            </div>
+
+            <div class="vb-stat-box">
+                <h3>500+</h3>
+                <span>Packaging Projects</span>
+            </div>
+
+            <div class="vb-stat-box">
+                <h3>100%</h3>
+                <span>Client Satisfaction</span>
+            </div>
+
+        </div> -->
+
+        <!-- BUTTONS -->
+        <div class="vb-about-buttons">
+
+            <a href="contact.html" class="vb-primary-btn">
+                Get Started
+            </a>
+
+            <a href="portfolio.html" class="vb-secondary-btn">
+                View Portfolio
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+    /* =========================================
+   VISUALBOX ABOUT SECTION
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.vb-about-section{
+    width:100%;
+
+    padding:120px 2%;
+
+    background:#ffffff;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:80px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    font-family:'Poppins',sans-serif;
+}
+
+/* =========================================
+   VIDEO MEDIA WRAPPER
+========================================= */
+
+.vb-about-image {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Updated styling rule targeting the video tag precisely */
+.vb-about-video {
+    width: 100%;
+    max-width: 850px;
+    height: 670px; /* Maintains your increased custom vertical design frame height */
+    
+    object-fit: cover; /* Ensures your footage crops cleanly to fill the frame without distortion */
+    border-radius: 24px; /* Optional: Adds a premium rounded look to the video container edges */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); /* Optional: Gives the video block elegant depth */
+    display: block;
+    
+    animation: floatImage 5s ease-in-out infinite; /* Keeps your original smooth entry float animation intact */
+}
+
+/* Floating Entry Animation Framework */
+@keyframes floatImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* =========================================
+   RESPONSIVE RETUNING
+========================================= */
+
+@media(max-width: 1100px) {
+    .vb-about-video {
+        max-width: 100%;
+        height: auto; /* Scales down fluidly on tablet views instead of staying stretched */
+        max-height: 500px; /* Caps excessive heights on tablet devices */
+    }
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.vb-about-content{
+    flex:1;
+
+    max-width:650px;
+}
+
+.vb-about-tag{
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:50px;
+
+    background:rgba(255,0,140,.08);
+
+    color:#ff006e;
+
+    font-size:15px;
+    font-weight:600;
+
+    margin-bottom:28px;
+
+    letter-spacing:.5px;
+}
+
+/* HEADING */
+
+.vb-about-content h2{
+    font-size:48px;
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    color:#102a63;
+
+    margin-bottom:30px;
+}
+
+/* SHORT */
+
+.vb-about-short{
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#445b78;
+
+    font-weight:500;
+
+    margin-bottom:28px;
+}
+
+/* TEXT */
+
+.vb-about-text{
+    font-size:18px;
+
+    line-height:2;
+
+    color:#7084a0;
+
+    margin-bottom:45px;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.vb-about-stats{
+    display:flex;
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:45px;
+}
+
+.vb-stat-box{
+    min-width:170px;
+
+    padding:28px 24px;
+
+    border-radius:24px;
+
+    background:#ffffff;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.05);
+
+    transition:.4s ease;
+}
+
+.vb-stat-box:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 50px rgba(0,0,0,.08);
+}
+
+.vb-stat-box h3{
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+    background:linear-gradient(
+        135deg,
+        #ff0088,
+        #00c6ff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.vb-stat-box span{
+    font-size:15px;
+
+    color:#68768d;
+
+    font-weight:500;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.vb-about-buttons{
+    display:flex;
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.vb-primary-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    height:60px;
+
+    padding:0 36px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    font-size:16px;
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #ff0088,
+        #00c6ff
+    );
+
+    box-shadow:
+    0 12px 30px rgba(0,198,255,.25);
+
+    transition:.4s ease;
+}
+
+.vb-primary-btn:hover{
+    transform:translateY(-5px);
+}
+
+.vb-secondary-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    height:60px;
+
+    padding:0 36px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    color:#102a63;
+
+    font-size:16px;
+    font-weight:600;
+
+    border:2px solid #dce5f1;
+
+    transition:.4s ease;
+}
+
+.vb-secondary-btn:hover{
+    background:#102a63;
+
+    color:#ffffff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1400px){
+
+    .vb-about-content h2{
+        font-size:56px;
+    }
+
+}
+
+@media(max-width:1100px){
+
+    .vb-about-section{
+        flex-direction:column;
+        padding: 100px 5%;
+        gap:60px;
+    }
+
+    .vb-about-content{
+        max-width:100%;
+    }
+    .vb-about-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .vb-about-image img {
+        max-width: 100%;
+        height: auto; /* Overrides the desktop block scale gracefully */
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vb-about-section{
+        padding:90px 20px;
+        gap: 40px;
+    }
+
+    .vb-about-content h2{
+        font-size:42px;
+    }
+
+    .vb-about-short{
+        font-size:19px;
+    }
+
+    .vb-about-text{
+        font-size:16px;
+    }
+
+    .vb-about-stats{
+        flex-direction:column;
+    }
+
+    .vb-stat-box{
+        width:100%;
+    }
+
+}
+</style>
+
+
+
+
+
+<!-- =========================
+     VISUALBOX SERVICES
+========================= -->
+
+<section class="vb-services">
+    <!-- TOP HEADER -->
+    <div class="vb-services-top">
+        <div class="vb-heading">
+            <span class="vb-mini-title">— See Our Latest Work</span>
+            <h2><span>We Image Your Imagination</span></h2>
+        </div>
+        <!-- BUTTON -->
+        <a href="portfolio.html" class="vb-view-btn">
+            <span>+</span> View All Services
+        </a>
+    </div>
+
+    <!-- SLIDER / GRID -->
+    <div class="vb-slider-wrapper">
+        <div class="vb-slider">
+
+            <!-- CARD 1 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/food-package.jpg" alt="Packaging Boxes">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Food Packaging Box</h3>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/mono-carton-box.jpg" alt="Brochure Design">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Mono Cartons Box</h3>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/rigid-box.jpg" alt="Business Cards">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Rigid Box</h3>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/gift-box.jpg" alt="Flyers">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Gift Box</h3>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/corrucated-box.jpg" alt="plain-Boxes">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Corrucated Box</h3>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/pouch.jpg" alt="Brochure Design">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Pouch Printing</h3>
+                </div>
+            </div>
+
+            <!-- CARD 7 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/paper-box.jpg" alt="Business Cards">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Paper Bag</h3>
+                </div>
+            </div>
+
+            <!-- CARD 8 -->
+            <div class="vb-card">
+                <div class="vb-card-image">
+                    <img src="assests/images/stickers.jpg" alt="Flyers">
+                </div>
+                <div class="vb-card-content">
+                    <h3>Sticker / Lable Printing</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOTTOM CATEGORY -->
+    <div class="vb-bottom-tags">
+        <span>Packaging Boxes ✷</span>
+        <span>Brochures ✷</span>
+        <span>Business Cards ✷</span>
+        <span>Flyers & Posters ✷</span>
+        <span>Branding Prints ✷</span>
+    </div>
+</section>
+
 
 
 <!-- =========================
      BRAND BUILD SECTION
 ========================= -->
 
-<section class="brand-build-section">
+<!-- <section class="brand-build-section">
 
     <div class="brand-container">
 
-        <!-- LEFT CONTENT -->
+       
 
         <div class="brand-content">
 
@@ -556,11 +1109,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             </p>
 
-            <!-- FEATURES -->
+          
 
             <div class="brand-features">
 
-                <!-- ITEM -->
+               
 
                 <div class="feature-card">
 
@@ -583,7 +1136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 </div>
 
-                <!-- ITEM -->
+              
 
                 <div class="feature-card">
 
@@ -606,9 +1159,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 </div>
 
-                <!-- ITEM -->
+                
 
-                <!-- <div class="feature-card">
+                <div class="feature-card">
 
                     <div class="feature-icon">
                         ✦
@@ -627,25 +1180,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </div>
 
-                </div> -->
+                </div> 
 
             </div>
 
         </div>
 
-        <!-- RIGHT IMAGES -->
-
+       
         <div class="brand-images">
 
-            <!-- IMAGE 1 -->
-
+           
             <div class="image-box large-box">
 
                 <img src="assests/images/boxx.png" alt="Packaging Design">
 
             </div>
 
-            <!-- IMAGE 2 -->
+            
 
             <div class="image-box small-box top-box">
 
@@ -653,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             </div>
 
-            <!-- IMAGE 3 -->
+          
 
             <div class="image-box small-box bottom-box">
 
@@ -665,7 +1216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     </div>
 
-</section>
+</section> -->
 
 
 <style>
@@ -957,304 +1508,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<!-- =========================
-     PRINT STUDIO SECTION
-========================= -->
 
-<!-- =========================
-     VISUALBOX SERVICES
-========================= -->
 
-<section class="vb-services">
 
-    <!-- TOP HEADER -->
-
-    <div class="vb-services-top">
-
-        <div class="vb-heading">
-
-            <span class="vb-mini-title">
-                — OUR PRINT SERVICES
-            </span>
-
-            <h2>
-                Explore Our Services:
-                <span>
-                    We Image Your Imagination
-                </span>
-            </h2>
-
-        </div>
-
-        <!-- BUTTON -->
-
-        <!-- <a href="#" class="vb-view-btn">
-
-            <span>+</span>
-
-            View All Services
-
-        </a> -->
-
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="vb-slider-wrapper">
-
-        <div class="vb-slider">
-
-            <!-- CARD 1 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Packaging Boxes
-                    </h3>
-
-                    <p>
-                        Premium custom packaging
-                        for modern product brands.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/custom-packaging-.jpg" alt="Packaging Boxes">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 2 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Brochure Design
-                    </h3>
-
-                    <p>
-                        Creative brochures and
-                        marketing presentation prints.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/corporate.jpg" alt="Brochure Design">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Business Cards
-                    </h3>
-
-                    <p>
-                        Elegant business cards with
-                        premium finishing quality.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/business-card.jpg" alt="Business Cards">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 4 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Flyers & Posters
-                    </h3>
-
-                    <p>
-                        Promotional print materials
-                        that attract attention instantly.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/digital-marketing.webp" alt="Flyers">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-
-			  <!-- CARD 1 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Plain Boxes
-                    </h3>
-
-                    <p>
-                        Premium custom packaging
-                        for modern product brands.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/plain-boxes.jpg" alt="plain-Boxes">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 2 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Rigid Boxes
-                    </h3>
-
-                    <p>
-                        Creative brochures and
-                        marketing presentation prints.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/rigid-boxes.jpg" alt="Brochure Design">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Pizza Boxes
-                    </h3>
-
-                    <p>
-                        Elegant business cards with
-                        premium finishing quality.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/pizza-boxes.jpg" alt="Business Cards">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-            <!-- CARD 4 -->
-
-            <div class="vb-card">
-
-                <div class="vb-card-content">
-
-                    <h3>
-                        Soap Boxes
-                    </h3>
-
-                    <p>
-                        Promotional print materials
-                        that attract attention instantly.
-                    </p>
-
-                </div>
-
-                <div class="vb-card-image">
-
-                    <img src="assests/images/soap-boxes.jpg" alt="Flyers">
-
-                </div>
-
-                <!-- <div class="vb-card-btn">
-                    ↗
-                </div> -->
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-    <!-- BOTTOM CATEGORY -->
-
-    <div class="vb-bottom-tags">
-
-        <span>Packaging Boxes ✷</span>
-        <span>Brochures ✷</span>
-        <span>Business Cards ✷</span>
-        <span>Flyers & Posters ✷</span>
-        <span>Branding Prints ✷</span>
-
-    </div>
-
-</section>
 
 <!-- SWIPER -->
 
@@ -1386,83 +1642,81 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
    SLIDER
 ========================= */
 
-.vb-slider{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
+/* =========================
+   SLIDER / GRID DECK
+========================= */
 
-    gap:28px;
+.vb-slider {
+    display: grid;
+    /* Keeps exactly 4 columns per row on widescreen viewports */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 28px;
 }
 
-/* CARD */
-
-.vb-card{
-    position:relative;
-
-    background:rgba(255,255,255,.12);
-
-    border-radius:22px;
-
-    padding:20px;
-
-    backdrop-filter:blur(8px);
-
-    transition:.4s ease;
-
-    overflow:hidden;
+/* CARD CONTAINER */
+.vb-card {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stacks image on top, text at the bottom */
+    
+    /* Subtle glassmorphism tint overlaying your deep green section background */
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px; /* Clean, streamlined curved corner look */
+    
+    padding: 18px; /* Balanced inner buffer frame */
+    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), background .4s ease;
+    overflow: hidden;
+    height: min-content;
 }
 
-.vb-card:hover{
-    transform:translateY(-10px);
-
-    background:rgba(255,255,255,.18);
+.vb-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-/* CONTENT */
-
-.vb-card-content h3{
-    font-size:22px;
-
-    color:#fff;
-
-    margin-bottom:12px;
+/* IMAGE (Increased Size & Aspect-Locked) */
+.vb-card-image {
+    width: 100%;
+    /* FIX: Standardizes image into a perfect square grid regardless of native width */
+    aspect-ratio: 1 / 1; 
+    height: auto; /* Overrides the fixed 230px height constraint */
+    
+    overflow: hidden;
+    border-radius: 10px; /* Slight inner rounding for your project media files */
+    margin-bottom: 16px; /* Separation gap directly above the title text */
 }
 
-.vb-card-content p{
-    font-size:14px;
-    line-height:1.8;
-
-    color:rgba(255,255,255,.8);
-
-    margin-bottom:20px;
+.vb-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maximizes frame footprint without distortion */
+    transition: transform .6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* IMAGE */
-
-.vb-card-image{
-    width:100%;
-    height:230px;
-
-    overflow:hidden;
-
-    border-radius:18px;
+.vb-card:hover img {
+    transform: scale(1.05); /* Smooth, controlled image scale zoom */
 }
 
-.vb-card-image img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s ease;
+/* TEXT CONTENT (Shifted to Bottom) */
+.vb-card-content {
+    text-align: center; /* Centers the product text under the square image */
+    width: 100%;
+    margin-top: auto; /* Ensures text stays pinned to the bottom of the card block */
 }
 
-.vb-card:hover img{
-    transform:scale(1.08);
+.vb-card-content h3 {
+    font-size: 16px; /* Balanced typography scale for a 4-column row layout */
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    padding: 4px 0;
+    letter-spacing: 0.3px;
 }
 
 /* BUTTON */
 
-/* .vb-card-btn{
+ .vb-card-btn{
     position:absolute;
 
     bottom:18px;
@@ -1487,11 +1741,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     cursor:pointer;
 
     transition:.4s ease;
-} */
+} 
 
-/* .vb-card-btn:hover{
+.vb-card-btn:hover{
     transform:rotate(45deg);
-} */
+}
 
 /* =========================
    BOTTOM TAGS
@@ -1980,9 +2234,9 @@ document.querySelectorAll(".vb-card").forEach(card=>{
      VISUALBOX ADVERTISING SECTION
 ========================================= -->
 
-<section class="vb-advertising-section">
+<!-- <section class="vb-advertising-section">
 
-    <!-- FLOATING BOXES -->
+    
 
     <img src="assests/images/pizza.png"
          class="vb-floating-box box-left"
@@ -1992,14 +2246,14 @@ document.querySelectorAll(".vb-card").forEach(card=>{
          class="vb-floating-box box-right"
          alt="Tea Packaging">
 
-    <!-- SHAPES -->
+    
 
     <div class="vb-shape vb-shape1"></div>
     <div class="vb-shape vb-shape2"></div>
 
     <div class="vb-ad-container">
 
-        <!-- LEFT CONTENT -->
+       
 
         <div class="vb-ad-left">
 
@@ -2020,7 +2274,7 @@ document.querySelectorAll(".vb-card").forEach(card=>{
                 press media, banners, flyers and promotional campaigns.
             </p>
 
-            <!-- SERVICES -->
+          
 
             <div class="vb-service-grid">
 
@@ -2062,7 +2316,7 @@ document.querySelectorAll(".vb-card").forEach(card=>{
 
         </div>
 
-        <!-- RIGHT VISUAL -->
+       
 
         <div class="vb-ad-right">
 
@@ -2096,7 +2350,7 @@ document.querySelectorAll(".vb-card").forEach(card=>{
 
     </div>
 
-</section>
+</section> -->
 
 <style>
 	/* =========================================
@@ -2853,428 +3107,6 @@ gsap.from(".about-right > *",{
 
 
 
-<section class="vb-about-section">
-
-    <!-- LEFT IMAGE -->
-    <div class="vb-about-image">
-
-        <img src="assests/images/aboutt.png" alt="Visualbox Packaging Showcase">
-
-    </div>
-
-    <!-- RIGHT CONTENT -->
-    <div class="vb-about-content">
-
-        <span class="vb-about-tag">
-            About Visualbox
-        </span>
-
-        <h2>
-            Premium Packaging <br>
-            That Elevates Brands
-        </h2>
-
-        <p class="vb-about-short">
-            We excel in creating exceptional packaging solutions,
-            ensuring our clients receive top-notch products
-            on time and within budget.
-        </p>
-
-        <p class="vb-about-text">
-            Visual Box Advertising takes the lead in manufacturing
-            quality packaging for diverse industries, including
-            Government, Electronic, Agricultural, and Pharma.
-
-            Committed to delivering high-quality products tailored
-            to specifications within specified timelines, our
-            three year old company benefits from the founder’s
-            9 years of industry experience.
-
-            Our commitment lies in building strong client
-            relationships, prioritizing satisfaction over
-            financial gains.
-        </p>
-
-        <!-- STATS -->
-        <!-- <div class="vb-about-stats">
-
-            <div class="vb-stat-box">
-                <h3>9+</h3>
-                <span>Years Experience</span>
-            </div>
-
-            <div class="vb-stat-box">
-                <h3>500+</h3>
-                <span>Packaging Projects</span>
-            </div>
-
-            <div class="vb-stat-box">
-                <h3>100%</h3>
-                <span>Client Satisfaction</span>
-            </div>
-
-        </div> -->
-
-        <!-- BUTTONS -->
-        <div class="vb-about-buttons">
-
-            <a href="contact.html" class="vb-primary-btn">
-                Get Started
-            </a>
-
-            <a href="portfolio.html" class="vb-secondary-btn">
-                View Portfolio
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<style>
-    /* =========================================
-   VISUALBOX ABOUT SECTION
-========================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-.vb-about-section{
-    width:100%;
-
-    padding:120px 2%;
-
-    background:#ffffff;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:80px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    font-family:'Poppins',sans-serif;
-}
-
-/* =========================================
-   IMAGE
-========================================= */
-
-.vb-about-image{
-    flex:1;
-
-    position:relative;
-}
-
-.vb-about-image img{
-    width:100%;
-    max-width:850px;
-
-    height:670px; /* increase height */
-
-    object-fit:cover; /* keeps image looking proper */
-
-    display:block;
-
-    animation:floatImage 5s ease-in-out infinite;
-}
-
-/* FLOAT */
-
-@keyframes floatImage{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* =========================================
-   CONTENT
-========================================= */
-
-.vb-about-content{
-    flex:1;
-
-    max-width:650px;
-}
-
-.vb-about-tag{
-    display:inline-block;
-
-    padding:10px 20px;
-
-    border-radius:50px;
-
-    background:rgba(255,0,140,.08);
-
-    color:#ff006e;
-
-    font-size:15px;
-    font-weight:600;
-
-    margin-bottom:28px;
-
-    letter-spacing:.5px;
-}
-
-/* HEADING */
-
-.vb-about-content h2{
-    font-size:48px;
-
-    line-height:1.08;
-
-    font-weight:800;
-
-    color:#102a63;
-
-    margin-bottom:30px;
-}
-
-/* SHORT */
-
-.vb-about-short{
-    font-size:22px;
-
-    line-height:1.8;
-
-    color:#445b78;
-
-    font-weight:500;
-
-    margin-bottom:28px;
-}
-
-/* TEXT */
-
-.vb-about-text{
-    font-size:18px;
-
-    line-height:2;
-
-    color:#7084a0;
-
-    margin-bottom:45px;
-}
-
-/* =========================================
-   STATS
-========================================= */
-
-.vb-about-stats{
-    display:flex;
-    gap:25px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:45px;
-}
-
-.vb-stat-box{
-    min-width:170px;
-
-    padding:28px 24px;
-
-    border-radius:24px;
-
-    background:#ffffff;
-
-    border:1px solid #edf2f7;
-
-    box-shadow:
-    0 10px 40px rgba(0,0,0,.05);
-
-    transition:.4s ease;
-}
-
-.vb-stat-box:hover{
-    transform:translateY(-8px);
-
-    box-shadow:
-    0 18px 50px rgba(0,0,0,.08);
-}
-
-.vb-stat-box h3{
-    font-size:42px;
-
-    font-weight:800;
-
-    margin-bottom:10px;
-
-    background:linear-gradient(
-        135deg,
-        #ff0088,
-        #00c6ff
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.vb-stat-box span{
-    font-size:15px;
-
-    color:#68768d;
-
-    font-weight:500;
-}
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-.vb-about-buttons{
-    display:flex;
-    gap:20px;
-
-    flex-wrap:wrap;
-}
-
-.vb-primary-btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    height:60px;
-
-    padding:0 36px;
-
-    border-radius:60px;
-
-    text-decoration:none;
-
-    color:#ffffff;
-
-    font-size:16px;
-    font-weight:600;
-
-    background:linear-gradient(
-        135deg,
-        #ff0088,
-        #00c6ff
-    );
-
-    box-shadow:
-    0 12px 30px rgba(0,198,255,.25);
-
-    transition:.4s ease;
-}
-
-.vb-primary-btn:hover{
-    transform:translateY(-5px);
-}
-
-.vb-secondary-btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    height:60px;
-
-    padding:0 36px;
-
-    border-radius:60px;
-
-    text-decoration:none;
-
-    color:#102a63;
-
-    font-size:16px;
-    font-weight:600;
-
-    border:2px solid #dce5f1;
-
-    transition:.4s ease;
-}
-
-.vb-secondary-btn:hover{
-    background:#102a63;
-
-    color:#ffffff;
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media(max-width:1400px){
-
-    .vb-about-content h2{
-        font-size:56px;
-    }
-
-}
-
-@media(max-width:1100px){
-
-    .vb-about-section{
-        flex-direction:column;
-        padding: 100px 5%;
-        gap:60px;
-    }
-
-    .vb-about-content{
-        max-width:100%;
-    }
-    .vb-about-image {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .vb-about-image img {
-        max-width: 100%;
-        height: auto; /* Overrides the desktop block scale gracefully */
-    }
-
-}
-
-@media(max-width:768px){
-
-    .vb-about-section{
-        padding:90px 20px;
-        gap: 40px;
-    }
-
-    .vb-about-content h2{
-        font-size:42px;
-    }
-
-    .vb-about-short{
-        font-size:19px;
-    }
-
-    .vb-about-text{
-        font-size:16px;
-    }
-
-    .vb-about-stats{
-        flex-direction:column;
-    }
-
-    .vb-stat-box{
-        width:100%;
-    }
-
-}
-</style>
 
 
 
@@ -3567,63 +3399,105 @@ gsap.from(".about-right > *",{
             <!-- LOGO 1 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/APPA.jpeg" alt="Client Logo">
+                <img src="assests/logo/1.png" alt="Client Logo">
             </div>
 
             <!-- LOGO 2 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/frootsnac.jpg" alt="Client Logo">
+                <img src="assests/logo/2.png" alt="Client Logo">
             </div>
 
             <!-- LOGO 3 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/ranka.webp" alt="Client Logo">
+                <img src="assests/logo/3.png" alt="Client Logo">
             </div>
 
             <!-- LOGO 4 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/img50.jpg" alt="Client Logo">
+                <img src="assests/logo/4.png" alt="Client Logo">
             </div>
 
             <!-- LOGO 5 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/img51.jpg" alt="Client Logo">
+                <img src="assests/logo/5.png" alt="Client Logo">
             </div>
 
             <!-- LOGO 6 -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/img52.jpg" alt="Client Logo">
+                <img src="assests/logo/6.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/7.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/8.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/9.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/10.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/11.png" alt="Client Logo">
+            </div>
+
+
+            <div class="vb-client-card">
+                <img src="assests/logo/12.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logo/13.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logo/14.png" alt="Client Logo">
+            </div>
+
+            <div class="vb-client-card">
+                <img src="assests/logo/15.png" alt="Client Logo">
             </div>
 
             <!-- DUPLICATE FOR LOOP -->
 
             <div class="vb-client-card">
-                <img src="assests/logos/logo_greenest_wealth_1000_x_280.jpg" alt="Client Logo">
+                <img src="assests/logo/1.png" alt="Client Logo">
             </div>
 
             <div class="vb-client-card">
-                <img src="assests/logos/NewPowercoils.png" alt="Client Logo">
+                <img src="assests/logo/2.png" alt="Client Logo">
             </div>
 
             <div class="vb-client-card">
-                <img src="assests/logos/wellness.png" alt="Client Logo">
+                <img src="assests/logo/3.png" alt="Client Logo">
             </div>
 
             <div class="vb-client-card">
-                <img src="assests/logos/space_magni.png" alt="Client Logo">
+                <img src="assests/logo/4.png" alt="Client Logo">
             </div>
 
             <div class="vb-client-card">
-                <img src="assests/logos/lets-read-logo.png" alt="Client Logo">
+                <img src="assests/logo/5.png" alt="Client Logo">
             </div>
 
             <div class="vb-client-card">
-                <img src="assests/logos/download.png" alt="Client Logo">
+                <img src="assests/logo/6.png" alt="Client Logo">
             </div>
 
         </div>
@@ -3774,60 +3648,66 @@ gsap.from(".about-right > *",{
 
 /* CARD */
 
-.vb-client-card{
-    min-width:240px;
-    height:150px;
-
-    background:#fff;
-
-    border-radius:28px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.06);
-
-    transition:.4s ease;
-
-    border:1px solid rgba(0,0,0,.04);
+/* =========================================
+   CARD CONTAINER (Optimized to match image)
+========================================= */
+.vb-client-card {
+    min-width: 220px;
+    height: 120px; /* Reduced box height to create a sleeker, landscape row like the image */
+    background: #ffffff;
+    
+    /* FIX 1: Smooth, subtle card rounding matching the reference image profile */
+    border-radius: 12px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* FIX 2: Universal padding creates an un-stretchable protective zone for the logo */
+    padding: 15px 25px; 
+    box-sizing: border-box;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Clean, modern minimal depth drop shadow */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* HOVER */
-
-.vb-client-card:hover{
-    transform:translateY(-10px);
-
-    box-shadow:
-    0 25px 50px rgba(0,0,0,.12);
+/* Hover adjustments */
+.vb-client-card:hover {
+    transform: translateY(-4px); /* Tamed jump movement height */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* LOGO */
-
-.vb-client-card img{
-    width:100%;
-    height:60%;
-
-    object-fit:contain;
-
-    filter:grayscale(0%);
-
+/* =========================================
+   LOGO IMAGE SIZING (Equal Width & Height balance)
+========================================= */
+.vb-client-card img {
+    /* FIX 3: Forces the image to completely adapt inside the card bounds */
+    width: 100%;
+    height: 100%;
+    
+    /* FIX 4: Keeps absolute proportions. Image scales perfectly without squishing or cutting off */
+    object-fit: contain; 
+    
+    filter: grayscale(0%);
     opacity: 1;
-
-    transition:.4s ease;
+    transition: transform .3s ease;
 }
 
-/* HOVER LOGO */
+.vb-client-card:hover img {
+    transform: scale(1.03); /* Subtle, premium interactive icon scale */
+}
 
-.vb-client-card:hover img{
-    filter:grayscale(0);
-
-    opacity:1;
-
-    transform:scale(1.05);
+/* =========================================
+   TRACK ADJUSTMENT (Ensures smooth alignment center)
+========================================= */
+.vb-client-track {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Unified layout separation spacing */
+    width: max-content;
+    padding: 20px 0; /* Clear container spacing for hover floats */
+    animation: clientSlide 28s linear infinite;
 }
 
 /* ANIMATION */
@@ -3948,6 +3828,309 @@ track.addEventListener("mouseleave",()=>{
 });
 </script>
 
+
+
+<!-- =========================================
+     VISUALBOX INDUSTRIES SECTION
+========================================= -->
+<section class="vb-industries-section">
+  
+  <div class="vb-industries-top">
+    <h2>Industries We Serve</h2>
+  </div>
+
+  <div class="vb-ind-marquee">
+    <div class="vb-ind-track">
+      
+      <!-- 1. Food Industry -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Food Industry</h3>
+      </div>
+
+      <!-- 2. Cosmetic (FIXED: Uses widely supported solid graphics to prevent blank circles) -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-wand-sparkles"></i></div>
+        <h3>Cosmetic</h3>
+      </div>
+
+      <!-- 3. Pharma (FIXED: Uses clean mortar/medical theme compatible with v6.5.1) -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-mortar-pestle"></i></div>
+        <h3>Pharma</h3>
+      </div>
+
+      <!-- 4. Real Estate -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-building-shield"></i></div>
+        <h3>Real Estate</h3>
+      </div>
+
+      <!-- 5. Clothing Industry -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-shirt"></i></div>
+        <h3>Clothing Industry</h3>
+      </div>
+
+      <!-- 6. Hotels & Restro -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-hotel"></i></div>
+        <h3>Hotels &amp; Restro</h3>
+      </div>
+
+      <!-- 7. Event Organizer -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+        <h3>Event Organizer</h3>
+      </div>
+
+      <!-- 8. IT & Software -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3>IT &amp; Software</h3>
+      </div>
+
+      <!-- 9. Automobile -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-car-rear"></i></div>
+        <h3>Automobile</h3>
+      </div>
+
+      <!-- 10. Education -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Education</h3>
+      </div>
+
+      <!-- 11. Other Industries -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-industry"></i></div>
+        <h3>Other Industries</h3>
+      </div>
+
+      <!-- ==========================================================
+           DUPLICATED TRACK COPIES (Must completely mirror the top set!)
+           ========================================================== -->
+
+      <!-- Duplicate 1. Food Industry -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Food Industry</h3>
+      </div>
+      
+      <!-- Duplicate 2. Cosmetic (FIXED) -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-wand-sparkles"></i></div>
+        <h3>Cosmetic</h3>
+      </div>
+      
+      <!-- Duplicate 3. Pharma (FIXED) -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-mortar-pestle"></i></div>
+        <h3>Pharma</h3>
+      </div>
+      
+      <!-- Duplicate 4. Real Estate -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-building-shield"></i></div>
+        <h3>Real Estate</h3>
+      </div>
+      
+      <!-- Duplicate 5. Clothing Industry -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-shirt"></i></div>
+        <h3>Clothing Industry</h3>
+      </div>
+      
+      <!-- Duplicate 6. Hotels & Restro -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-hotel"></i></div>
+        <h3>Hotels &amp; Restro</h3>
+      </div>
+      
+      <!-- Duplicate 7. Event Organizer -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+        <h3>Event Organizer</h3>
+      </div>
+      
+      <!-- Duplicate 8. IT & Software -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3>IT &amp; Software</h3>
+      </div>
+      
+      <!-- Duplicate 9. Automobile -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-car-rear"></i></div>
+        <h3>Automobile</h3>
+      </div>
+      
+      <!-- Duplicate 10. Education -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Education</h3>
+      </div>
+      
+      <!-- Duplicate 11. Other Industries -->
+      <div class="vb-ind-card">
+        <div class="vb-ind-icon-box"><i class="fa-solid fa-industry"></i></div>
+        <h3>Other Industries</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* --- Industries Section Core Layout --- */
+  .vb-industries-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- Top Content Section Header --- */
+  .vb-industries-top {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+  }
+
+  .vb-ind-mini {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: rgba(16, 42, 99, 0.06);
+    color: #102a63;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .vb-industries-top h2 {
+    font-size: 44px;
+    line-height: 1.2;
+    color: #102a63;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+
+  .vb-industries-top p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #64748b;
+  }
+
+  /* --- Marquee Rail Wrapper Box --- */
+  .vb-ind-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+
+  /* --- Left to Right Dynamic Animation Track Rail --- */
+  .vb-ind-track {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    width: max-content;
+    /* Animation triggers left-to-right transformation displacement */
+    animation: indMarqueeScroll 35s linear infinite;
+  }
+
+  /* Stop movement seamlessly when mouse explicitly points over elements */
+  .vb-ind-marquee:hover .vb-ind-track {
+    animation-play-state: paused;
+  }
+
+  /* --- Minimalist Circular Industry Card --- */
+  .vb-ind-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 160px;
+    transition: transform 0.3s ease;
+  }
+
+  .vb-ind-card:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Matching the exact deep blue circular icon stroke profile from the image */
+  .vb-ind-icon-box {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #102a63;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #102a63;
+    font-size: 32px;
+    margin-bottom: 16px;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vb-ind-card:hover .vb-ind-icon-box {
+    background: #102a63;
+    color: #ffffff;
+    box-shadow: 0 12px 24px rgba(16, 42, 99, 0.15);
+  }
+
+  .vb-ind-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #102a63;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* --- Dynamic CSS Left-to-Right Scrolling Animation Logic --- */
+  @keyframes indMarqueeScroll {
+    0% {
+      /* Starts positioned halfway backward (the duplicated set position) */
+      transform: translateX(-50%);
+    }
+    100% {
+      /* Slides perfectly forward rightward to loop seamlessly */
+      transform: translateX(0%);
+    }
+  }
+
+  /* --- Responsive Breakpoint Adjustments --- */
+  @media (max-width: 768px) {
+    .vb-industries-section {
+      padding: 70px 0;
+    }
+    .vb-industries-top h2 {
+      font-size: 32px;
+    }
+    .vb-industries-top p {
+      font-size: 15px;
+    }
+    .vb-ind-icon-box {
+      width: 76px;
+      height: 76px;
+      font-size: 26px;
+    }
+    .vb-ind-card h3 {
+      font-size: 13px;
+    }
+    .vb-ind-track {
+      gap: 25px;
+    }
+  }
+</style>
 
 
 
@@ -4337,6 +4520,851 @@ track.addEventListener("mouseleave",()=>{
             startAutoPlay();
         });
     </script>
+
+
+<section class="vb-testimonials-section">
+  
+  <div class="vb-testimonials-top">
+    <span class="vb-test-mini">— REVIEWS</span>
+    <h2>What Our Clients Say</h2>
+    <p>
+      Don't just take our word for it. Here is what leading businesses and manufacturers say about our premium packaging and execution.
+    </p>
+  </div>
+
+  <div class="vb-test-marquee">
+    <div class="vb-test-track">
+      
+      <!-- Card 1 -->
+      <div class="vb-test-card vb-card-glow-1">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"The mono cartons from VisualBox completely transformed our cosmetics line shelf-presence. Sturdy, brilliant color printing, and delivered right on timeline metrics!"</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Anjali Sharma</div>
+            <div class="vb-company">Naturals Glow Cosmetic</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="vb-test-card vb-card-glow-2">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <p class="vb-quote">"Highly reliable team for structural packaging boxes. Their corrugated shipping box selections are exceptional and handle transit stress wonderfully."</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Rajesh Mehta</div>
+            <div class="vb-company">Mehta Pharma Labs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="vb-test-card vb-card-glow-3">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"Excellent service and founder's vast industry experience really shows. They optimized our packaging blueprint design, saving us 15% on overall production waste."</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Vikram Logistics</div>
+            <div class="vb-company">Vanguard Electronics</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="vb-test-card vb-card-glow-4">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"The custom printed paper bags are of exceptional premium grade. Perfect finishing with rich texture tones. Our retail clothing customers absolutely adore them!"</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Priyanka Rao</div>
+            <div class="vb-company">Vogue Atelier Clothing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="vb-test-card vb-card-glow-1">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"Outstanding precision on food-grade packaging boxes. The boxes maintain moisture resistance perfectly, ensuring our bakery items remain crisp and fresh."</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Chef Rohan</div>
+            <div class="vb-company">The Crust Bakery Hub</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="vb-test-card vb-card-glow-2">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <p class="vb-quote">"Their sticker and label printing capabilities are unmatched. Clean cuts, high adhesion matrix, and crisp micro-text resolution profiles."</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Sameer Deshmukh</div>
+            <div class="vb-company">AgroPure Oils Ltd.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="vb-test-card vb-card-glow-3">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"Rigid presentation gift boxes built by VisualBox helped elevate our luxury corporate holiday gifting execution. True master craftsmanship!"</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Neha Kapoor</div>
+            <div class="vb-company">Infinity IT Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="vb-test-card vb-card-glow-4">
+        <div class="vb-quote-icon">“</div>
+        <div class="vb-card-content">
+          <div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="vb-quote">"Honest pricing models and transparent customer care profiles. They values relationship health over transactional dollar gains any day."</p>
+          <div class="vb-author-meta">
+            <div class="vb-author">Arjun Singhania</div>
+            <div class="vb-company">Apex Infrastructure</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DUPLICATE MARQUEE TRACK LOOPS FOR INFINITE EFFECT -->
+      <div class="vb-test-card vb-card-glow-1"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"The mono cartons from VisualBox completely transformed our cosmetics line shelf-presence. Sturdy, brilliant color printing, and delivered right on timeline metrics!"</p><div class="vb-author-meta"><div class="vb-author">Anjali Sharma</div><div class="vb-company">Naturals Glow Cosmetic</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-2"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><p class="vb-quote">"Highly reliable team for structural packaging boxes. Their corrugated shipping box selections are exceptional and handle transit stress wonderfully."</p><div class="vb-author-meta"><div class="vb-author">Rajesh Mehta</div><div class="vb-company">Mehta Pharma Labs</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-3"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"Excellent service and founder's vast industry experience really shows. They optimized our packaging blueprint design, saving us 15% on overall production waste."</p><div class="vb-author-meta"><div class="vb-author">Vikram Logistics</div><div class="vb-company">Vanguard Electronics</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-4"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"The custom printed paper bags are of exceptional premium grade. Perfect finishing with rich texture tones. Our retail clothing customers absolutely adore them!"</p><div class="vb-author-meta"><div class="vb-author">Priyanka Rao</div><div class="vb-company">Vogue Atelier Clothing</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-1"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"Outstanding precision on food-grade packaging boxes. The boxes maintain moisture resistance perfectly, ensuring our bakery items remain crisp and fresh."</p><div class="vb-author-meta"><div class="vb-author">Chef Rohan</div><div class="vb-company">The Crust Bakery Hub</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-2"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><p class="vb-quote">"Their sticker and label printing capabilities are unmatched. Clean cuts, high adhesion matrix, and crisp micro-text resolution profiles."</p><div class="vb-author-meta"><div class="vb-author">Sameer Deshmukh</div><div class="vb-company">AgroPure Oils Ltd.</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-3"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"Rigid presentation gift boxes built by VisualBox helped elevate our luxury corporate holiday gifting execution. True master craftsmanship!"</p><div class="vb-author-meta"><div class="vb-author">Neha Kapoor</div><div class="vb-company">Infinity IT Solutions</div></div></div></div>
+      <div class="vb-test-card vb-card-glow-4"><div class="vb-quote-icon">“</div><div class="vb-card-content"><div class="vb-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="vb-quote">"Honest pricing models and transparent customer care profiles. They values relationship health over transactional dollar gains any day."</p><div class="vb-author-meta"><div class="vb-author">Arjun Singhania</div><div class="vb-company">Apex Infrastructure</div></div></div></div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+  /* --- Testimonials Section Core Layout --- */
+  .vb-testimonials-section {
+    position: relative;
+    width: 100%;
+    padding: 120px 0;
+    background: #f8fafc; /* Crisp premium light background */
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- Top Content Section Header --- */
+  .vb-testimonials-top {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 70px auto;
+    padding: 0 20px;
+  }
+
+  .vb-test-mini {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4f46e5; /* Electric indigo brand text tone */
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  .vb-testimonials-top h2 {
+    font-size: 46px;
+    line-height: 1.2;
+    color: #0f172a; /* Deep charcoal-slate text */
+    font-weight: 800;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+  }
+
+  .vb-testimonials-top p {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #64748b; /* Soft read utility body text */
+  }
+
+  /* --- Marquee Track Box Wrapper --- */
+  .vb-test-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 25px 0;
+  }
+
+  /* --- Right to Left Dynamic Infinite Slide Track --- */
+  .vb-test-track {
+    display: flex;
+    align-items: stretch;
+    gap: 35px;
+    width: max-content;
+    animation: testMarqueeLeft 45s linear infinite; 
+  }
+
+  .vb-test-marquee:hover .vb-test-track {
+    animation-play-state: paused;
+  }
+
+  /* --- Modern Colorful Light Glassmorphic Card Layout --- */
+  .vb-test-card {
+    width: 24vw;
+    min-width: 340px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(226, 232, 240, 1.8);
+    border-radius: 24px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Diverse Dynamic Color Gradients Injector */
+  .vb-test-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.02;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 0;
+    transform: scale(0.95);
+  }
+
+  /* Card Type Dynamic Color Customizations */
+  .vb-card-glow-1::before { background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%); }
+  .vb-card-glow-2::before { background: linear-gradient(135deg, #00dfd8 0%, #007cf0 100%); }
+  .vb-card-glow-3::before { background: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%); }
+  .vb-card-glow-4::before { background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%); }
+
+  .vb-test-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+  }
+
+  .vb-test-card:hover::before {
+    opacity: 0.08; /* Brings out a soft luxurious background brand pattern gradient color splash */
+    transform: scale(1);
+  }
+
+  /* Accent Highlight Colors Applied On Individual Cards Border Hovers */
+  .vb-card-glow-1:hover { border-color: rgba(255, 0, 127, 0.25); }
+  .vb-card-glow-2:hover { border-color: rgba(0, 124, 240, 0.25); }
+  .vb-card-glow-3:hover { border-color: rgba(249, 203, 40, 0.35); }
+  .vb-card-glow-4:hover { border-color: rgba(121, 40, 202, 0.25); }
+
+  .vb-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  /* Massive Elegant Vector Quote Sign Element */
+  .vb-quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    font-size: 130px;
+    color: rgba(15, 23, 42, 0.3);
+    font-family: serif;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+
+  .vb-card-glow-1:hover .vb-quote-icon { color: rgba(255, 0, 127, 0.06); }
+  .vb-card-glow-2:hover .vb-quote-icon { color: rgba(0, 124, 240, 0.06); }
+  .vb-card-glow-3:hover .vb-quote-icon { color: rgba(249, 203, 40, 0.08); }
+  .vb-card-glow-4:hover .vb-quote-icon { color: rgba(121, 40, 202, 0.06); }
+
+  /* Star Icons Custom Color Theme Profiles */
+  .vb-stars {
+    color: #ffb800; /* Warm organic solid gold stars */
+    font-size: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 5px;
+  }
+
+  /* Quote Message Block styling font layouts */
+  .vb-quote {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2c3848; /* Solid readable elegant dark text color */
+    font-style: italic;
+    margin-bottom: 35px;
+    flex-grow: 1;
+  }
+
+  /* Author Metadata separator border fields */
+  .vb-author-meta {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+  }
+
+  .vb-author {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .vb-company {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Sync metadata accent colors perfectly with card themes */
+  .vb-card-glow-1 .vb-company { color: #ff007f; }
+  .vb-card-glow-2 .vb-company { color: #007cf0; }
+  .vb-card-glow-3 .vb-company { color: #ea580c; }
+  .vb-card-glow-4 .vb-company { color: #7928ca; }
+
+  /* --- Infinite Scroller Keyframes Dynamic Engine loop --- */
+  @keyframes testMarqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* --- Mobile Responsive Queries Media Breaks --- */
+  @media (max-width: 1200px) {
+    .vb-test-card {
+      min-width: 310px;
+      padding: 30px 25px;
+    }
+    .vb-testimonials-top h2 { font-size: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .vb-testimonials-section { padding: 80px 0; }
+    .vb-testimonials-top h2 { font-size: 32px; }
+    .vb-testimonials-top p { font-size: 14px; }
+    .vb-test-track { gap: 20px; }
+    .vb-test-card { min-width: 280px; }
+    .vb-quote-icon { font-size: 90px; }
+  }
+</style>
+
+
+
+<section class="vb-cta-section">
+  <div class="vb-cta-container">
+    
+    <!-- LEFT SIDE: ULTRA-COMPACT QUICK CONTACT FORM -->
+    <div class="vb-cta-form-box">
+      <div class="vb-cta-header">
+        <h2>Let's Create Something Remarkable!</h2>
+        <p>Fill out this quick form, and our design experts will get back to you within 2-4 business hours.</p>
+      </div>
+      
+      <form id="vbCtaForm" class="vb-cta-grid">
+        <!-- Full Name -->
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaName" placeholder="Full Name" required />
+        </div>
+        
+        <!-- Phone Number -->
+        <div class="vb-input-wrapper">
+          <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
+        </div>
+        
+        <!-- Email Address -->
+        <div class="vb-input-wrapper">
+          <input type="email" id="ctaEmail" placeholder="Email Address" required />
+        </div>
+        
+        <!-- Company Name -->
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaCompany" placeholder="Company Name" required />
+        </div>
+        
+        <!-- Services Looking For Dropdown -->
+        <div class="vb-input-wrapper full-row">
+          <select id="ctaService" required>
+            <option value="" disabled selected>Services Looking For...</option>
+            <option value="Food Packaging Box">Food Packaging Box</option>
+            <option value="Mono Cartons Box">Mono Cartons Box</option>
+            <option value="Rigid Box">Rigid Box</option>
+            <option value="Gift Box">Gift Box</option>
+            <option value="Corrugated Box">Corrugated Box</option>
+            <option value="Pouch Printing">Pouch Printing</option>
+            <option value="Paper Bag">Paper Bag</option>
+            <option value="Sticker &amp; Label Printing">Sticker / Label Printing</option>
+          </select>
+        </div>
+        
+        <!-- Submit Button Row -->
+        <div class="full-row text-left">
+          <button type="submit" class="vb-cta-submit">
+            Get A Free Quote <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- RIGHT SIDE: CREATIVE BUSINESS INFRASTRUCTURE PILOT -->
+    <div class="vb-cta-sidebar">
+      
+      <!-- Creative Business Hours Radar Card -->
+      <div class="vb-side-card">
+        <div class="vb-radar-header">
+          <h3><i class="fa-regular fa-clock"></i> Desk Availability</h3>
+          <div class="vb-live-indicator">
+            <span class="vb-pulse"></span> Live Status
+          </div>
+        </div>
+        
+        <div class="vb-hours-timeline">
+          <div class="vb-timeline-item">
+            <div class="vb-time-bullet"></div>
+            <div class="vb-time-info">
+              <span>Monday - Saturday</span>
+              <strong>9:00 AM - 6:00 PM</strong>
+            </div>
+          </div>
+          <div class="vb-timeline-item vb-closed-day">
+            <div class="vb-time-bullet"></div>
+            <div class="vb-time-info">
+              <span>Sunday Routine</span>
+              <strong class="vb-status-closed">Studio Closed</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Connect Action Buttons -->
+      <div class="vb-side-actions">
+        <a href="tel:+919822088158" class="vb-action-btn btn-call">
+          <div class="vb-action-icon-box"><i class="fa-solid fa-phone"></i></div>
+          <div class="vb-action-text">
+            <span>Voice Desk</span>
+            <strong>Call Now</strong>
+          </div>
+        </a>
+        <a href="https://wa.me/919822088158?text=Hello%20VisualBox%2C%20I%20want%20a%20packaging%20quote." target="_blank" class="vb-action-btn btn-whatsapp">
+          <div class="vb-action-icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="vb-action-text">
+            <span>Instant Chat</span>
+            <strong>WhatsApp</strong>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  /* --- CTA Section Context Background --- */
+  .vb-cta-section {
+    width: 100%;
+    padding: 80px 5%;
+    background: #f1f5f9; /* Modern light luxury neutral studio tone */
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- Two-Column Layout Grid Setup --- */
+  .vb-cta-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  /* --- Left Side: Crisp Creative Clean White Form Container --- */
+  .vb-cta-form-box {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 24px;
+    padding: 45px 40px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.04);
+  }
+
+  .vb-cta-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a; /* Solid contrast luxury slate dark text */
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .vb-cta-header p {
+    font-size: 14.5px;
+    color: #64748b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  /* --- Compact Multi-Column Grid Elements --- */
+  .vb-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+  }
+
+  .vb-cta-grid .full-row {
+    grid-column: span 2; 
+  }
+
+  /* --- Inputs & Fields Cosmetics --- */
+  .vb-input-wrapper input,
+  .vb-input-wrapper select {
+    width: 100%;
+    height: 52px;
+    padding: 0 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: #0f172a;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Clear Dropdown selection arrow adjustments */
+  .vb-input-wrapper select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 14px;
+  }
+
+  .vb-input-wrapper select option {
+    background: #ffffff;
+    color: #0f172a;
+  }
+
+  .vb-input-wrapper input::placeholder {
+    color: #94a3b8;
+  }
+
+  /* Multicolored interactive creative focus shifts on selection fields */
+  .vb-input-wrapper input:focus,
+  .vb-input-wrapper select:focus {
+    border-color: #4f46e5; /* Neon indigo vibrant edge highlight */
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  }
+
+  /* --- Brand Primary Dark & Gold Creative Action Button --- */
+  .vb-cta-submit {
+    height: 52px;
+    padding: 0 35px;
+    background: #0f172a; /* Slate Dark Professional baseline */
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s ease;
+    margin-top: 6px;
+  }
+
+  .vb-cta-submit hover, 
+  .vb-cta-submit:hover {
+    background: #1e293b;
+    color: #f6c42f; /* Highlight pop color on execution */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  }
+
+  .vb-cta-submit i {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+  }
+
+  .vb-cta-submit:hover i {
+    transform: translateX(5px);
+  }
+
+  /* =========================================
+      RIGHT SIDEBAR DYNAMIC LOOK
+  ========================================= */
+  .vb-cta-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vb-side-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 20px;
+    padding: 28px 26px;
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.02);
+  }
+
+  .vb-radar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .vb-side-card h3 {
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .vb-side-card h3 i {
+    color: #4f46e5;
+  }
+
+  /* Live Pulse Indicator Graphic */
+  .vb-live-indicator {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.08);
+    padding: 4px 10px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .vb-pulse {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulseRadar 1.6s infinite;
+  }
+
+  @keyframes pulseRadar {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  /* Timeline Creative Matrix Layout */
+  .vb-hours-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 6px;
+  }
+
+  .vb-hours-timeline::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: #e2e8f0;
+  }
+
+  .vb-timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 24px;
+  }
+
+  .vb-time-bullet {
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: #4f46e5;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #4f46e5;
+    z-index: 2;
+  }
+
+  .vb-closed-day .vb-time-bullet {
+    background: #cbd5e1;
+    box-shadow: 0 0 0 2px #cbd5e1;
+  }
+
+  .vb-time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .vb-time-info span {
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .vb-time-info strong {
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  .vb-status-closed {
+    color: #ef4444 !important;
+    font-weight: 600;
+  }
+
+  /* Sidebar Modern Multi-Color Capsule Badges */
+  .vb-side-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .vb-action-btn {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+  }
+
+  .vb-action-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .vb-action-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .vb-action-text span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+  }
+
+  .vb-action-text strong {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* Call Pill Styles */
+  .btn-call {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-call .vb-action-icon-box { background: rgba(255, 255, 255, 0.1); color: #f6c42f; }
+  .btn-call .vb-action-text span { color: #94a3b8; }
+
+  .btn-call:hover {
+    background: #1e293b;
+    transform: translateX(4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  /* WhatsApp Pill Styles */
+  .btn-whatsapp {
+    background: #ffffff;
+    color: #1ea951;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-whatsapp .vb-action-icon-box { background: #25d366; color: #ffffff; }
+  .btn-whatsapp .vb-action-text span { color: #64748b; }
+
+  .btn-whatsapp:hover {
+    border-color: rgba(37, 211, 102, 0.3);
+    background: rgba(37, 211, 102, 0.02);
+    transform: translateX(4px);
+    box-shadow: 0 12px 24px rgba(37, 211, 102, 0.06);
+  }
+
+  /* =========================================
+      RESPONSIVE MEDIA SETTING
+  ========================================= */
+  @media (max-width: 992px) {
+    .vb-cta-container {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+    .vb-cta-section {
+      padding: 60px 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .vb-cta-grid {
+      grid-template-columns: 1fr;
+    }
+    .vb-cta-grid .full-row {
+      grid-column: span 1;
+    }
+    .vb-cta-form-box {
+      padding: 30px 20px;
+    }
+    .vb-cta-header h2 {
+      font-size: 23px;
+    }
+    .vb-side-actions {
+      flex-direction: row;
+    }
+  }
+</style>
+
 
 
 <script src="js/navbar.js"></script>

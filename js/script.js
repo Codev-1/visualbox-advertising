@@ -134,41 +134,51 @@ document.addEventListener("DOMContentLoaded", () => {
         const descText = document.querySelector(".hero-content p");
 
         let currentSlideIndex = 0;
-        const slideDuration = 4000;
+        const slideDuration = 6000;
 
-        const slideData = [
-            {
-                badge: "PREMIUM PACKAGING & BRANDING",
-                heading: "From Small Quantities <br>to Mass Production",
-                tagline: "we image your imagination",
-                desc: "Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
-            },
-            {
-                badge: "RETAIL BRANDING",
-                heading: "A Burst of Flavor <br> On Every Shelf",
-                tagline: "Vibrant Spice & Tea Boxes",
-                desc: "Eye-catching retail packaging that protects freshness while making your brand completely irresistible."
-            },
-            {
-                badge: "PREMIUM PACKAGING",
-                heading: "Elevate Your Senses <br> With Premium Boxes",
-                tagline: "Bespoke Incense Packaging",
-                desc: "Beautifully crafted boxes that capture the essence, aroma, and luxury of your premium incense products."
-            },
-            {
-                badge: "CUSTOM PRINTING",
-                heading: "Taste the Goodness <br> In Every Bite",
-                tagline: "Appetizing Culinary Packaging",
-                desc: "High-quality, food-safe custom printed boxes that make your ready-to-eat meals look as good as they taste."
-            },
-            {
-                badge: "ECO-FRIENDLY KRAFT",
-                heading: "Fresh Out of the Oven <br> To Your Customers",
-                tagline: "Sustainable Food Cartons",
-                desc: "Durable, grease-resistant, and eco-friendly packaging designed to keep your delicious food hot and fresh."
-            }
-        ];
+       const slideData = [
+        {
+            // For hero2.png (Incense Sticks)
+            badge: "PREMIUM PACKAGING & BRANDING",
+            heading: "From Small Quantities <br>to Mass Production",
+            tagline: "We Image Your Imagination",
+            desc: "Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
+        },
+        {
+            // For hero4.png (Vibrant Spices & Tea)
+            badge: "RETAIL BRANDING",
+            heading: "From Concept <br> To Creation",
+            tagline: "We Deliver Custom Packaging Solutions For Every Industries",
+            desc: "Eye-catching retail packaging that protects freshness while making your brand completely irresistible."
+        },
+       {
+    badge: "BRAND IDENTITY",
 
+    heading: "Transform Ideas Into <br> Memorable Brands",
+
+    tagline: "Creative Branding & Design",
+
+    desc: "We craft impactful brand identities through innovative design, consistent visual storytelling, and professional marketing materials."
+},
+       {
+    badge: "CUSTOM PRINTING",
+
+    heading: "Bring Your Ideas <br> To Life In Print",
+
+    tagline: "Premium Printing Solutions",
+
+    desc: "From brochures, flyers, posters, catalogs, business cards, and marketing materials to large-format prints, we deliver vibrant, high-quality printing that leaves a lasting impression."
+},
+        {
+            // NEW LAYER: For watermarked_img_4703323948691782088.png (Digital Marketing)
+            badge: "GROWTH MARKETING",
+            heading: "Dominate the Feed. <br> Own the Search.",
+            tagline: "Stop Scrolling. Start Scaling.",
+            desc: "."
+        }
+    ];
+
+       
         function nextSlide() {
             slides[currentSlideIndex].classList.remove("active");
             heroContent.style.opacity = "0"; 

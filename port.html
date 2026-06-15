@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualBox - Creative Portfolio Showcase</title>
+
+    <link rel="icon" type="image/x-icon" href="assests/images/favicon_dark.ico?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="assests/images/favicon_dark.png?v=2">
+    <link rel="apple-touch-icon" href="assests/images/favicon_dark.png?v=2">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-emerald: #165848;
+            --brand-emerald-light: #1cb08e;
+            --brand-gold: #f6c42f;
+            --ui-dark: #0f172a;
+            --ui-slate: #475569;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .font-syne { font-family: 'Oswald', sans-serif; }
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--brand-emerald) 0%, var(--brand-emerald-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ambient-mesh {
+            position: absolute;
+            top: -15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(22, 88, 72, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Modernized Interactive Filter Tabs Grid Buttons */
+        .filter-btn {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.75rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            color: var(--ui-slate);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--brand-emerald);
+            color: var(--brand-emerald);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 88, 72, 0.05);
+        }
+
+        .filter-btn.active {
+            background-color: var(--brand-emerald);
+            border-color: var(--brand-emerald);
+            color: #ffffff;
+            box-shadow: 0 12px 20px -6px rgba(22, 88, 72, 0.25);
+        }
+
+        /* Premium Structural Cards with Depth Modifiers */
+        .portfolio-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 30px rgba(15, 23, 42, 0.015);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.01);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Dynamic Linear Dark Shading Gradient Overlays */
+        .portfolio-overlay {
+            background: linear-gradient(to top, 
+                rgba(11, 17, 30, 0.95) 0%, 
+                rgba(11, 17, 30, 0.5) 50%, 
+                rgba(11, 17, 30, 0.1) 80%,
+                transparent 100%);
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-text {
+            transform: translateY(15px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Trigger Animation Keyframe Chains on Hover */
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px -15px rgba(15, 23, 42, 0.09);
+            border-color: rgba(22, 88, 72, 0.2);
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.06) translateY(-4px);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            background: linear-gradient(to top, 
+                rgba(22, 88, 72, 0.95) 0%, 
+                rgba(11, 17, 30, 0.7) 60%, 
+                rgba(11, 17, 30, 0.2) 100%);
+        }
+
+        .portfolio-card:hover .portfolio-text {
+            transform: translateY(0);
+        }
+
+        /* Entrance Animations Grid Cells */
+        @keyframes itemFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-item-fade {
+            animation: itemFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+    </style>
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden">
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Background Ambient Layer -->
+    <div class="ambient-mesh"></div>
+
+    <main class="relative z-10 min-h-screen">
+        
+        <!-- Premium Section Hero Block -->
+        <section class="relative pt-36 pb-16 lg:pt-44 lg:pb-20 px-6 lg:px-12 max-w-[90rem] mx-auto flex flex-col items-center text-center">
+            <div class="w-full max-w-3xl">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-[#165848]/5 border border-[#165848]/10 text-[#165848] font-bold uppercase tracking-[0.25em] text-[10px] mb-6 shadow-xs">
+                    Creative Portfolio Showcase
+                </span>
+                <h1 class="font-syne text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#0f172a] uppercase leading-[1.1] tracking-tight">
+                    Our Creative <span class="text-gradient">Masterpieces.</span>
+                </h1>
+                <p class="text-slate-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-outfit font-light">
+                    Explore our comprehensive collection of custom packaging structures, premium corrugated boxes, retail paper bags, and luxury identity mockups.
+                </p>
+            </div>
+        </section>
+
+        <!-- Dynamic Controls Selection Area Grid -->
+        <section class="px-6 lg:px-12 max-w-[90rem] mx-auto mb-16 relative z-20">
+            <div class="flex flex-wrap justify-center gap-3" id="filters-container">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="packaging">Packaging</button>
+                <button class="filter-btn" data-filter="corrugated">Corrugated</button>
+                <button class="filter-btn" data-filter="paperbags">Paper Bags</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="printing">Printing</button>
+            </div>
+        </section>
+
+        <!-- Main Cards Target Box Wrapper Layout -->
+        <section class="px-6 lg:px-12 max-w-[90rem] mx-auto pb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" id="portfolio-grid">
+                <!-- Data injection script matrix location -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Javascript Logical Execution Blocks -->
+    <script>
+        const portfolioData = [
+            /* =====================
+               PACKAGING
+            ===================== */
+            { category:"packaging", image:"assests/images/portfolio/Agarbatti Box 1.jpg", title:"Agarbatti Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Agarbatti Box 2.jpg", title:"Agarbatti Box" },
+            { category:"packaging", image:"assests/images/portfolio/Burger Box 1.jpg", title:"Burger Box" },
+            { category:"packaging", image:"assests/images/portfolio/Burger Box 2.jpg", title:"Burger Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Burger Box 3.jpg", title:"Custom Burger Box" },
+            { category:"packaging", image:"assests/images/portfolio/Burger Box 4.jpg", title:"Food Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Cake Boxes.jpg", title:"Cake Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Cake Boxes 2.jpg", title:"Cake Box Design" },
+            { category:"packaging", image:"assests/images/portfolio/Chocolate Box.jpg", title:"Chocolate Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Cookies Box.jpg", title:"Cookies Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Dryfruit Box.jpg", title:"Dry Fruit Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Game Box Rigid.jpg", title:"Game Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Lipstic Box.jpg", title:"Cosmetic Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Masale Box.jpg", title:"Masala Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Misal Box.jpg", title:"Misal Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Oil box.tif", title:"Oil Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Pastry Boxes.jpg", title:"Pastry Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Perfume Box 1.jpg", title:"Perfume Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Pharma Box.jpg", title:"Pharma Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Pizza Box 1.jpg", title:"Pizza Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Rigid Box 1.jpg", title:"Rigid Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Roll Boxe.jpg", title:"Roll Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Sandwitch Box 1.jpg", title:"Sandwich Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Sanitary Pad Box.jpg", title:"Sanitary Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Soap Box 1.jpg", title:"Soap Packaging" },
+            { category:"packaging", image:"assests/images/portfolio/Tea Box.jpg", title:"Tea Packaging" },
+            
+            /* =====================
+               CORRUGATED
+            ===================== */
+            { category:"corrugated", image:"assests/images/portfolio/Corrugated Box 1.jpg", title:"Corrugated Box" },
+            { category:"corrugated", image:"assests/images/portfolio/Corrugated Box 2.jpg", title:"Shipping Box" },
+            { category:"corrugated", image:"assests/images/portfolio/Corrugated Box 3.jpg", title:"Export Packaging" },
+            { category:"corrugated", image:"assests/images/portfolio/Agri Product 3 Corrugated.jpg", title:"Agriculture Packaging" },
+            
+            /* =====================
+               PAPER BAGS
+            ===================== */
+            { category:"paperbags", image:"assests/images/portfolio/Paper Bag.jpg", title:"Paper Bag" },
+            { category:"paperbags", image:"assests/images/portfolio/Paper Bag 1.jpg", title:"Shopping Bag" },
+            { category:"paperbags", image:"assests/images/portfolio/Paper Bag 2.jpg", title:"Retail Paper Bag" },
+            { category:"paperbags", image:"assests/images/portfolio/Paper Bag 3.jpg", title:"Custom Paper Bag" },
+            { category:"paperbags", image:"assests/images/portfolio/Paper Bag 4.jpg", title:"Luxury Paper Bag" },
+            
+            /* =====================
+               BRANDING
+            ===================== */
+            { category:"branding", image:"assests/images/portfolio/Display Image 3.jpg", title:"Brand Identity" },
+            { category:"branding", image:"assests/images/portfolio/Display Image 4.jpg", title:"Brand Packaging" },
+            { category:"branding", image:"assests/images/portfolio/Display Image 5.jpg", title:"Retail Branding" },
+            { category:"branding", image:"assests/images/portfolio/Display Image 6.jpg", title:"Luxury Branding" },
+            { category:"branding", image:"assests/images/portfolio/Display Image 7.jpg", title:"Brand Collection" },
+            
+            /* =====================
+               PRINTING
+            ===================== */
+            { category:"printing", image:"assests/images/portfolio/Display Image 2.jpg", title:"Label Printing" },
+            { category:"printing", image:"assests/images/portfolio/Display Image 8.jpg", title:"Print Production" },
+            { category:"printing", image:"assests/images/portfolio/Accessories Box.jpg", title:"Custom Printing" },
+            { category:"printing", image:"assests/images/portfolio/Chocolate Box 2.jpg", title:"Offset Printing" }
+        ];
+
+        const portfolioGrid = document.getElementById("portfolio-grid");
+
+        // Render Cards System 
+        function renderPortfolio(filter = "all") {
+            portfolioGrid.innerHTML = "";
+
+            const items = portfolioData.filter(item => {
+                return filter === "all" ? true : item.category === filter;
+            });
+
+            if (items.length === 0) {
+                portfolioGrid.innerHTML = `
+                    <div class="col-span-full py-24 text-center text-slate-400 font-outfit text-lg">
+                        No portfolio assets match this category right now.
+                    </div>`;
+                return;
+            }
+
+            items.forEach((item, index) => {
+                let displayBadge = item.category === 'paperbags' ? 'Paper Bag' : item.category;
+
+                const cardHTML = `
+                    <div class="portfolio-item h-[420px] group portfolio-card animate-item-fade" style="animation-delay: ${index * 30}ms">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        
+                        <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
+                            <div class="portfolio-text w-full">
+                                <span class="inline-block px-2.5 py-1 bg-[#f6c42f] text-[#0f172a] font-bold text-[10px] uppercase tracking-widest rounded-md mb-2.5 font-outfit">
+                                    ${displayBadge}
+                                </span>
+                                <h3 class="font-syne text-2xl font-bold text-white tracking-wide uppercase">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-slate-300 font-outfit text-xs font-light tracking-wide mt-1 opacity-80">
+                                    Premium custom solution engineered by VisualBox.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                portfolioGrid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // Boot-Up
+        renderPortfolio();
+
+        // Control Filtering Clicks Tab Matrix Transitions
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                renderPortfolio(btn.dataset.filter);
+            });
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+    <script>
+        fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+
+    <script src="js/sweets-packaging.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <div id="footer-placeholder"></div>
+    <script src="js/footer.js"></script>
+
+</body>
+</html>

@@ -105,19 +105,19 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Dynamic Linear Dark Shading Gradient Overlays */
+        /* --- UPDATED: Default clear state for overlay --- */
         .portfolio-overlay {
             background: linear-gradient(to top, 
-                rgba(11, 17, 30, 0.95) 0%, 
-                rgba(11, 17, 30, 0.5) 50%, 
-                rgba(11, 17, 30, 0.1) 80%,
+                rgba(11, 17, 30, 0) 0%, 
                 transparent 100%);
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* --- UPDATED: Hide texts below card viewport initially --- */
         .portfolio-text {
-            transform: translateY(15px);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(105%);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
 
         /* Trigger Animation Keyframe Chains on Hover */
@@ -128,18 +128,21 @@
         }
 
         .portfolio-card:hover img {
-            transform: scale(1.06) translateY(-4px);
+            transform: scale(1.04);
         }
 
+        /* --- UPDATED: Show modern dark shadow mask gracefully on hover --- */
         .portfolio-card:hover .portfolio-overlay {
             background: linear-gradient(to top, 
-                rgba(22, 88, 72, 0.95) 0%, 
-                rgba(11, 17, 30, 0.7) 60%, 
-                rgba(11, 17, 30, 0.2) 100%);
+                rgba(7, 10, 19, 0.92) 0%, 
+                rgba(11, 17, 30, 0.4) 60%, 
+                transparent 100%);
         }
 
+        /* --- UPDATED: Snap texts smoothly into view frame on hover --- */
         .portfolio-card:hover .portfolio-text {
             transform: translateY(0);
+            opacity: 1;
         }
 
         /* Entrance Animations Grid Cells */
@@ -169,7 +172,7 @@
                 <span class="inline-block py-1.5 px-4 rounded-full bg-[#165848]/5 border border-[#165848]/10 text-[#165848] font-bold uppercase tracking-[0.25em] text-[10px] mb-6 shadow-xs">
                     Creative Portfolio Showcase
                 </span>
-                <h1 class="font-syne text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#0f172a] uppercase leading-[1.1] tracking-tight">
+                <h1 class="font-outfit text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#0f172a] uppercase leading-[1.1] tracking-tight">
                     Our Creative <span class="text-gradient">Masterpieces.</span>
                 </h1>
                 <p class="text-slate-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-outfit font-light">

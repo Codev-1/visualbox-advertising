@@ -55,24 +55,50 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ==========================================================================
        2. AUTOMATION MODULE DETERMINING ACTIVE LINKS HIGHLIGHTING
        ========================================================================== */
-    function highlightActiveTab() {
-        const currentPath = window.location.pathname.split("/").pop();
-        const cleanFileTarget = currentPath === "" ? "index.html" : currentPath;
-        const allNavLinks = document.querySelectorAll(".vb-menu li a");
-        
-        allNavLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === cleanFileTarget) {
-                link.classList.add("active");
-                
-                // If the link sits inside a services dropdown menu, highlight the parent too
-                if (link.closest(".vb-dropdown-menu")) {
-                    const parentTrigger = link.closest(".vb-dropdown-parent")?.querySelector(".vb-dropdown-trigger");
-                    if (parentTrigger) parentTrigger.classList.add("active");
+ function highlightActiveTab() {
+
+    const currentPage =
+        window.location.pathname.split('/').pop().toLowerCase()
+        || 'index.html';
+
+    document.querySelectorAll('.vb-menu a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    document.querySelectorAll('.vb-dropdown-trigger').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    document.querySelectorAll('.vb-menu a').forEach(link => {
+
+        const href =
+            (link.getAttribute('href') || '')
+            .split('#')[0]
+            .toLowerCase();
+
+        if (!href) return;
+
+        if (href === currentPage) {
+
+            link.classList.add('active');
+
+            const dropdownMenu =
+                link.closest('.vb-dropdown-menu');
+
+            if (dropdownMenu) {
+
+                const parentTrigger =
+                    dropdownMenu
+                    .closest('.vb-dropdown-parent')
+                    ?.querySelector('.vb-dropdown-trigger');
+
+                if (parentTrigger) {
+                    parentTrigger.classList.add('active');
                 }
             }
-        });
-    }
+        }
+    });
+}
 
     /* ==========================================================================
        3. MOBILE NAVIGATION ACCORDION DRAW SYSTEM

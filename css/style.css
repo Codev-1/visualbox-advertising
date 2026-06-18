@@ -2,7 +2,7 @@
    GOOGLE FONT
 ========================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -13,13 +13,13 @@
 body{
     font-family:'Poppins',sans-serif;
     background:#f5f5f5;
-}
+} */
 
 /* =========================
    HERO SECTION
 ========================= */
 
-.hero-section{
+/* .hero-section{
     position:relative;
     width:100%;
     min-height:100vh;
@@ -33,11 +33,11 @@ body{
 
     background:
     url("hero.png") center center/cover no-repeat;
-}
+} */
 
 /* Overlay */
 
-.hero-overlay{
+/* .hero-overlay{
     position:absolute;
     inset:0;
 
@@ -50,11 +50,11 @@ body{
     );
 
     z-index:1;
-}
+} */
 
 /* Content */
 
-.hero-content{
+/* .hero-content{
     position:relative;
     z-index:2;
 
@@ -62,11 +62,11 @@ body{
     text-align:center;
 
     animation:heroFade 1.2s ease;
-}
+} */
 
 /* Badge */
 
-.hero-badge{
+/* .hero-badge{
     display:inline-flex;
     align-items:center;
     gap:12px;
@@ -95,11 +95,11 @@ body{
     height:10px;
     border-radius:50%;
     background:#ff0088;
-}
+} */
 
 /* Heading */
 
-.hero-content h1{
+/* .hero-content h1{
     font-size:76px;
     line-height:1.05;
     font-weight:800;
@@ -107,22 +107,22 @@ body{
     color:#142c72;
 
     margin-bottom:20px;
-}
+} */
 
 /* Tagline */
 
-.hero-content h2{
+/* .hero-content h2{
     font-size:30px;
     font-weight:500;
 
     color:#d40087;
 
     margin-bottom:25px;
-}
+} */
 
 /* Paragraph */
 
-.hero-content p{
+/* .hero-content p{
     font-size:18px;
     line-height:1.8;
 
@@ -132,22 +132,22 @@ body{
     margin:auto;
 
     margin-bottom:40px;
-}
+} */
 
 /* Buttons */
 
-.hero-buttons{
+/* .hero-buttons{
     display:flex;
     align-items:center;
     justify-content:center;
     gap:20px;
 
     flex-wrap:wrap;
-}
+} */
 
 /* Primary */
 
-.btn-primary{
+/* .btn-primary{
     text-decoration:none;
 
     background:#17398b;
@@ -168,11 +168,11 @@ body{
 .btn-primary:hover{
     background:#ff9800;
     transform:translateY(-5px);
-}
+} */
 
 /* Secondary */
 
-.btn-secondary{
+/* .btn-secondary{
     text-decoration:none;
 
     padding:18px 38px;
@@ -196,11 +196,11 @@ body{
 .btn-secondary:hover{
     background:#17398b;
     color:#fff;
-}
+} */
 
 /* Animation */
 
-@keyframes heroFade{
+/* @keyframes heroFade{
 
     from{
         opacity:0;
@@ -212,21 +212,21 @@ body{
         transform:translateY(0);
     }
 
-}
+} */
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:1200px){
+/* @media(max-width:1200px){
 
     .hero-content h1{
         font-size:62px;
     }
 
-}
+} */
 
-@media(max-width:992px){
+/* @media(max-width:992px){
 
     .hero-content h1{
         font-size:52px;
@@ -236,9 +236,9 @@ body{
         font-size:26px;
     }
 
-}
+} */
 
-@media(max-width:768px){
+/* @media(max-width:768px){
 
     .hero-section{
         min-height:auto;
@@ -286,4 +286,4 @@ body{
         padding:10px 18px;
     }
 
-}
+} */

@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Printing Services - Visualbox Advertising</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CORE ENGINE LAYOUT RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f4f7fe;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+
+        /* Complex Color Mesh Canvas Blend Profile */
+        .bg-mesh {
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 174, 239, 0.15), transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(140, 198, 63, 0.15), transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(251, 192, 45, 0.15), transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(227, 0, 15, 0.1), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(123, 31, 162, 0.1), transparent 60%);
+            background-attachment: fixed; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Mount loaded asynchronous navbar components cleanly over viewport content */
+        #navbar-placeholder {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000 !important;
+        }
+
+        main {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* ==========================================================================
+           2. PREMIUM RE-ENGINEERED HERO BLOCK STYLES
+           ========================================================================== */
+        .hero-section-container {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 580px;
+            max-height: 900px;
+            display: flex;
+            align-items: flex-start; /* Unlocks explicit vertical alignment control */
+            justify-content: center;
+            padding: 0 24px;
+            margin-top: 80px; /* Safe padding barrier protection from navigation overlay */
+            overflow: hidden;
+        }
+
+        .hero-background-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-background-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: fit;
+            object-position: center center;
+        }
+
+        .hero-background-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        /* Structural positioning adjustments to shift content perfectly inside white middle area */
+        .hero-content-matrix {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            max-width: 960px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1.5rem; /* Forces content block to move upward precisely */
+        }
+
+        /* Mini Badge Strip */
+        .hero-badge-strip {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge-strip span {
+            color: #2e3a4e;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .cmyk-dot-group {
+            display: flex;
+            gap: 4px;
+            background: rgba(241, 245, 249, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 6px;
+            border-radius: 9999px;
+            border: 1px solid rgba(226, 232, 240, 0.4);
+        }
+
+        .cmyk-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .c-cyan { background-color: #00AEEF; }
+        .c-magenta { background-color: #E3000F; }
+        .c-yellow { background-color: #FBC02D; }
+        .c-black { background-color: #1a1a1a; }
+
+        /* Main Branded Headlines */
+        .hero-main-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #142c72;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            text-transform: capitalize;
+            margin-bottom: 32px;
+        }
+
+        .text-cyan-brand { color: #0094ca; }
+        .text-crimson-brand { color: #E3000F; }
+        .text-white-brand { color: #142c72; }
+
+        /* Premium Call to Action Button Layout */
+        .hero-action-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-brand-gradient {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 15px 40px;
+            border-radius: 9999px;
+            background: linear-gradient(to right, #00AEEF, #7B1FA2, #E3000F);
+            background-size: 200% auto;
+            box-shadow: 0 12px 30px rgba(20, 44, 114, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-brand-gradient:hover {
+            transform: scale(1.05);
+            background-position: right center;
+            box-shadow: 0 15px 35px rgba(227, 0, 15, 0.3);
+        }
+
+        /* ==========================================================================
+           3. CORE PRINTING CAPABILITIES GRID STYLES
+           ========================================================================== */
+      
+
+        /* ==========================================================================
+           4. RESPONSIVE MEDIA QUERIES BREAKPOINTS
+           ========================================================================== */
+        @media (min-width: 768px) {
+            .hero-main-title { font-size: 3.5rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-section-container { height: 85vh; }
+            .hero-main-title { font-size: 4.4rem; }
+        }
+
+        @media (max-width: 1024px) {
+            .capabilities-grid-layout { grid-template-cols: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 640px) {
+            .hero-section-container { height: auto; min-height: 550px; padding-top: 120px; }
+            .hero-main-title { font-size: 2.1rem; }
+            .capabilities-grid-layout { grid-template-cols: repeat(1, minmax(0, 1fr)); }
+            .hero-action-container, .btn-brand-gradient { width: 100%; text-align: center; justify-content: center; }
+            .section-header-block h2 { font-size: 1.85rem; }
+        }
+    </style>
+</head>
+<body class="bg-mesh antialiased">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        
+        <section class="hero-section-container">
+    
+            <div class="hero-background-layer">
+                <div class="hero-background-overlay"></div>
+                <img src="assests/images/print4.png" alt="Offset Printing Premium Back-drop Runway View">
+            </div>
+            
+            <div class="hero-content-matrix flex-col-center"> 
+            
+                <div class="hero-badge-strip">
+                    <span>Commercial Printing</span>
+                    <div class="cmyk-dot-group">
+                        <span class="cmyk-dot c-cyan"></span>
+                        <span class="cmyk-dot c-magenta"></span>
+                        <span class="cmyk-dot c-yellow"></span>
+                        <span class="cmyk-dot c-black"></span>
+                    </div>
+                </div>
+                
+                <h1 class="hero-main-title">
+                    Quality Printing <br> 
+                    <span class="text-white-brand">Is Our Foundation.</span> <br>
+                    <span class="text-cyan-brand">Your Brand</span> Is <span class="text-crimson-brand">Our Focus.</span>
+                </h1>
+                
+                <div class="hero-action-container">
+                    <a href="#contact-cta" class="btn-brand-gradient">
+                        Print Your Project <i class="fa-solid fa-print"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="premium-about-section">
+    <div class="about-container">
+        
+        <div class="about-content-side">
+            <div class="editorial-sticky-wrap">
+                
+                <h2 class="about-main-title">
+                    Quality 
+ 
+                    <span class="outline-brand-text"> &nbsp; Printing.</span> <br>
+                    Professional &nbsp; Results.
+                </h2>
+                
+                <p class="about-editorial-lead">
+                    A brand’s digital presentation is only half the battle. The true test of consumer loyalty happens when your identity transforms into a physical asset.
+                </p>
+                
+                <p class="about-body-paragraph">
+                    At Visualbox, we partner with newly founded corporate entities and ambitious startups to design, optimize, and engineer world-class print frameworks. From high-tack die-cut product labels to precision multi-fold corporate brochures, our work bridges the gap between digital vision and strict physical craftsmanship.
+                </p>
+                
+                <div class="about-stat-row">
+                    <div class="stat-node">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Production <br>Experience</span>
+                    </div>
+                    <div class="stat-node">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Strict CMYK Color <br>Calibration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-visual-side">
+            <div class="visual-canvas-stack">
+                
+                <div class="abstract-canvas-shape"></div>
+
+                <div class="about-image-wrapper card-top-left hover-lift-3d">
+                    <img src="assests/images/portfolio/Display Image 8.jpg" alt="Creative Strategy Work Session">
+                    <div class="image-inner-label">Creative Calibration Studio</div>
+                </div>
+
+                <div class="about-image-wrapper card-bottom-right hover-lift-3d">
+                    <img src="assests/images/portfolio/Display Image 2.jpg" alt="Finished Corporate Stationary Mockups">
+                    <div class="image-inner-label">High-Gloss Finishing Lab</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Google Fonts Import: Syne & Plus Jakarta Sans */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap');
+
+    .premium-about-section {
+        position: relative;
+        width: 100%;
+        padding: 70px 24px;
+        background-color: #faf9f5; /* Premium soft editorial paper-white tint bg */
+        overflow: hidden;
+    }
+
+    .premium-about-section * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-container {
+        width: 100%;
+        max-width: 1260px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 64px;
+    }
+
+    /* --- Left Content Matrix Styling --- */
+    .about-content-side {
+        width: 55%;
+        position: relative;
+    }
+
+    .editorial-sticky-wrap {
+        position: relative;
+        width: 100%;
+    }
+
+    .about-mini-accent {
+        display: inline-block;
+        font-family: 'Outfit', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #7B1FA2; /* Corporate Purple Brand Accent */
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        margin-bottom: 24px;
+    }
+
+    .about-main-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 48px;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+    }
+
+    /* Elegant Editorial Outline Typography Effect */
+    .outline-brand-text {
+        color: transparent;
+        -webkit-text-stroke: 1.5px #0f172a;
+    }
+
+    .about-editorial-lead {
+        font-family: 'Outfit', sans-serif;
+        font-size: 23px;
+        line-height: 1.6;
+        color: #1e293b;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+
+    .about-body-paragraph {
+        font-family: 'Outfit', sans-serif;
+        font-size: 19px;
+        line-height: 1.8;
+        color: #475569;
+        font-weight: 300;
+        margin-bottom: 48px;
+    }
+
+    /* Data Performance Counter Grid */
+    .about-stat-row {
+        display: flex;
+        gap: 40px;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 32px;
+    }
+
+    .stat-node {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stat-number {
+        font-family: 'Outfit', sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        color: #E3000F; /* High-impact crimson accents */
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* --- Right Asymmetric Visual Stack Styling --- */
+    .about-visual-side {
+        width: 45%;
+        position: relative;
+    }
+
+    .visual-canvas-stack {
+        position: relative;
+        width: 100%;
+        height: 600px;
+    }
+
+    /* Asymmetric background graphic shield */
+    .abstract-canvas-shape {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        width: 80%;
+        height: 75%;
+        background: linear-gradient(135deg, rgba(0, 174, 239, 0.04) 0%, rgba(123, 31, 162, 0.04) 100%);
+        border-radius: 40px 100px 30px 80px / 60px 40px 90px 50px;
+        z-index: 1;
+    }
+
+    /* Shared Scrapbook Image Frame Engine */
+    .about-image-wrapper {
+        position: absolute;
+        background-color: #ffffff;
+        padding: 12px;
+        border-radius: 24px;
+        box-shadow: 0 15px 45px rgba(15, 23, 42, 0.06);
+        z-index: 2;
+        overflow: hidden;
+        will-change: transform;
+    }
+
+    .about-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .image-inner-label {
+        font-family: 'Outfit', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: 12px;
+        text-align: center;
+    }
+
+    /* Layout Coordinates Mapping */
+    .card-top-left {
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 380px;
+        transform: rotate(-4deg);
+    }
+
+    .card-bottom-right {
+        bottom: 0;
+        right: 0;
+        width: 340px;
+        height: 360px;
+        transform: rotate(3deg);
+        z-index: 3; /* Forces second card to float cleanly on top of first */
+    }
+
+    /* Image zoom scaling trigger on hover */
+    .about-image-wrapper:hover img {
+        transform: scale(1.04);
+    }
+
+    /* --- Media Queries Responsive Breakpoints --- */
+    @media (max-width: 1024px) {
+        .about-container { flex-direction: column; gap: 80px; }
+        .about-content-side { width: 100%; }
+        .about-visual-side { width: 100%; }
+        .visual-canvas-stack { height: 500px; max-width: 600px; margin: 0 auto; }
+        .card-top-left { width: 280px; height: 320px; }
+        .card-bottom-right { width: 290px; height: 310px; }
+    }
+
+    @media (max-width: 640px) {
+        .premium-about-section { padding: 80px 16px; }
+        .about-main-title { font-size: 32px; }
+        .about-editorial-lead { font-size: 17px; }
+        .visual-canvas-stack { height: 420px; }
+        .card-top-left { width: 220px; height: 260px; }
+        .card-bottom-right { width: 230px; height: 250px; }
+        .about-stat-row { flex-direction: column; gap: 24px; }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const structuralLiftCards = document.querySelectorAll(".hover-lift-3d");
+
+        if (window.innerWidth > 768) {
+            structuralLiftCards.forEach(card => {
+                // Read original resting layout angles directly from raw inline styles matrix configurations
+                const baseRotationValue = card.classList.contains("card-top-left") ? -4 : 3;
+
+                card.addEventListener("mousemove", (e) => {
+                    const rectMatrix = card.getBoundingClientRect();
+                    const xCoordinate = e.clientX - rectMatrix.left - (rectMatrix.width / 2);
+                    const yCoordinate = e.clientY - rectMatrix.top - (rectMatrix.height / 2);
+
+                    // Dynamic angle calculation vectors
+                    const calculateYAngle = (xCoordinate / (rectMatrix.width / 2)) * 12;
+                    const calculateXAngle = -(yCoordinate / (rectMatrix.height / 2)) * 12;
+
+                    // Apply calculation offsets on top of the original rotation properties
+                    card.style.transform = `perspective(1000px) rotateY(${calculateYAngle}deg) rotateX(${calculateXAngle}deg) rotate(${baseRotationValue}deg) translateY(-8px)`;
+                    card.style.boxShadow = "0 30px 60px rgba(15, 23, 42, 0.12)";
+                    card.style.zIndex = "10"; // temporarily forces hovered card above everything else
+                    card.style.transition = "none";
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    // Reset spatial transform variables smoothly back to baseline state angles
+                    card.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) rotate(${baseRotationValue}deg) translateY(0px)`;
+                    card.style.boxShadow = "0 15px 45px rgba(15, 23, 42, 0.06)";
+                    card.style.zIndex = card.classList.contains("card-bottom-right") ? "3" : "2";
+                    card.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease";
+                });
+            });
+        }
+    });
+</script>
+
+
+<section class="printing-showcase">
+
+    <div class="section-title">
+        <span>OUR PRINTING SERVICES</span>
+        <h2>Premium Printing Solutions</h2>
+    </div>
+
+    <div class="printing-alternating-rows">
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-info-panel">
+                <h3>Sticker / Labels Design</h3>
+                <p>
+                    Strategically crafted high-adhesion sticker and premium label configurations help improve brand image and identity, as well as customer purchasing choices in retail environments. The use of crisp typography and vibrant accent textures gives your brand a clean edge over market competitors.
+                </p>
+            </div>
+            <div class="vb-print-image-panel">
+                <img src="assests/images/stickers.jpg" alt="Sticker and Label Printing Showcase" loading="lazy">
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-image-panel">
+                <img src="assests/images/b-card.png" alt="Premium Business Card Showcase" loading="lazy">
+            </div>
+            <div class="vb-print-info-panel">
+                <h3>Keep Customers Front and Center</h3>
+                <p>
+                    Business card solutions that focus on executive identity and create beautiful tactile networking touchpoints. Making sure your print collateral is well-designed with premium linen texture stock and clean foil stamping profiles provides a lasting professional impression that drives conversions.
+                </p>
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-info-panel">
+                <h3>Product Identity Tags</h3>
+                <p>
+                    Enhance product presentation with custom-shaped retail clothing and merchandise tags. Utilizing thick art-card sheets, custom matte finishes, and precise eyelet punching, our premium apparel hang tags frame your pricing and brand statements with absolute craftsmanship.
+                </p>
+            </div>
+            <div class="vb-print-image-panel">
+                <img src="assests/images/tags.png" alt="Custom Product Identity Hang Tags" loading="lazy">
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-image-panel">
+                <img src="assests/images/flyer.png" alt="Marketing Flyer Print Showcase" loading="lazy">
+            </div>
+            <div class="vb-print-info-panel">
+                <h3>High-Impact Flyers</h3>
+                <p>
+                    Deploy print marketing assets engineered to scale customer reach and conversion volume effortlessly. Crisp double-sided rich graphics printed on premium gloss-coated media configurations serve as the perfect tool to distribute business promotional metrics cleanly.
+                </p>
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-info-panel">
+                <h3>Restaurant &amp; Desk Tent Cards</h3>
+                <p>
+                    Maximize point-of-sale visibility with stable, dual-sided freestanding table tent cards. Perfect for displaying premium restaurant menu deals, limited corporate event calendars, or seasonal promo displays, these cards offer structural stability combined with vibrant image fidelity.
+                </p>
+            </div>
+            <div class="vb-print-image-panel">
+                <img src="assests/images/tent-card.png" alt="freestanding Desk Tent Cards Layout" loading="lazy">
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-image-panel">
+                <img src="assests/images/envelope.png" alt="Corporate Stationery and Envelopes Pack" loading="lazy">
+            </div>
+            <div class="vb-print-info-panel">
+                <h3>Corporate Letterheads &amp; Envelopes</h3>
+                <p>
+                    Unify your internal corporate communication matrices under a luxury stationery umbrella layout system. Crisp bond paper letterheads paired with custom secure-seal flap envelopes ensure your formal legal receipts and outreach papers feel premium from first touch.
+                </p>
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-info-panel">
+                <h3>Event Collaterals &amp; Booklets</h3>
+                <p>
+                    Compile detailed product spec books or corporate seasonal data reports into pristine multi-page bound booklets. Features precise saddle-stitch spine bindings, soft-touch cover stock lamination sheets, and excellent clarity tracking across high-density text scripts.
+                </p>
+            </div>
+            <div class="vb-print-image-panel">
+                <img src="assests/images/event-collateral-designing.jpg" alt="Bound Event Booklet Production Pack" loading="lazy">
+            </div>
+        </div>
+
+        <div class="vb-print-row font-outfit print-card">
+            <div class="vb-print-image-panel">
+                <img src="assests/images/brochures.png" alt="Luxury Bi-Fold and Tri-Fold Brochure Layout" loading="lazy">
+            </div>
+            <div class="vb-print-info-panel">
+                <h3>Artwork Prototyping Brochures</h3>
+                <p>
+                    Present complete overview records with pristine bi-fold and tri-fold corporate brochure configurations. Balanced layouts make sure text fields mesh cleanly with heavy background color photography, giving your catalog rows a premium presentation flow.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* ==========================================================================
+       1. CORE SECTION BACKGROUND FRAME WORK SETUP
+       ========================================================================== */
+    .printing-showcase {
+        padding: 100px 4% !important;
+        background-color: #f8d7d7 !important; /* Neutral white background matching pristine mockup profile */
+        position: relative;
+    }
+
+    .printing-showcase * {
+        box-sizing: border-box !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-title {
+        text-align: center !important;
+        max-width: 800px;
+        margin: 0 auto 80px auto !important;
+    }
+
+    .section-title span {
+        color: #165848 !important; /* VisualBox Identity Deep Emerald tone */
+        font-size: 13px !important;
+        letter-spacing: 3px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+
+    .section-title h2 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 46px !important;
+        font-weight: 800 !important;
+        margin-top: 14px !important;
+        color: #0f172a !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* ==========================================================================
+       2. EDITORIAL ALTERNATING STACK LAYOUT ENGINE (MATCHES IMAGE SPEC)
+       ========================================================================== */
+    .printing-alternating-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 120px; /* Generous breathing room between features to look high-end */
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* Split Row Matrix layout grid */
+    .vb-print-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Perfect equal split */
+        gap: 80px;
+        align-items: center;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Intersection scroll trigger visibility handler injection marker class hook */
+    .vb-print-row.show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Info Board Text Formatting Panels */
+    .vb-print-info-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .vb-print-info-panel h3 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        color: #0b2d70 !important; /* Premium branding deep blue focus code */
+        margin-bottom: 22px !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.01em;
+    }
+
+    .vb-print-info-panel p {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 15.5px !important;
+        line-height: 1.85 !important;
+        color: #475569 !important; /* Soft utility readability tone text */
+        font-weight: 400;
+        text-align: justify;
+    }
+
+    /* Image Wrapper Box Plates */
+    .vb-print-image-panel {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px; /* Clean flat technical corners profile line match */
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+    }
+
+    .vb-print-image-panel img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 460px !important;
+        object-fit: cover !important; /* Filled container footprint spacing rules */
+        display: block !important;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Subtle zoom detail pop on graphic cards interaction hover loop */
+    .vb-print-row:hover .vb-print-image-panel img {
+        transform: scale(1.02);
+    }
+
+    /* ==========================================================================
+       3. RESPONSIVE MOBILE FLOW FALLBACKS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+        .printing-showcase { padding: 80px 4% !important; }
+        .section-title { margin-bottom: 60px !important; }
+        .section-title h2 { font-size: 36px !important; }
+        .vb-print-row { gap: 40px; }
+        .vb-print-info-panel h3 { font-size: 26px !important; margin-bottom: 14px !important; }
+        .vb-print-info-panel p { font-size: 14.5px !important; line-height: 1.7 !important; }
+    }
+
+    @media (max-width: 768px) {
+        .printing-alternating-rows { gap: 80px; }
+        
+        .vb-print-row {
+            grid-template-columns: 1fr !important; /* Forces vertical linear block collapse list stack format */
+            gap: 24px;
+        }
+
+        /* Forces images to take priority on mobile viewports so they always stack under headings */
+        .vb-print-row:nth-child(even) .vb-print-info-panel,
+        .vb-print-row .vb-print-info-panel {
+            order: 1 !important;
+        }
+
+        .vb-print-row:nth-child(even) .vb-print-image-panel,
+        .vb-print-row .vb-print-image-panel {
+            order: 2 !important;
+        }
+
+        .vb-print-image-panel img {
+            max-height: 320px !important;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Fixed Observer: Selects and hooks directly to the newly declared .print-card rows container setup array
+    const printRows = document.querySelectorAll('.print-card');
+
+    const printSectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" // Triggers reveal sequence slightly before item impacts view edge frame line
+    });
+
+    printRows.forEach(row => printSectionObserver.observe(row));
+});
+</script>
+
+
+<section class="printing-process">
+
+    <div class="process-heading">
+        <span>OUR PROCESS</span>
+        <h2>From Idea to Delivery</h2>
+        <p>
+            A streamlined printing workflow that ensures every project
+            is delivered with quality, precision and consistency.
+        </p>
+    </div>
+
+    <div class="process-container">
+
+        <div class="process-card">
+            <div class="process-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div class="step-number">01</div>
+
+            <h3>Idea</h3>
+
+            <p>
+                Understanding your requirements, goals and printing needs.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-icon">
+                <i class="fa-solid fa-pen-ruler"></i>
+            </div>
+
+            <div class="step-number">02</div>
+
+            <h3>Design</h3>
+
+            <p>
+                Creating professional layouts and print-ready artwork.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-icon">
+                <i class="fa-solid fa-print"></i>
+            </div>
+
+            <div class="step-number">03</div>
+
+            <h3>Print</h3>
+
+            <p>
+                High-quality printing using advanced production techniques.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="step-number">04</div>
+
+            <h3>Quality Check</h3>
+
+            <p>
+                Every print is inspected for color, finishing and accuracy.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-icon">
+                <i class="fa-solid fa-truck-fast"></i>
+            </div>
+
+            <div class="step-number">05</div>
+
+            <h3>Delivery</h3>
+
+            <p>
+                Secure packaging and on-time delivery to your destination.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+	.printing-process{
+    padding:120px 5%;
+    background:#f8f5ec;
+    overflow:hidden;
+}
+
+/* Heading */
+
+.process-heading{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:80px;
+}
+
+.process-heading span{
+    color:#165848;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.process-heading h2{
+    font-size:52px;
+    margin:15px 0;
+    color:#111827;
+    font-weight:800;
+}
+
+.process-heading p{
+    color:#64748b;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Process Layout */
+
+.process-container{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:25px;
+}
+
+/* Card */
+
+.process-card{
+    position:relative;
+    background:white;
+
+    border-radius:24px;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.05);
+
+    transition:.5s;
+
+    opacity:1;
+    transform:translateY(60px);
+}
+
+.process-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.process-card:hover{
+    transform:translateY(-12px);
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.12);
+}
+
+/* Connector Arrow */
+
+.process-card:not(:last-child)::after{
+    content:"➜";
+
+    position:absolute;
+
+    top:50%;
+
+    right:-22px;
+
+    transform:translateY(-50%);
+
+    font-size:28px;
+
+    color:#165848;
+
+    z-index:10;
+}
+
+/* Step Number */
+
+.step-number{
+    position:absolute;
+    top:15px;
+    right:18px;
+
+    font-size:58px;
+    font-weight:900;
+
+    color:#16584810;
+}
+
+/* Icon */
+
+.process-icon{
+    width:90px;
+    height:90px;
+
+    margin:auto;
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+    135deg,
+    #165848,
+    #1cb08e
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:36px;
+}
+
+/* Text */
+
+.process-card h3{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:10px;
+    color:#111827;
+}
+
+.process-card p{
+    color:#64748b;
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* Hover Icon */
+
+.process-card:hover .process-icon{
+    transform:rotate(8deg) scale(1.08);
+}
+
+/* Tablet */
+
+@media(max-width:1200px){
+
+.process-container{
+grid-template-columns:repeat(3,1fr);
+}
+
+.process-card:nth-child(3)::after,
+.process-card:nth-child(5)::after{
+display:none;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.printing-process{
+padding:80px 20px;
+}
+
+.process-heading h2{
+font-size:36px;
+}
+
+.process-container{
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.process-card::after{
+display:none !important;
+}
+
+}
+</style>
+
+
+
+
+<!-- 
+<section class="vb-cta-section">
+  <div class="vb-cta-container">
+    
+    
+    <div class="vb-cta-form-box">
+      <div class="vb-cta-header">
+        <h2>Let's Create Something Remarkable!</h2>
+        <p>Fill out this quick form, and our design experts will get back to you within 2-4 business hours.</p>
+      </div>
+      
+      <form id="vbCtaForm" class="vb-cta-grid">
+       
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaName" placeholder="Full Name" required />
+        </div>
+        
+       
+        <div class="vb-input-wrapper">
+          <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
+        </div>
+        
+       
+        <div class="vb-input-wrapper">
+          <input type="email" id="ctaEmail" placeholder="Email Address" required />
+        </div>
+        
+       
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaCompany" placeholder="Company Name" required />
+        </div>
+        
+        
+        <div class="vb-input-wrapper full-row">
+          <select id="ctaService" required>
+            <option value="" disabled selected>Services Looking For...</option>
+            <option value="Food Packaging Box">Food Packaging Box</option>
+            <option value="Mono Cartons Box">Mono Cartons Box</option>
+            <option value="Rigid Box">Rigid Box</option>
+            <option value="Gift Box">Gift Box</option>
+            <option value="Corrugated Box">Corrugated Box</option>
+            <option value="Pouch Printing">Pouch Printing</option>
+            <option value="Paper Bag">Paper Bag</option>
+            <option value="Sticker &amp; Label Printing">Sticker / Label Printing</option>
+          </select>
+        </div>
+        
+        
+        <div class="full-row text-left">
+          <button type="submit" class="vb-cta-submit">
+            Get A Free Quote <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    
+   
+    <div class="vb-cta-sidebar">
+      
+      
+      <div class="vb-side-card">
+        <div class="vb-radar-header">
+          <h3><i class="fa-regular fa-clock"></i> Desk Availability</h3>
+          <div class="vb-live-indicator">
+            <span class="vb-pulse"></span> Live Status
+          </div>
+        </div>
+        
+        <div class="vb-hours-timeline">
+          <div class="vb-timeline-item">
+            <div class="vb-time-bullet"></div>
+            <div class="vb-time-info">
+              <span>Monday - Saturday</span>
+              <strong>9:00 AM - 6:00 PM</strong>
+            </div>
+          </div>
+          <div class="vb-timeline-item vb-closed-day">
+            <div class="vb-time-bullet"></div>
+            <div class="vb-time-info">
+              <span>Sunday Routine</span>
+              <strong class="vb-status-closed">Studio Closed</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="vb-side-actions">
+        <a href="tel:+919822088158" class="vb-action-btn btn-call">
+          <div class="vb-action-icon-box"><i class="fa-solid fa-phone"></i></div>
+          <div class="vb-action-text">
+            <span>Voice Desk</span>
+            <strong>Call Now</strong>
+          </div>
+        </a>
+        <a href="https://wa.me/919822088158?text=Hello%20VisualBox%2C%20I%20want%20a%20packaging%20quote." target="_blank" class="vb-action-btn btn-whatsapp">
+          <div class="vb-action-icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="vb-action-text">
+            <span>Instant Chat</span>
+            <strong>WhatsApp</strong>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    
+  </div>
+</section> -->
+
+<style>
+  /* --- CTA Section Context Background --- */
+  .vb-cta-section {
+    width: 100%;
+    padding: 80px 5%;
+    background: #f1f5f9; /* Modern light luxury neutral studio tone */
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- Two-Column Layout Grid Setup --- */
+  .vb-cta-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  /* --- Left Side: Crisp Creative Clean White Form Container --- */
+  .vb-cta-form-box {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 24px;
+    padding: 45px 40px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.04);
+  }
+
+  .vb-cta-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a; /* Solid contrast luxury slate dark text */
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .vb-cta-header p {
+    font-size: 14.5px;
+    color: #64748b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  /* --- Compact Multi-Column Grid Elements --- */
+  .vb-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+  }
+
+  .vb-cta-grid .full-row {
+    grid-column: span 2; 
+  }
+
+  /* --- Inputs & Fields Cosmetics --- */
+  .vb-input-wrapper input,
+  .vb-input-wrapper select {
+    width: 100%;
+    height: 52px;
+    padding: 0 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: #0f172a;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Clear Dropdown selection arrow adjustments */
+  .vb-input-wrapper select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 14px;
+  }
+
+  .vb-input-wrapper select option {
+    background: #ffffff;
+    color: #0f172a;
+  }
+
+  .vb-input-wrapper input::placeholder {
+    color: #94a3b8;
+  }
+
+  /* Multicolored interactive creative focus shifts on selection fields */
+  .vb-input-wrapper input:focus,
+  .vb-input-wrapper select:focus {
+    border-color: #4f46e5; /* Neon indigo vibrant edge highlight */
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  }
+
+  /* --- Brand Primary Dark & Gold Creative Action Button --- */
+  .vb-cta-submit {
+    height: 52px;
+    padding: 0 35px;
+    background: #0f172a; /* Slate Dark Professional baseline */
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s ease;
+    margin-top: 6px;
+  }
+
+  .vb-cta-submit hover, 
+  .vb-cta-submit:hover {
+    background: #1e293b;
+    color: #f6c42f; /* Highlight pop color on execution */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  }
+
+  .vb-cta-submit i {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+  }
+
+  .vb-cta-submit:hover i {
+    transform: translateX(5px);
+  }
+
+  /* =========================================
+      RIGHT SIDEBAR DYNAMIC LOOK
+  ========================================= */
+  .vb-cta-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vb-side-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 20px;
+    padding: 28px 26px;
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.02);
+  }
+
+  .vb-radar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .vb-side-card h3 {
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .vb-side-card h3 i {
+    color: #4f46e5;
+  }
+
+  /* Live Pulse Indicator Graphic */
+  .vb-live-indicator {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.08);
+    padding: 4px 10px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .vb-pulse {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulseRadar 1.6s infinite;
+  }
+
+  @keyframes pulseRadar {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  /* Timeline Creative Matrix Layout */
+  .vb-hours-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 6px;
+  }
+
+  .vb-hours-timeline::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: #e2e8f0;
+  }
+
+  .vb-timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 24px;
+  }
+
+  .vb-time-bullet {
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: #4f46e5;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #4f46e5;
+    z-index: 2;
+  }
+
+  .vb-closed-day .vb-time-bullet {
+    background: #cbd5e1;
+    box-shadow: 0 0 0 2px #cbd5e1;
+  }
+
+  .vb-time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .vb-time-info span {
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .vb-time-info strong {
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  .vb-status-closed {
+    color: #ef4444 !important;
+    font-weight: 600;
+  }
+
+  /* Sidebar Modern Multi-Color Capsule Badges */
+  .vb-side-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .vb-action-btn {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+  }
+
+  .vb-action-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .vb-action-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .vb-action-text span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+  }
+
+  .vb-action-text strong {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* Call Pill Styles */
+  .btn-call {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-call .vb-action-icon-box { background: rgba(255, 255, 255, 0.1); color: #f6c42f; }
+  .btn-call .vb-action-text span { color: #94a3b8; }
+
+  .btn-call:hover {
+    background: #1e293b;
+    transform: translateX(4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  /* WhatsApp Pill Styles */
+  .btn-whatsapp {
+    background: #ffffff;
+    color: #1ea951;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-whatsapp .vb-action-icon-box { background: #25d366; color: #ffffff; }
+  .btn-whatsapp .vb-action-text span { color: #64748b; }
+
+  .btn-whatsapp:hover {
+    border-color: rgba(37, 211, 102, 0.3);
+    background: rgba(37, 211, 102, 0.02);
+    transform: translateX(4px);
+    box-shadow: 0 12px 24px rgba(37, 211, 102, 0.06);
+  }
+
+  /* =========================================
+      RESPONSIVE MEDIA SETTING
+  ========================================= */
+  @media (max-width: 992px) {
+    .vb-cta-container {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+    .vb-cta-section {
+      padding: 60px 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .vb-cta-grid {
+      grid-template-columns: 1fr;
+    }
+    .vb-cta-grid .full-row {
+      grid-column: span 1;
+    }
+    .vb-cta-form-box {
+      padding: 30px 20px;
+    }
+    .vb-cta-header h2 {
+      font-size: 23px;
+    }
+    .vb-side-actions {
+      flex-direction: row;
+    }
+  }
+</style>
+
+
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Asynchronous template engine pipelines injection fetching
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    const nav = document.getElementById('navbar-placeholder');
+                    if (nav) nav.innerHTML = data;
+                    if(typeof initNavbarLogic === 'function') initNavbarLogic();
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    const footer = document.getElementById('footer-placeholder');
+                    if (footer) footer.innerHTML = data;
+                });
+
+            // GSAP ScrollTrigger Animation Engine Orchestrator
+            if (typeof gsap !== 'undefined' && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Entrance parallax cascading elements timeline on hero content 
+                gsap.from(".hero-content-matrix > *", { 
+                    y: 30, 
+                    opacity: 0, 
+                    duration: 0.8, 
+                    stagger: 0.12, 
+                    ease: "power2.out", 
+                    delay: 0.2 
+                });
+
+                // Scroll reveal loop parsing for capabilities rows
+                gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
+                    gsap.from(elem, {
+                        scrollTrigger: { 
+                            trigger: elem, 
+                            start: "top 88%",
+                            toggleActions: "play none none reverse"
+                        },
+                        y: 40, 
+                        opacity: 0, 
+                        duration: 0.75, 
+                        ease: "power2.out"
+                    });
+                });
+            }
+
+            // High-fidelity Interactive Mouse-Hover 3D Parallax Matrix for Cards
+            if (window.innerWidth > 768) {
+                document.querySelectorAll(".glass-capability-card").forEach(card => {
+                    card.addEventListener("mousemove", (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left - (rect.width / 2);
+                        const y = e.clientY - rect.top - (rect.height / 2);
+                        
+                        card.style.transform = `perspective(1000px) rotateY(${x * 0.06}deg) rotateX(${-y * 0.06}deg) translateY(-5px)`;
+                        card.style.boxShadow = "0 30px 50px -10px rgba(15, 23, 42, 0.08)";
+                        card.style.transition = "none";
+                    });
+
+                    card.addEventListener("mouseleave", () => {
+                        card.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)";
+                        card.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.03)";
+                        card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease";
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+<script>
+const cards = document.querySelectorAll(".process-card");
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+},{threshold:0.2});
+
+cards.forEach(card=>{
+observer.observe(card);
+});
+</script>
+</html>

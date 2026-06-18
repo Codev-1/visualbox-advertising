@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+	 <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+	 <link rel="icon" type="image/x-icon" href="assests/images/favicon_dark.ico?v=2">
+    
+    <link rel="icon" type="image/png" sizes="512x512" href="assests/images/favicon_dark.png?v=2">
+    
+    <link rel="apple-touch-icon" href="assests/images/favicon_dark.png?v=2">
+
+</head>
+<!-- FIXED: Applied overflow clipping globally to structural parent layers to kill scroll bugs -->
+<body style="margin: 0; padding: 0; width: 100%; overflow-x: hidden;">
+
+    <!-- ==========================================================================
+     RE-ENGINEERED HERO SECTION CONTAINER (PACKAGING SPECIFIC EDITION)
+     ========================================================================== -->
+
+	 <div id="navbar-placeholder"></div>
+
+
+
+	 <section class="hero-section-container">
+        
+        <div class="hero-background-layer">
+            <div class="hero-background-overlay"></div>
+            <img src="assests/images/pack.png" alt="Premium Custom Structural Packaging Production Backdrop View">
+        </div>
+        
+        <div class="hero-content-matrix flex-col-center"> 
+        
+            <div class="hero-badge-strip font-outfit">
+                <span>Premium Packaging</span>
+                <div class="brand-dot-group">
+                    <span class="brand-dot b-emerald"></span>
+                    <span class="brand-dot b-emerald-light"></span>
+                    <span class="brand-dot b-gold"></span>
+                    <span class="brand-dot b-slate"></span>
+                </div>
+            </div>
+            
+            <h1 class="hero-main-title font-outfit">
+                Quality Packaging <br> 
+                <span class="text-white-brand">Made for</span> <br>
+                <span class="text-gold-brand">Every </span> Is <span class="text-gold-brand">Business.</span>
+            </h1>
+            
+            <div class="hero-action-container font-outfit">
+                <a href="#contact-cta" class="btn-brand-gradient">
+                    Box Your Project <i class="fa-solid fa-box-open"></i>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+<!-- COMPLETE RE-ENGINEERED CONTAINER STYLE CODES -->
+<style>
+        :root {
+            --brand-emerald: #165848;
+            --brand-emerald-light: #ff4bb1;
+            --brand-gold: #fcd256; /* Fixed: Corrected your variable to the proper gold color hex */
+            --ui-dark: #0f172a;
+            --ui-slate: #475569;
+        }
+
+        .font-outfit { font-family: 'Outfit', sans-serif !important; }
+
+        /* ==========================================================================
+           1. MAIN STRUCTURE FRAMEWORK LAYOUTS
+           ========================================================================== */
+        .hero-section-container {
+            position: relative !important;
+            width: 100% !important;
+            min-height: 90vh !important; /* Slightly increased to give maximum frame presence */
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+            
+            /* FIXED: Shifted top padding from 140px to 220px to cleanly push text down below your fixed header */
+            padding: 220px 4% 120px 4% !important; 
+        }
+
+        .hero-section-container * {
+            box-sizing: border-box !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-background-layer {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 1 !important;
+        }
+
+        .hero-background-layer img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+        }
+
+        /* FIXED: Increased opacity filters from 0.1 to a rich 0.45 baseline overlay for maximum text contrast */
+        .hero-background-overlay {
+            position: absolute !important;
+            inset: 0 !important;
+            background: linear-gradient(
+                135deg, 
+                rgba(15, 23, 42, 0.5) 0%, 
+                rgba(22, 88, 72, 0.4) 100%
+            ) !important;
+            z-index: 2 !important;
+        }
+
+        .hero-content-matrix {
+            position: relative !important;
+            z-index: 10 !important;
+            width: 100% !important;
+            max-width: 1100px !important; /* Opened up max-width slightly for easier content fit */
+            margin: 0 auto !important;
+        }
+
+        .flex-col-center {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+
+        /* ==========================================================================
+           2. BRAND BADGE STRIP WITH OPERATING DOTS
+           ========================================================================== */
+        .hero-badge-strip {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            padding: 10px 24px !important;
+            background: rgba(255, 255, 255, 0.12) !important; /* Enhanced glass visibility */
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-radius: 50px !important;
+            color: #ffffff !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 32px !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .brand-dot-group {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+
+        .brand-dot {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            display: block !important;
+        }
+
+        .b-emerald { background-color: var(--brand-emerald) !important; }
+        .b-emerald-light { background-color: var(--brand-emerald-light) !important; }
+        .b-gold { background-color: var(--brand-gold) !important; }
+        .b-slate { background-color: var(--ui-slate) !important; }
+
+        /* ==========================================================================
+           3. HEADINGS & TYPOGRAPHY SYSTEM
+           ========================================================================== */
+        .hero-main-title {
+            font-size: clamp(38px, 5.2vw, 68px) !important; /* Adaptive responsive calculation scalability */
+            font-weight: 800 !important;
+            line-height: 1.15 !important;
+            color: #ffffff !important;
+            text-transform: uppercase !important;
+            letter-spacing: -0.5px !important;
+            margin-bottom: 40px !important;
+            text-shadow: 0 4px 12px rgba(15, 23, 42, 0.3); /* Soft text shadowing helps reading contrast */
+        }
+
+        .text-white-brand { color: #ffffff !important; }
+        .text-gold-brand { color: var(--brand-gold) !important; }
+        .text-emerald-brand { color: var(--brand-emerald-light) !important; }
+
+        /* ==========================================================================
+           4. CONVERSION CTAS INTERACTION COMPONENT
+           ========================================================================== */
+        .hero-action-container {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+        }
+
+        .btn-brand-gradient {
+            height: 54px !important;
+            padding: 0 36px !important;
+            border-radius: 50px !important;
+            background: linear-gradient(90deg, var(--brand-gold) 0%, #ffde6a 100%) !important;
+            color: var(--ui-dark) !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            box-shadow: 0 10px 25px -5px rgba(246, 196, 47, 0.35) !important;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .btn-brand-gradient i {
+            font-size: 14px !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .btn-brand-gradient:hover {
+            background: #ffffff !important;
+            color: var(--brand-emerald) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .btn-brand-gradient:hover i {
+            transform: rotate(15deg) scale(1.1) !important;
+        }
+
+        /* ==========================================================================
+           5. LOW VIEWPORT RESPONSIVITY FALLBACK RUNWAYS
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .hero-section-container { min-height: 75vh !important; padding-top: 180px !important; }
+            .hero-badge-strip { padding: 8px 18px !important; font-size: 11px !important; margin-bottom: 24px !important; }
+            .hero-main-title { line-height: 1.2 !important; margin-bottom: 32px !important; }
+            .btn-brand-gradient { width: 100% !important; max-width: 340px !important; height: 50px !important; font-size: 14px !important; }
+        }
+    </style>
+
+
+    <section class="vb-capabilities-section">
+    <div class="vb-capabilities-container">
+        
+        <div class="vb-capabilities-content gsap-fade-right">
+            
+            <h2>We Manufacture Premium Boxes for Your Brand</h2>
+            <p class="vb-cap-desc">
+                From lightweight folding cartons for pharmaceuticals to ultra-premium rigid boxes for luxury apparel, our Pune facility is equipped to handle complex structures and high-volume runs with flawless consistency.
+            </p>
+            
+            <ul class="vb-cap-list">
+                <li><i class="fa-solid fa-check"></i> Folding Cartons (Mono Cartons)</li>
+                <li><i class="fa-solid fa-check"></i> Corrugated Master Cartons</li>
+                <li><i class="fa-solid fa-check"></i> Premium Rigid Boxes</li>
+                <li><i class="fa-solid fa-check"></i> Food-Grade &amp; Pharma Packaging</li>
+            </ul>
+        </div>
+        
+        <div class="vb-capabilities-media gsap-fade-left">
+            <div class="vb-media-gradient-bg"></div>
+            
+            <img src="assests/images/sweets.png" 
+                 onerror="this.src='https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'" 
+                 alt="Box Manufacturing" 
+                 class="vb-media-img">
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    /* ==========================================================================
+       CAPABILITIES INTUITIVE SECTION DESIGN
+       ========================================================================== */
+    .vb-capabilities-section {
+        width: 100%;
+        padding: 96px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .vb-capabilities-section * {
+        box-sizing: border-box !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .vb-capabilities-container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 4%;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr; /* Proportional spatial balance */
+        gap: 64px;
+        align-items: center;
+    }
+
+    /* --- Left Content Styles --- */
+    .vb-capabilities-content {
+        width: 100%;
+    }
+
+    .vb-cap-badge {
+        display: block;
+        color: #8CC63F; /* Custom signature light green */
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        margin-bottom: 16px;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    .vb-capabilities-content h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 48px;
+        font-weight: 900;
+        line-height: 1.15;
+        color: #1a1a1a;
+        margin-bottom: 24px;
+        letter-spacing: -0.5px;
+    }
+
+    .vb-cap-desc {
+        font-family: 'Outfit', sans-serif;
+        font-size: 18px;
+        line-height: 1.65;
+        color: #4b5563;
+        margin-bottom: 32px;
+    }
+
+    .vb-cap-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .vb-cap-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'Outfit', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    .vb-cap-list li i {
+        color: #8CC63F;
+        font-size: 18px;
+    }
+
+    /* --- Right Tilted Media Deck Styles --- */
+    .vb-capabilities-media {
+        position: relative;
+        width: 100%;
+        height: 600px;
+    }
+
+    .vb-media-gradient-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #8CC63F 0%, #00AEEF 100%);
+        border-radius: 3rem;
+        transform: rotate(3deg);
+        z-index: 1;
+    }
+
+    .vb-media-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 3rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: rotate(-3deg);
+        z-index: 2;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Straightens back up seamlessly on card hover */
+    .vb-capabilities-media:hover .vb-media-img {
+        transform: rotate(0deg);
+    }
+
+    /* ==========================================================================
+       GSAP ANIMATIONS REPLACEMENT VANILLA JAVA-SCRIPT CLASSES
+       ========================================================================== */
+    .gsap-fade-right,
+    .gsap-fade-left {
+        opacity: 0;
+        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gsap-fade-right { transform: translateX(-40px); }
+    .gsap-fade-left { transform: translateX(40px); }
+
+    /* When visible reveal cleanly */
+    .gsap-fade-right.show,
+    .gsap-fade-left.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS MODIFIERS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+        .vb-capabilities-container {
+            grid-template-columns: 1fr; /* Stacks column sections on laptops/tablets */
+            gap: 60px;
+        }
+        .vb-capabilities-content h2 { font-size: 38px; }
+        .vb-capabilities-media { height: 500px; }
+    }
+
+    @media (max-width: 640px) {
+        .vb-capabilities-section { padding: 60px 0; }
+        .vb-capabilities-content h2 { font-size: 32px; }
+        .vb-cap-desc { font-size: 15px; line-height: 1.6; }
+        .vb-cap-list li { font-size: 17px; }
+        .vb-capabilities-media { height: 380px; }
+        .vb-media-gradient-bg, .vb-media-img { border-radius: 2rem; } /* Tames corner intensity on narrow monitors */
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const animatedElements = document.querySelectorAll('.gsap-fade-right, .gsap-fade-left');
+
+        const sectionTriggerObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -40px 0px"
+        });
+
+        animatedElements.forEach(el => sectionTriggerObserver.observe(el));
+    });
+</script>
+
+
+<!-- ==========================================================================
+     RE-ENGINEERED STRUCTURAL PACKAGING PRODUCT SOLUTIONS SHOWCASE
+     ========================================================================== -->
+<section class="packaging-showcase">
+
+    <div class="section-title">
+        <span>OUR PACKAGING SERVICES</span>
+        <h2>Premium Structural Solutions</h2>
+    </div>
+
+    <!-- ALTERNATING PREMIUM EDITORIAL MATRIX CONTAINER -->
+    <div class="packaging-alternating-rows">
+
+        <!-- ITEM 1: FOOD PACKAGING BOX (Image Right) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-info-panel">
+                <h3>Food Packaging Box</h3>
+                <p>
+                    Engineered using 100% food-grade certified paperboard media vectors, our custom confectionery, bakery, and takeaway fast-food boxes preserve freshness while establishing maximum shelf visibility. Designed with precision ventilation paths and grease-resistant barrier coatings to lock down product safety.
+                </p>
+            </div>
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/food-package.jpg" alt="Premium Food Grade Packaging Showcase" loading="lazy">
+            </div>
+        </div>
+
+        <!-- ITEM 2: MONO CARTONS BOX (Image Left) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/mono-carton-box.jpg" alt="Custom Mono Carton Box Manufacturing" loading="lazy">
+            </div>
+            <div class="vb-pack-info-panel">
+                <h3>Mono Cartons Box (Folding Cartons)</h3>
+                <p>
+                    The absolute cornerstone of modern retail product presentation. From pharmaceutical layout requirements to cosmetic outer shielding shells, our lightweight custom mono cartons offer immaculate print fidelity, variable spot UV accents, and metallic foil structural boundaries built to capture consumer attention.
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM 3: RIGID BOX (Image Right) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-info-panel">
+                <h3>Ultra-Premium Rigid Box</h3>
+                <p>
+                    Crafted for elite retail electronics, high-end jewelry, and corporate presentation tiers. These thick, heavy-duty architectural board configurations feature flawless hand-wrapped liners, magnetic split closing panels, and tailored internal EVA foam inserts to give your customers an unmatched unboxing journey.
+                </p>
+            </div>
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/rigid-box.jpg" alt="Luxury Hand-Wrapped Rigid Box Production" loading="lazy">
+            </div>
+        </div>
+
+        <!-- ITEM 4: GIFT BOX (Image Left) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/gift-box.jpg" alt="Custom Corporate Gift Box Design" loading="lazy">
+            </div>
+            <div class="vb-pack-info-panel">
+                <h3>Bespoke Corporate Gift Box</h3>
+                <p>
+                    Transform seasonal corporate items into synchronized brand statements. Our custom-printed luxury event gift boxes combine striking structural configurations with artisanal ribbon locks and texturizing canvas paper linings, helping businesses communicate appreciation with premium aesthetic scale.
+                </p>
+            </div>
+        </div>
+
+        <!-- ITEM 5: CORRUGATED BOX (Image Right) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-info-panel">
+                <h3>Corrugated Box (Master Shippers)</h3>
+                <p>
+                    Heavy-duty industrial structural protection engineered to absorb heavy transit impacts seamlessly. Manufactured in multiple flute specifications (3-ply, 5-ply, and 7-ply configurations), our master shippers provide maximum compression strength for seamless pan-India logistics and safe export storage cycles.
+                </p>
+            </div>
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/corrucated-box.jpg" alt="Heavy Duty Corrugated Master Cartons Shippers" loading="lazy">
+            </div>
+        </div>
+
+        <!-- ITEM 6: PAPER BAG (Image Left) -->
+        <div class="vb-pack-row font-outfit pack-card">
+            <div class="vb-pack-image-panel">
+                <img src="assests/images/paper-box.jpg" alt="Luxury Retail Paper Bags Design" loading="lazy">
+            </div>
+            <div class="vb-pack-info-panel">
+                <h3>Eco-Friendly Retail Paper Bags</h3>
+                <p>
+                    Premium high-density kraft and art-paper retail shopping bags built to carry weight effortlessly. Complete with reinforced baseline boards, custom twisted-rope or satin ribbon handles, and brilliant eco-friendly ink coverage vectors that turn every customer into a walking advertisement for your store.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- COMPLETE RE-ENGINEERED COMPONENT STYLES -->
+<style>
+    /* ==========================================================================
+       1. CORE SECTION BACKGROUND SYSTEM SETUP
+       ========================================================================== */
+    .packaging-showcase {
+        padding: 60px 4% !important;
+        background-color: #FAF9E6 !important; /* Fixed background to matches your signature warm ivory */
+        position: relative;
+    }
+
+    .packaging-showcase * {
+        box-sizing: border-box !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-title {
+        text-align: center !important;
+        max-width: 800px;
+        margin: 0 auto 100px auto !important;
+    }
+
+    .section-title span {
+        color: #165848 !important; /* VisualBox Identity Deep Emerald Green */
+        font-size: 13px !important;
+        letter-spacing: 3px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+
+    .section-title h2 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 46px !important;
+        font-weight: 800 !important;
+        margin-top: 14px !important;
+        color: #0f172a !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* ==========================================================================
+       2. STACT EDTIORIAL ALTERNATING SPLIT LAYOUT ENGINE
+       ========================================================================== */
+    .packaging-alternating-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 120px; /* Generous breathing room between features to look high-end */
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* Split Row Matrix Layout Grid Frame */
+    .vb-pack-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Balanced structural columns split */
+        gap: 80px;
+        align-items: center;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Intersection observer handler display reveal class */
+    .vb-pack-row.show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Info Board Text Panels */
+    .vb-pack-info-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .vb-pack-info-panel h3 {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 34px !important;
+        font-weight: 800 !important;
+        color: #165848 !important; /* Highlight title targets with brand emerald */
+        margin-bottom: 20px !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.01em;
+    }
+
+    .vb-pack-info-panel p {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 15.5px !important;
+        line-height: 1.85 !important;
+        color: #475569 !important; /* Soft readability layout dark gray text */
+        font-weight: 400;
+        text-align: justify;
+    }
+
+    /* Image Wrapper Panel Plates */
+    .vb-pack-image-panel {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px !important; /* Smooth clean container rounding curvature */
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+        background-color: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.03);
+    }
+
+    .vb-pack-image-panel img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 440px !important;
+        object-fit: cover !important; /* Edge to edge bounding crop */
+        display: block !important;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Macro-scale zoom interaction hover loop layer */
+    .vb-pack-row:hover .vb-pack-image-panel img {
+        transform: scale(1.03);
+    }
+
+    /* ==========================================================================
+       3. LOW VIEWPORT RESPONSIVITY FALLBACK RUNWAYS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+        .packaging-showcase { padding: 80px 4% !important; }
+        .section-title { margin-bottom: 60px !important; }
+        .section-title h2 { font-size: 36px !important; }
+        .vb-pack-row { gap: 40px; }
+        .vb-pack-info-panel h3 { font-size: 28px !important; margin-bottom: 14px !important; }
+        .vb-pack-info-panel p { font-size: 14.5px !important; line-height: 1.7 !important; }
+    }
+
+    @media (max-width: 768px) {
+        .packaging-alternating-rows { gap: 80px; }
+        
+        .vb-pack-row {
+            grid-template-columns: 1fr !important; /* Collapse grid arrays into full stacked columns block linear lists */
+            gap: 24px;
+        }
+
+        /* Forces image panels to prioritize stacking directly underneath content descriptions on lower monitors */
+        .vb-pack-row:nth-child(even) .vb-pack-info-panel,
+        .vb-pack-row .vb-pack-info-panel {
+            order: 1 !important;
+        }
+
+        .vb-pack-row:nth-child(even) .vb-pack-image-panel,
+        .vb-pack-row .vb-pack-image-panel {
+            order: 2 !important;
+        }
+
+        .vb-pack-image-panel img {
+            max-height: 320px !important;
+        }
+    }
+</style>
+
+<!-- ASYNC SCROLL INTERSECTION OBSROLLER TRACK SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Targets the newly mapped pack-card node array lists safely
+    const packRows = document.querySelectorAll('.pack-card');
+
+    const packSectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    packRows.forEach(row => packSectionObserver.observe(row));
+});
+</script>
+
+ <script src="js/navbar.js"></script>
+
+<script>
+fetch("navbar.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById(
+        "navbar-placeholder"
+    ).innerHTML = data;
+});
+</script>
+
+<div id="footer-placeholder"></div>
+    
+    <!-- Global Script -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

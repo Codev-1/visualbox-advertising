@@ -139,17 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
        const slideData = [
         {
             // For hero2.png (Incense Sticks)
-            badge: "PREMIUM PACKAGING & BRANDING",
-            heading: "From Small Quantities <br>to Mass Production",
+            badge: "PREMIUM PACKAGING",
+            heading: "Crafting Premium Packaging <br> From Concept to Scale",
             tagline: "We Image Your Imagination",
-            desc: "Custom packaging and printing solutions tailored for startups, growing brands and large-scale businesses."
+            desc: ""
         },
         {
             // For hero4.png (Vibrant Spices & Tea)
-            badge: "RETAIL BRANDING",
+            badge: "PACKAGING",
             heading: "From Concept <br> To Creation",
             tagline: "We Deliver Custom Packaging Solutions For Every Industries",
-            desc: "Eye-catching retail packaging that protects freshness while making your brand completely irresistible."
+            desc: ""
         },
        {
     badge: "BRAND IDENTITY",
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tagline: "Creative Branding & Design",
 
-    desc: "We craft impactful brand identities through innovative design, consistent visual storytelling, and professional marketing materials."
+    desc: ""
 },
        {
     badge: "CUSTOM PRINTING",
@@ -167,14 +167,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tagline: "Premium Printing Solutions",
 
-    desc: "From brochures, flyers, posters, catalogs, business cards, and marketing materials to large-format prints, we deliver vibrant, high-quality printing that leaves a lasting impression."
+    desc: ""
 },
         {
             // NEW LAYER: For watermarked_img_4703323948691782088.png (Digital Marketing)
             badge: "GROWTH MARKETING",
             heading: "Dominate the Feed. <br> Own the Search.",
             tagline: "Stop Scrolling. Start Scaling.",
-            desc: "."
+            desc: ""
         }
     ];
 

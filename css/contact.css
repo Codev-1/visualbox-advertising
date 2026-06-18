@@ -29,7 +29,15 @@ html {
 }
 
 body.fresh-contact-body {
-    background-color: var(--color-pure-white);
+     background:
+    radial-gradient(circle at top center,
+        rgba(22,88,72,.08),
+        transparent 35%),
+    linear-gradient(
+        180deg,
+        #f0eded 0%,
+        #f4f2ef 100%
+    );
     color: var(--color-soft-dark);
     font-family: var(--font-body);
     overflow-x: hidden;
@@ -88,8 +96,8 @@ body.fresh-contact-body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, 
-        rgba(17, 17, 17, 0.05) 0%, 
-        rgba(17, 17, 17, 0.07) 70%, 
+        rgba(17, 17, 17, 0.02) 0%, 
+        rgba(17, 17, 17, 0.05) 80%, 
         var(--color-pure-white) 150%);
     z-index: 2;
 }
@@ -113,14 +121,25 @@ body.fresh-contact-body {
     margin-bottom: 24px;
 }
 
-.hero-display-title {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color: var(--color-pure-white);
-    margin-bottom: 24px;
-    letter-spacing: -2px;
+.hero-display-title{
+    font-size:clamp(3rem,6vw,6rem);
+    font-weight:750;
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:#ffffff;
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.25);
+}
+
+.hero-gradient-text{
+    background:linear-gradient(
+        135deg,
+        #825c03f9,
+        #da5154,
+        #674ceb
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero-tagline {
@@ -129,7 +148,7 @@ body.fresh-contact-body {
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.6;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 /* Micro-interaction structural scroll tracker node */
@@ -183,11 +202,7 @@ body.fresh-contact-body {
 /* ==========================================================================
    3. SYSTEM CONNECTOR MAIN BODY MATRIX GRID DESIGNS
    ========================================================================== */
-.main-matrix-container {
-    width: 100%;
-    padding: 140px 0;
-    background-color: var(--color-pure-white);
-}
+
 
 .flex-matrix-grid {
     display: grid;
@@ -434,10 +449,16 @@ body.fresh-contact-body {
 /* ==========================================================================
    5. MAP HOUSING VIEW DESIGN MODULE
    ========================================================================== */
+.main-matrix-container {
+    width: 100%;
+    padding: 140px 0;
+    background: transparent;
+}
+
 .geographic-portal-section {
     width: 100%;
     padding: 0 0 140px 0;
-    background-color: var(--color-pure-white);
+    background: transparent;
 }
 
 .section-title-block { margin-bottom: 56px; }

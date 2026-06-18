@@ -105,46 +105,41 @@
     <main class="relative overflow-hidden">
         
         <!-- 1. HERO SECTION -->
-        <section class="relative w-full h-[100vh] min-h-[600px] flex items-center justify-center overflow-hidden px-6 lg:px-12">
+        <section class="relative w-full h-[60vh] sm:h-[75vh] md:h-[85vh] min-h-[520px] max-h-[850px] flex items-center justify-center overflow-hidden px-4 md:px-12 mt-[80px] lg:mt-[90px]">
     
-    <!-- Hero Background Image Layer (Height 90vh) -->
-    <div class="absolute inset-0 w-full h-full z-0">
-        <!-- Overlay layer to make centered text completely legible over the graphic asset -->
-        <div class="absolute inset-0 bg-black/15 backdrop-blur-[0px] z-10"></div>
-        <img src="assests/images/sweets.png" 
-             alt="Offset Printing Press Back-drop" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <!-- Center Aligned Copy Writing Matrix Container -->
-    <div class="relative z-20 gsap-hero w-full max-w-4xl text-center flex flex-col items-center justify-center">
-        
-        <div class="flex items-center justify-center gap-3 mb-6">
-            <span class="text-white font-bold uppercase tracking-[0.3em] text-xs drop-shadow-md font-outfit">Commercial Printing</span>
-            <div class="flex gap-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/10">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#00AEEF]"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-[#E3000F]"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-[#FBC02D]"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-[#1a1a1a]"></span>
+            <div class="absolute inset-0 w-full h-full z-0">
+                <div class="absolute inset-0 bg-white/10 z-10"></div>
+                <img src="assests/images/print4.png" 
+                     alt="Offset Printing Background Runway Banner" 
+                     class="w-full h-full object-cover object-center">
             </div>
-        </div>
-        
-        <h1 class="font-syne text-5xl md:text-7xl font-black mb-6 text-white leading-[1.15] tracking-tight drop-shadow-lg uppercase">
-            Flawless Color. <br> Absolute <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00AEEF] via-[#FBC02D] to-[#E3000F]">Precision.</span>
-        </h1>
-        
-        <p class="text-slate-200 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-outfit drop-shadow-md opacity-95">
-            Print your visions to life! Our printing services turn ideas into colorful realities, ensuring your message pops off the page and packaging.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            <a href="#contact-cta" class="w-full sm:w-auto inline-flex justify-center items-center gap-3 text-white bg-gradient-to-r from-[#00AEEF] to-[#E3000F] hover:from-[#E3000F] hover:to-[#00AEEF] rounded-full px-10 py-4 font-syne font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-[0_10px_30px_rgba(0,174,239,0.2)]">
-                Print Your Project <i class="fa-solid fa-print"></i>
-            </a>
-        </div>
-    </div>
-
-</section>
+            
+            <div class="relative z-20 gsap-hero w-full max-w-4xl text-center flex flex-col items-center justify-center mx-auto"> 
+            
+                <div class="flex items-center justify-center gap-3 mb-4 md:mb-5">
+                    <span class="text-gray-800 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs font-outfit">Commercial Printing</span>
+                    <div class="flex gap-1 bg-slate-200/60 backdrop-blur-xs p-1 rounded-full border border-slate-300/40">
+                        <span class="w-2 h-2 rounded-full bg-[#00AEEF]"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#E3000F]"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#FBC02D]"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#1a1a1a]"></span>
+                    </div>
+                </div>
+                
+                <h1 class="font-oswald text-[2.2rem] sm:text-5xl md:text-6xl lg:text-[4.4rem] font-black mb-6 md:mb-8 text-[#142c72] leading-[1.08] tracking-tight ">
+                    Quality Printing <br> 
+                    Is Our Foundation. <br>
+                    <span class="text-[#00AEEF]">Your Brand</span> Is <span class="text-[#E3000F]">Our Focus.</span>
+                </h1>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4">
+                    <a href="#contact-cta" class="w-full sm:w-auto inline-flex justify-center items-center gap-3 text-white bg-gradient-to-r from-[#00AEEF] via-[#7B1FA2] to-[#E3000F] hover:from-[#E3000F] hover:to-[#00AEEF] rounded-full px-8 py-3.5 font-oswald font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md">
+                        Print Your Project <i class="fa-solid fa-print text-sm"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
 
         <!-- 2. CORE PRINTING CAPABILITIES GRID -->
         <section class="py-24 px-6 lg:px-12 max-w-[90rem] mx-auto relative z-10">

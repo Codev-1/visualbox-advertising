@@ -77,8 +77,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </p> -->
 
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Explore Packaging</a>
-                    <a href="#" class="btn-secondary">Get Quote</a>
+                    <a href="package.html" class="btn-primary">Explore Packaging</a>
+                    <a href="contact.html" class="btn-secondary">Get Quote</a>
                 </div>
             </div>
 
@@ -537,7 +537,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <a href="contact.html" class="vb-primary-btn">
                 Get Started
             </a>
-            <a href="portfolio.html" class="vb-secondary-btn">
+            <a href="port.html" class="vb-secondary-btn">
                 View Portfolio
             </a>
         </div>
@@ -794,23 +794,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 ========================= -->
 
 <section class="vb-services">
-    <!-- TOP HEADER -->
     <div class="vb-services-top">
         <div class="vb-heading">
             <span class="vb-mini-title">— See Our Latest Work</span>
             <h2><span>We Image Your Imagination</span></h2>
         </div>
-        <!-- BUTTON -->
         <a href="port.html" class="vb-view-btn">
             <span>+</span> View All Services
         </a>
     </div>
 
-    <!-- SLIDER / GRID -->
     <div class="vb-slider-wrapper">
         <div class="vb-slider">
 
-            <!-- CARD 1 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/food-package.jpg" alt="Packaging Boxes">
@@ -820,7 +816,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 2 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/mono-carton-box.jpg" alt="Brochure Design">
@@ -830,7 +825,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 3 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/rigid-box.jpg" alt="Business Cards">
@@ -840,7 +834,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 4 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/gift-box.jpg" alt="Flyers">
@@ -850,7 +843,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 5 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/corrucated-box.jpg" alt="plain-Boxes">
@@ -860,7 +852,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 6 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/pouch.jpg" alt="Brochure Design">
@@ -870,7 +861,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 7 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/paper-box.jpg" alt="Business Cards">
@@ -880,7 +870,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 </div>
             </div>
 
-            <!-- CARD 8 -->
             <div class="vb-card">
                 <div class="vb-card-image">
                     <img src="assests/images/stickers.jpg" alt="Flyers">
@@ -892,305 +881,185 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         </div>
     </div>
-
-    <!-- BOTTOM CATEGORY -->
-    <!-- <div class="vb-bottom-tags">
-        <span>Packaging Boxes ✷</span>
-        <span>Brochures ✷</span>
-        <span>Business Cards ✷</span>
-        <span>Flyers & Posters ✷</span>
-        <span>Branding Prints ✷</span>
-    </div> -->
 </section>
 
 <style>
-/* =========================
-   VISUALBOX SERVICES
-========================= */
+/* ==========================================================================
+   VISUALBOX SERVICES — COMPACT SINGLE-SCREEN MATRIX FIX
+   ========================================================================== */
 
-.vb-services{
-    position:relative;
-
-    width:100%;
-
-    padding: 80px 3%;
-
-    background:#165848;
-
-    overflow:hidden;
+.vb-services {
+    position: relative;
+    width: 100%;
+    padding: 60px 3% 60px 3% !important; /* Balanced padding to ensure visibility */
+    background: #165848;
+    overflow: hidden;
 }
 
 /* =========================
-   TOP
+   TOP HEADER ELEMENTS
 ========================= */
-
-.vb-services-top{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-
-    gap:30px;
-
-    margin-bottom:60px;
-
-    flex-wrap:wrap;
+.vb-services-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px; /* Clean gap above the cards grid */
+    flex-wrap: wrap;
 }
 
-/* MINI TITLE */
-
-.vb-mini-title{
-    display:block;
-
-    font-size:14px;
-    font-weight:600;
-
-    letter-spacing:2px;
-
-    color:#d9f5ec;
-
-    margin-bottom:18px;
+.vb-mini-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #d9f5ec;
+    margin-bottom: 12px;
 }
 
-/* HEADING */
-
-.vb-heading h2{
-    font-size: 48px;
-        line-height: 1.15;
-
-    color:#fff;
-
-    font-weight:700;
-
-    max-width:700px;
+.vb-heading h2 {
+    font-size: 42px;
+    line-height: 1.15;
+    color: #fff;
+    font-weight: 700;
+    max-width: 700px;
 }
 
-/* YELLOW TEXT */
-
-.vb-heading h2 span{
-    display:block;
-
-    color:#f6c42f;
-
-     font-size: 48px;
-        line-height: 1.15;
-     font-family: 'Outfit', sans-serif;
-
-    margin-top:8px;
+.vb-heading h2 span {
+    display: block;
+    color: #f6c42f;
+    font-size: 42px;
+    line-height: 1.15;
+    font-family: 'Outfit', sans-serif;
+    margin-top: 6px;
 }
 
-/* BUTTON */
-
-.vb-view-btn{
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    text-decoration:none;
-
-    background:#f6c42f;
-
-    color:#111;
-
-    padding:18px 30px;
-
-    border-radius:60px;
-
-    font-size:15px;
-    font-weight:600;
-
-    transition:.4s ease;
+.vb-view-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    background: #f6c42f;
+    color: #111;
+    padding: 14px 28px;
+    border-radius: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .4s ease;
 }
 
-.vb-view-btn span{
-    width:32px;
-    height:32px;
-
-    border-radius:50%;
-
-    background:#165848;
-
-    color:#fff;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.vb-view-btn span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #165848;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.vb-view-btn:hover{
-    transform:translateY(-5px);
+.vb-view-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* =========================
-   SLIDER
-========================= */
-
-/* =========================
-   SLIDER / GRID DECK
-========================= */
-
+/* ==========================================================================
+   SLIDER / GRID DECK — THE VERTICAL STRETCH FIX
+   ========================================================================== */
 .vb-slider {
-    display: grid;
-    /* Keeps exactly 4 columns per row on widescreen viewports */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 18px;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* Strict 4 columns layout */
+    grid-auto-rows: max-content !important; /* FIXED: Forces rows to collapse to the size of the content */
+    align-items: start !important;          /* FIXED: Kills default stretching behavior shown in image_3c67f9.png */
+    gap: 18px 20px; /* 24px row gap for clear vertical separation, 20px column gap */
+    width: 100%;
 }
 
 /* CARD CONTAINER */
 .vb-card {
     position: relative;
     display: flex;
-    flex-direction: column; /* Stacks image on top, text at the bottom */
-    
-    /* Subtle glassmorphism tint overlaying your deep green section background */
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px; /* Clean, streamlined curved corner look */
-    
-    padding: 10px; /* Balanced inner buffer frame */
-    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), background .4s ease;
+    flex-direction: column; 
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px; 
+    padding: 12px; 
+    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), background .4s ease, border-color .4s ease;
     overflow: hidden;
-    height: min-content;
+    height: auto !important; /* Collapses neatly around inner elements */
 }
 
 .vb-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* IMAGE (Increased Size & Aspect-Locked) */
+/* IMAGE WORK SPACE (4:3 Ratio Landscape Format) */
 .vb-card-image {
     width: 100%;
-    /* FIX: Standardizes image into a perfect square grid regardless of native width */
-    aspect-ratio: 1 / 1; 
-    height: auto; /* Overrides the fixed 230px height constraint */
-    
+    aspect-ratio: 4 / 3 !important; 
     overflow: hidden;
-    border-radius: 10px; /* Slight inner rounding for your project media files */
-    margin-bottom: 16px; /* Separation gap directly above the title text */
+    border-radius: 10px; 
+    margin-bottom: 14px;
 }
 
 .vb-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maximizes frame footprint without distortion */
+    object-fit: cover; 
     transition: transform .6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .vb-card:hover img {
-    transform: scale(1.05); /* Smooth, controlled image scale zoom */
+    transform: scale(1.03);
 }
 
-/* TEXT CONTENT (Shifted to Bottom) */
+/* TEXT CONTENT */
 .vb-card-content {
-    text-align: center; /* Centers the product text under the square image */
+    text-align: center; 
     width: 100%;
-    margin-top: auto; /* Ensures text stays pinned to the bottom of the card block */
+    padding: 4px 0 8px 0; /* Tight, proportional padding */
 }
 
 .vb-card-content h3 {
-    font-size: 16px; /* Balanced typography scale for a 4-column row layout */
+    font-size: 15px; 
     font-weight: 600;
     color: #ffffff;
     margin: 0;
-    padding: 4px 0;
-    letter-spacing: 0.3px;
-     font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.2px;
+    font-family: 'Outfit', sans-serif;
+    transition: color 0.3s ease;
 }
 
-/* BUTTON */
-
- .vb-card-btn{
-    position:absolute;
-
-    bottom:18px;
-    right:18px;
-
-    width:48px;
-    height:48px;
-
-    border-radius:50%;
-
-    background:#f6c42f;
-
-    color:#111;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:24px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.4s ease;
-} 
-
-.vb-card-btn:hover{
-    transform:rotate(45deg);
+.vb-card:hover .vb-card-content h3 {
+    color: #f6c42f; 
 }
 
-/* =========================
-   BOTTOM TAGS
-========================= */
-
-.vb-bottom-tags{
-    margin-top:60px;
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:22px;
-
-    justify-content:center;
-}
-
-.vb-bottom-tags span{
-    color:#fff;
-
-    font-size:16px;
-    font-weight:500;
-
-    opacity:.9;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1200px){
-
+/* =========================================
+   RESPONSIVE MODIFIERS BREAKPOINTS
+========================================= */
+@media(max-width: 1200px){
     .vb-slider{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
-
+    .vb-heading h2, .vb-heading h2 span { font-size: 36px; }
 }
 
-@media(max-width:768px){
-
-    .vb-services{
-        padding:90px 20px;
-    }
-
-    .vb-heading h2{
-        font-size:40px;
-    }
-
+@media(max-width: 850px){
     .vb-slider{
-        grid-template-columns:1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
-
+    .vb-services { padding: 50px 20px; }
+    .vb-heading h2, .vb-heading h2 span { font-size: 30px; }
 }
 
-@media(max-width:480px){
-
-    .vb-heading h2{
-        font-size:32px;
+@media(max-width: 480px){
+    .vb-slider{
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
     }
-
-    .vb-card-content h3{
-        font-size:20px;
-    }
-
+    .vb-heading h2, .vb-heading h2 span { font-size: 26px; }
 }
 </style>
 
@@ -4563,7 +4432,7 @@ document.addEventListener("DOMContentLoaded", () => {
     position: absolute;
     top: -15px; right: 15px;
     font-size: 130px;
-    color: rgba(16, 42, 99, 0.03); 
+    color: rgba(16, 42, 99, 0.33); 
     font-family: serif;
     line-height: 1;
     pointer-events: none;

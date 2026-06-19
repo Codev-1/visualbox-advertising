@@ -19,19 +19,19 @@
     max-width: 1400px;
     margin: 0 auto;
     
-    padding: 190px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
+    padding: 110px 80px; /* Reduced desktop padding to eliminate extreme spacing gaps */
 }
 
 .vb-footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 10px;
      transform:translateY(-65px);
 }
 
 /* --- Typography Formatting Changes --- */
 .vb-footer-col h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: #0f0f0f;
@@ -48,7 +48,7 @@
 
 .vb-footer-col ul li {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.5;
 }
 
@@ -121,14 +121,14 @@
     z-index: 10;
     background-color: transparent;
     /* border-top: 1px solid #eeeeee; */
-    padding: 24px 20px;
+    padding: 6px 20px;
     text-align: center;
 }
 
 .vb-footer-bottom p {
     margin: 0;
     font-size: 14px;
-    color: #767676;
+    color: #474747;
     line-height: 1.6;
 }
 
@@ -214,3 +214,6 @@
     transform: scale(1.08) translateY(-4px);
     color: #ffffff;
 }
+
+
+

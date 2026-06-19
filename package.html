@@ -64,6 +64,7 @@
 
 <!-- COMPLETE RE-ENGINEERED CONTAINER STYLE CODES -->
 <style>
+    
         :root {
             --brand-emerald: #165848;
             --brand-emerald-light: #ff4bb1;
@@ -73,6 +74,11 @@
         }
 
         .font-outfit { font-family: 'Outfit', sans-serif !important; }
+
+
+         
+
+
 
         /* ==========================================================================
            1. MAIN STRUCTURE FRAMEWORK LAYOUTS
@@ -249,6 +255,9 @@
             .hero-main-title { line-height: 1.2 !important; margin-bottom: 32px !important; }
             .btn-brand-gradient { width: 100% !important; max-width: 340px !important; height: 50px !important; font-size: 14px !important; }
         }
+
+        
+
     </style>
 
 
@@ -736,7 +745,299 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
- <script src="js/navbar.js"></script>
+
+
+<section class="vb-cta-section">
+  <div class="vb-cta-container">
+    
+    <!-- LEFT SIDE: CINEMATIC LIGHT-BLUE DATA INTERACTION CARD -->
+    <div class="vb-cta-form-box">
+      <div class="vb-cta-header">
+        <h2>REQUEST A QUOTE NOW</h2>
+        <p>and let's create something truly remarkable together!</p>
+      </div>
+      
+      <form id="vbCtaForm" class="vb-cta-grid">
+        <!-- Row 1 -->
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaName" placeholder="Full Name" required />
+        </div>
+        
+        <div class="vb-input-wrapper">
+          <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
+        </div>
+        
+        <!-- Row 2 -->
+        <div class="vb-input-wrapper">
+          <input type="email" id="ctaEmail" placeholder="Email Address" required />
+        </div>
+        
+        <div class="vb-input-wrapper">
+          <input type="text" id="ctaCompany" placeholder="Company Name" required />
+        </div>
+        
+        <!-- Row 3: Dropdowns -->
+        <div class="vb-input-wrapper">
+          <select id="ctaSource" required>
+            <option value="" disabled selected>How did you hear about us ?</option>
+            <option value="Google">Google Search</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Referral">Referral</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="vb-input-wrapper">
+          <select id="ctaService" required>
+            <option value="" disabled selected>Services looking for</option>
+            <option value="Food Packaging Box">Food Packaging Box</option>
+            <option value="Mono Cartons Box">Mono Cartons Box</option>
+            <option value="Rigid Box">Rigid Box</option>
+            <option value="Gift Box">Gift Box</option>
+            <option value="Corrugated Box">Corrugated Box</option>
+            <option value="Pouch Printing">Printing</option>
+            <option value="Paper Bag">Branding</option>
+            <option value="Sticker &amp; Label Printing">Digital Marketing</option>
+          </select>
+        </div>
+
+        <!-- Row 4: Multi-line Message Board text field -->
+        <div class="vb-input-wrapper full-row">
+          <textarea id="ctaMessage" rows="4" placeholder=" ">Your Message</textarea>
+        </div>
+        
+        <!-- Submit Button Row (Solid Black Left Aligned Box Style) -->
+        <div class="full-row text-left">
+          <button type="submit" class="vb-cta-submit">
+            <span>▶</span> SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- FIXED RIGHT SIDE: EDGE-TO-EDGE HIGH-END IMAGE WRAPPER -->
+    <div class="vb-cta-image-sidebar">
+      <img src="assests/images/portfolio/Display Image 8.jpg" alt="VisualBox Creative Packaging Showcase" loading="lazy" />
+      <div class="vb-image-gradient-overlay"></div>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  /* =========================================
+     COMPACT STUDIO MATTE CLOUD DESIGN PROFILE 
+     ========================================= */
+
+  .vb-cta-section {
+    width: 100%;
+    padding: 80px 3%;
+    background-color: #4d5357; /* Matches slate gray background palette matrix */
+    font-family: 'Outfit', sans-serif;
+    position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .vb-cta-section * {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .vb-cta-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr; /* Optimized proportion grid balance */
+    gap: 48px;
+    align-items: stretch; /* Forces equal heights on both columns */
+    padding-bottom: 80px !important;
+  }
+
+  /* =========================================
+     LEFT SIDE: AIRY CYAN GLASS CANVAS PACK
+     ========================================= */
+  .vb-cta-form-box {
+    background: #a9dad7; /* Matched the clean pale cloud-cyan background surface tint */
+    border-radius: 16px; /* Smooth card rounding profile */
+    padding: 50px 45px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .vb-cta-form-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.4) 0%, transparent 40%),
+                      radial-gradient(circle at 85% 80%, rgba(255,255,255,0.3) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .vb-cta-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .vb-cta-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111b24; /* Deep crisp focus text */
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .vb-cta-header p {
+    font-size: 15px;
+    color: #2c424e;
+    font-weight: 500;
+  }
+
+  .vb-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .vb-cta-grid .full-row {
+    grid-column: span 2;
+  }
+
+  /* Input Fields Design Styling Elements */
+  .vb-input-wrapper input,
+  .vb-input-wrapper select,
+  .vb-input-wrapper textarea {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.65); /* Translucent bright input cells */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #111b24;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .vb-input-wrapper textarea {
+    height: 80px;
+    padding: 16px;
+    resize: none;
+  }
+
+  .vb-input-wrapper input::placeholder { color: #5f7a85; opacity: 0.9; }
+
+  .vb-input-wrapper select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f7a85' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    color: #5f7a85;
+  }
+
+  .vb-input-wrapper select:valid {
+    color: #111b24;
+  }
+
+  .vb-input-wrapper input:focus,
+  .vb-input-wrapper select:focus,
+  .vb-input-wrapper textarea:focus {
+    background: #ffffff;
+    border-color: #5f7a85;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .vb-cta-submit {
+    height: 46px;
+    padding: 0 28px;
+    background: #000000; /* Flat solid technical look */
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.3s ease;
+  }
+
+  .vb-cta-submit span {
+    font-size: 9px;
+    color: #ffffff;
+  }
+
+  .vb-cta-submit:hover {
+    background: #1a1a1a;
+  }
+
+  /* ==========================================================================
+     FIXED RIGHT SIDE: EDGE-TO-EDGE HIGH-END INDUSTRIAL IMAGE CARD
+     ========================================================================== */
+  .vb-cta-image-sidebar {
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .vb-cta-image-sidebar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Perfect full bounding box crop coverage fill */
+    display: block !important;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Elegant contrast shadow layer mimicking standard premium designs */
+  .vb-image-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(15, 23, 42, 0.4) 0%,
+      rgba(15, 23, 42, 0) 50%
+    );
+    pointer-events: none;
+  }
+
+  .vb-cta-image-sidebar:hover img {
+    transform: scale(1.04); /* Premium cinematic scale lift on interaction */
+  }
+
+  /* =========================================
+      RESPONSIVE RUNWAY BREAKPOINTS
+     ========================================= */
+  @media (max-width: 1024px) {
+    .vb-cta-container { grid-template-columns: 1fr; gap: 40px; padding-bottom: 40px !important; }
+    .vb-cta-section { padding-top: 60px !important; }
+    .vb-cta-image-sidebar { height: 400px; } /* Gives a defined height when stacked on lower resolution containers */
+  }
+
+  @media (max-width: 640px) {
+    .vb-cta-grid { grid-template-columns: 1fr; gap: 16px; }
+    .vb-cta-grid .full-row { grid-column: span 1; }
+    .vb-cta-form-box { padding: 35px 20px; }
+    .vb-cta-header h2 { font-size: 24px; }
+    .vb-cta-image-sidebar { height: 300px; }
+  }
+</style>
+
+ 
 
 <script>
 fetch("navbar.html")
@@ -752,6 +1053,7 @@ fetch("navbar.html")
     
     <!-- Global Script -->
     <script src="js/script.js"></script>
+    <script src="js/navbar.js"></script>
 
 </body>
 </html>

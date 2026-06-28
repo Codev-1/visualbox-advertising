@@ -16,6 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+
+        
+
+
         /* ==========================================================================
            1. CORE ENGINE LAYOUT RESET & BASE STYLES
            ========================================================================== */
@@ -25,12 +29,15 @@
             padding: 0;
         }
 
+        
+
         body {
             font-family: 'Outfit', sans-serif;
             background-color: #f4f7fe;
             color: #1a1a1a;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            width: 100%;
         }
 
         .font-oswald { font-family: 'Oswald', sans-serif; }
@@ -68,18 +75,17 @@
            2. PREMIUM RE-ENGINEERED HERO BLOCK STYLES
            ========================================================================== */
         .hero-section-container {
-            position: relative;
-            width: 100%;
-            height: 65vh;
-            min-height: 580px;
-            max-height: 900px;
-            display: flex;
-            align-items: flex-start; /* Unlocks explicit vertical alignment control */
-            justify-content: center;
-            padding: 0 24px;
-            margin-top: 80px; /* Safe padding barrier protection from navigation overlay */
-            overflow: hidden;
-        }
+    position: relative;
+    width: 100vw;           /* Force full viewport width */
+    height: 100vh !important;           /* Force full viewport height */
+    margin: 0 !important;   /* Reset margin */
+    padding: 0 !important;  /* Reset padding */
+    display: flex;
+    align-items: center;    /* Center content vertically */
+    justify-content: center;
+    overflow: hidden;
+    background-color: #fdfaf7;
+}
 
         .hero-background-layer {
             position: absolute;
@@ -92,8 +98,8 @@
         .hero-background-layer img {
             width: 100%;
             height: 100%;
-            object-fit: fit;
-            object-position: center center;
+            object-fit: fill;
+            object-position: center;
         }
 
         .hero-background-overlay {
@@ -109,6 +115,7 @@
             z-index: 20;
             width: 100%;
             max-width: 960px;
+            padding: 0 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -262,7 +269,7 @@
                 </h1>
                 
                 <div class="hero-action-container">
-                    <a href="#contact-cta" class="btn-brand-gradient">
+                    <a href="contact.html#form-anchor" class="btn-brand-gradient">
                         Print Your Project <i class="fa-solid fa-print"></i>
                     </a>
                 </div>
@@ -1653,38 +1660,38 @@ display:none !important;
         <p>and let's create something truly remarkable together!</p>
       </div>
       
-      <form id="vbCtaForm" class="vb-cta-grid">
-        <!-- Row 1 -->
-        <div class="vb-input-wrapper">
-          <input type="text" id="ctaName" placeholder="Full Name" required />
-        </div>
-        
-        <div class="vb-input-wrapper">
-          <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
-        </div>
-        
-        <!-- Row 2 -->
-        <div class="vb-input-wrapper">
-          <input type="email" id="ctaEmail" placeholder="Email Address" required />
-        </div>
-        
-        <div class="vb-input-wrapper">
-          <input type="text" id="ctaCompany" placeholder="Company Name" required />
-        </div>
-        
-        <!-- Row 3: Dropdowns -->
-        <div class="vb-input-wrapper">
-          <select id="ctaSource" required>
+     <form id="vbCtaForm" class="vb-cta-grid">
+    <!-- Row 1 -->
+    <div class="vb-input-wrapper">
+        <input type="text" id="ctaName" placeholder="Full Name" required />
+    </div>
+    
+    <div class="vb-input-wrapper">
+        <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
+    </div>
+    
+    <!-- Row 2 -->
+    <div class="vb-input-wrapper">
+        <input type="email" id="ctaEmail" placeholder="Email Address" required />
+    </div>
+    
+    <div class="vb-input-wrapper">
+        <input type="text" id="ctaCompany" placeholder="Company Name" required />
+    </div>
+    
+    <!-- Row 3: Dropdowns -->
+    <div class="vb-input-wrapper">
+        <select id="ctaSource" required>
             <option value="" disabled selected>How did you hear about us ?</option>
-            <option value="Google">Google Search</option>
+            <option value="Google Search">Google Search</option>
             <option value="Social Media">Social Media</option>
             <option value="Referral">Referral</option>
             <option value="Other">Other</option>
-          </select>
-        </div>
+        </select>
+    </div>
 
-        <div class="vb-input-wrapper">
-          <select id="ctaService" required>
+    <div class="vb-input-wrapper">
+        <select id="ctaService" required>
             <option value="" disabled selected>Services looking for</option>
             <option value="Food Packaging Box">Food Packaging Box</option>
             <option value="Mono Cartons Box">Mono Cartons Box</option>
@@ -1694,21 +1701,21 @@ display:none !important;
             <option value="Pouch Printing">Printing</option>
             <option value="Paper Bag">Branding</option>
             <option value="Sticker &amp; Label Printing">Digital Marketing</option>
-          </select>
-        </div>
+        </select>
+    </div>
 
-        <!-- Row 4: Multi-line Message Board text field -->
-        <div class="vb-input-wrapper full-row">
-          <textarea id="ctaMessage" rows="4" placeholder=" ">Your Message</textarea>
-        </div>
-        
-        <!-- Submit Button Row (Solid Black Left Aligned Box Style) -->
-        <div class="full-row text-left">
-          <button type="submit" class="vb-cta-submit">
+    <!-- Row 4: Multi-line Message Board text field -->
+    <div class="vb-input-wrapper full-row">
+        <textarea id="ctaMessage" rows="4" placeholder="Your Message"></textarea>
+    </div>
+    
+    <!-- Submit Button Row -->
+    <div class="full-row text-left">
+        <button type="submit" class="vb-cta-submit">
             <span>▶</span> SUBMIT
-          </button>
-        </div>
-      </form>
+        </button>
+    </div>
+</form>
     </div>
     
     <!-- FIXED RIGHT SIDE: EDGE-TO-EDGE HIGH-END IMAGE WRAPPER -->
@@ -1932,6 +1939,50 @@ display:none !important;
     .vb-cta-image-sidebar { height: 300px; }
   }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const ctaFormElement = document.getElementById("vbCtaForm");
+
+    if (ctaFormElement) {
+        ctaFormElement.addEventListener("submit", function(event) {
+            event.preventDefault(); // Halts default submission pathways immediately
+
+            // 1. WhatsApp Target Endpoint Configuration
+            const targetWhatsAppNumber = "917875838908";
+
+            // 2. Extract input values cleanly 
+            const name = document.getElementById("ctaName").value.trim();
+            const phone = document.getElementById("ctaPhone").value.trim();
+            const email = document.getElementById("ctaEmail").value.trim();
+            const company = document.getElementById("ctaCompany").value.trim();
+            const source = document.getElementById("ctaSource").value;
+            const service = document.getElementById("ctaService").value;
+            const message = document.getElementById("ctaMessage").value.trim() || "N/A";
+
+            // 3. Construct a beautiful, formatted text grid using markdown elements
+            const structuredMessage = 
+                `*New Quick Inquiry - VisualBox*\n` +
+                `----------------------------------\n` +
+                `👤 *Client Name:* ${name}\n` +
+                `📞 *Phone:* ${phone}\n` +
+                `📧 *Email:* ${email}\n` +
+                `🏢 *Company:* ${company}\n` +
+                `🔍 *Found Us Via:* ${source}\n` +
+                `⚙️ *Service Required:* ${service}\n` +
+                `----------------------------------\n` +
+                `📝 *Client Message:* ${message}`;
+
+            // 4. Transform string matrix into URL safe hex fragments
+            const encodedText = encodeURIComponent(structuredMessage);
+
+            // 5. Fire direct API routing frame (Seamless across mobile application apps and web panels)
+            const whatsappRedirectUrl = `https://api.whatsapp.com/send?phone=${targetWhatsAppNumber}&text=${encodedText}`;
+            window.open(whatsappRedirectUrl, '_blank');
+        });
+    }
+});
+</script>
 
 
 

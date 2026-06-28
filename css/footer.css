@@ -19,7 +19,7 @@
     max-width: 1400px;
     margin: 0 auto;
     
-    padding: 110px 80px; /* Reduced desktop padding to eliminate extreme spacing gaps */
+    padding: 110px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
 }
 
 .vb-footer-grid {
@@ -47,7 +47,7 @@
 }
 
 .vb-footer-col ul li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 17px;
     line-height: 1.5;
 }
@@ -63,15 +63,15 @@
 }
 
 .vb-contact-info li {
-    margin-bottom: 16px !important;
+    margin-bottom: 8px !important;
 }
 
 /* --- Social Media Branding Links --- */
 .vb-social-icons {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px; /* Added spacing buffer below icon line arrays */
+    margin-top: 15px;
+    margin-bottom: 60px; /* Added spacing buffer below icon line arrays */
 }
 
 .vb-social {

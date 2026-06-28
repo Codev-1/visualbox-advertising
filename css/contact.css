@@ -298,7 +298,7 @@ body.fresh-contact-body {
 .asymmetric-input-engine {
     display: flex;
     flex-direction: column;
-    gap: 36px; /* Expanded spatial intervals for premium design rules tracking */
+    gap: 30px; /* Expanded spatial intervals for premium design rules tracking */
 }
 
 .input-twin-columns {
@@ -403,7 +403,7 @@ body.fresh-contact-body {
 .action-submit-button-wrapper {
     display: flex;
     justify-content: flex-end;
-    margin-top: 12px;
+    margin-top: 1px;
 }
 
 .magnetic-submit-action {
@@ -418,22 +418,22 @@ body.fresh-contact-body {
     cursor: pointer;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: background-color 0.4s ease, transform 0.4s ease;
 }
 
 .btn-icon-bubble {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background-color: var(--color-pure-white);
     color: var(--color-soft-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -451,7 +451,7 @@ body.fresh-contact-body {
    ========================================================================== */
 .main-matrix-container {
     width: 100%;
-    padding: 140px 0;
+    padding: 90px 0;
     background: transparent;
 }
 
@@ -510,4 +510,38 @@ body.fresh-contact-body {
     .section-display-heading { font-size: 2.25rem; }
     .main-matrix-container { padding: 100px 0; }
     .geographic-portal-section { padding-bottom: 100px; }
+}
+
+
+
+/* Container framework adjustment */
+.phone-input-wrapper {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Country code styling layout alignment */
+.country-code-prefix {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    color: #475569; /* Soft dark gray to match themes */
+    padding-right: 8px;
+    border-right: 1px solid #cbd5e1;
+    margin-right: 12px;
+    user-select: none;
+    pointer-events: none;
+    display: inline-block;
+    height: calc(100% - 16px);
+}
+
+/* Adjust the field title position so it clears the prefix icon spacer */
+.phone-input-wrapper .minimal-input:focus ~ .floating-field-title,
+.phone-input-wrapper .minimal-input:not(:placeholder-shown) ~ .floating-field-title {
+    transform: translateY(-6px) scale(1); /* Adjust height according to your global contact styles */
+}
+
+.phone-input-wrapper .floating-field-title {
+    left: 55px !important; /* Shifts original starting placeholder title to the right side of +91 */
+    transition: transform 0.3s ease, left 0.3s ease;
 }

@@ -78,7 +78,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
                 <div class="hero-buttons">
                     <a href="package.html" class="btn-primary">Explore Packaging</a>
-                    <a href="contact.html" class="btn-secondary">Get Quote</a>
+                    <a href="contact.html#form-anchor" class="btn-secondary">Get Quote</a>
                 </div>
             </div>
 
@@ -316,7 +316,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
            ========================= */
         .hero-pagination {
             position: absolute;
-            bottom: 40px;
+            bottom: 60px;
             right: 45%;
             z-index: 20; /* High z-index to sit over content and overlay */
             display: flex;
@@ -494,13 +494,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <div class="about-glow-flare"></div>
 
     <!-- LEFT IMAGE / VIDEO BLOCK (Re-engineered to an attractive cinematic landscape frame) -->
-    <div class="vb-about-image">
-        <div class="video-frame-decorator"></div>
-        <video autoplay loop muted playsinline class="vb-about-video">
-            <source src="assests/images/about-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+   <div class="vb-about-image">
+    <div class="video-frame-decorator"></div>
+    
+    <img 
+        src="assests/images/portfolio/Perfume Box 3.jpg" 
+        alt="About VisualBox Advertising" 
+        class="vb-about-video"
+    >
+</div>
 
     <!-- RIGHT CONTENT -->
     <div class="vb-about-content">
@@ -597,7 +599,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
 
     /* Artistic floating background layout shield decorator box */
-    .video-frame-decorator {
+    /* .video-frame-decorator {
         position: absolute;
         top: 20px;
         left: -20px;
@@ -607,22 +609,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         border-radius: 28px;
         z-index: 1;
         pointer-events: none;
-    }
+    } */
 
-    .vb-about-video {
-        width: 100%;
-        max-width: 780px;
-        /* CRUCIAL FIX: Set aspect-ratio to 16/10 landscape rectangle to display massive footage clearly */
-        aspect-ratio: 16 / 10;
-        height: auto; /* Drops the strict manual 670px constraint which squished video footage */
-        object-fit: cover; 
-        border-radius: 24px; 
-        box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.12); 
-        display: block;
-        position: relative;
-        z-index: 2;
-        animation: floatImage 6s ease-in-out infinite; 
-    }
+    /* Update the existing .vb-about-video class */
+.vb-about-video {
+    width: 100%;
+    max-width: 780px;
+    /* Keeps the same landscape shape */
+    aspect-ratio: 8 / 6;
+    height: auto;
+    /* Use object-fit: cover to ensure the image fills the 16:10 frame perfectly */
+    object-fit: cover; 
+    border-radius: 24px; 
+    box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.12); 
+    display: block;
+    position: relative;
+    z-index: 2;
+    /* Keeps your hover/float animation */
+    animation: floatImage 6s ease-in-out infinite; 
+}
 
     /* Floating Entry Animation Framework */
     @keyframes floatImage {
@@ -3336,9 +3341,12 @@ gsap.from(".about-right > *",{
         .vb-clients-section { padding: 80px 0 !important; }
         .vb-clients-slider-outer-wrapper { padding: 0 20px !important; }
         .vb-slider-nav-btn { display: none !important; } /* Natively swipe-enabled on mobile monitors */
-        .vb-client-slider-window { overflow-x: auto !important; }
-        .vb-client-card { min-width: 180px !important; height: 95px !important; padding: 15px 20px !important; }
+        .vb-client-slider-window { overflow-x: auto !important; 
+        scroll-snap-type: x mandatory; 
+        -webkit-overflow-scrolling: touch; }
+        .vb-client-card { min-width: 180px !important; height: 95px !important; padding: 15px 20px !important; scroll-snap-align: start; }
         .vb-client-track-container { gap: 16px !important; }
+        
     }
 </style>
 
@@ -3646,6 +3654,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .vb-ind-card h3 { font-size: 13px; }
     .vb-ind-track { gap: 24px; }
   }
+
+  @media(max-width: 768px) {
+    .vb-ind-marquee-window { 
+        overflow-x: auto !important; 
+        scroll-snap-type: x mandatory; 
+    }
+    .vb-ind-card { scroll-snap-align: start; }
+}
+
+
 </style>
 
 <script>
@@ -4461,10 +4479,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .vb-testimonials-top h2 { font-size: 32px; }
     .vb-testimonials-top p { font-size: 15px; }
     .vb-test-track { gap: 20px; }
-    .vb-test-card { min-width: 280px; }
+    .vb-test-card { min-width: 280px; scroll-snap-align: start; }
     .vb-quote-icon { font-size: 90px; }
     .vb-test-arrow-btn { display: none !important; } 
-    .vb-test-marquee { overflow-x: auto; }
+    .vb-test-marquee { overflow-x: auto; scroll-snap-type: x mandatory; }
   }
 </style>
 
@@ -4528,6 +4546,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Initialize the marquee runner setup
       if (window.innerWidth > 768) {
         animationFrameId = requestAnimationFrame(runTestimonialsMarquee);
+        windowFrame.addEventListener("mouseenter", () => { isTrackingPaused = true; });
+    windowFrame.addEventListener("mouseleave", () => { isTrackingPaused = false; });
       }
     }
   });
@@ -4545,38 +4565,38 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>and let's create something truly remarkable together!</p>
       </div>
       
-      <form id="vbCtaForm" class="vb-cta-grid">
-        <!-- Row 1 -->
-        <div class="vb-input-wrapper">
-          <input type="text" id="ctaName" placeholder="Full Name" required />
-        </div>
-        
-        <div class="vb-input-wrapper">
-          <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
-        </div>
-        
-        <!-- Row 2 -->
-        <div class="vb-input-wrapper">
-          <input type="email" id="ctaEmail" placeholder="Email Address" required />
-        </div>
-        
-        <div class="vb-input-wrapper">
-          <input type="text" id="ctaCompany" placeholder="Company Name" required />
-        </div>
-        
-        <!-- Row 3: Dropdowns -->
-        <div class="vb-input-wrapper">
-          <select id="ctaSource" required>
+     <form id="vbCtaForm" class="vb-cta-grid">
+    <!-- Row 1 -->
+    <div class="vb-input-wrapper">
+        <input type="text" id="ctaName" placeholder="Full Name" required />
+    </div>
+    
+    <div class="vb-input-wrapper">
+        <input type="tel" id="ctaPhone" placeholder="Phone Number" required />
+    </div>
+    
+    <!-- Row 2 -->
+    <div class="vb-input-wrapper">
+        <input type="email" id="ctaEmail" placeholder="Email Address" required />
+    </div>
+    
+    <div class="vb-input-wrapper">
+        <input type="text" id="ctaCompany" placeholder="Company Name" required />
+    </div>
+    
+    <!-- Row 3: Dropdowns -->
+    <div class="vb-input-wrapper">
+        <select id="ctaSource" required>
             <option value="" disabled selected>How did you hear about us ?</option>
-            <option value="Google">Google Search</option>
+            <option value="Google Search">Google Search</option>
             <option value="Social Media">Social Media</option>
             <option value="Referral">Referral</option>
             <option value="Other">Other</option>
-          </select>
-        </div>
+        </select>
+    </div>
 
-        <div class="vb-input-wrapper">
-          <select id="ctaService" required>
+    <div class="vb-input-wrapper">
+        <select id="ctaService" required>
             <option value="" disabled selected>Services looking for</option>
             <option value="Food Packaging Box">Food Packaging Box</option>
             <option value="Mono Cartons Box">Mono Cartons Box</option>
@@ -4586,21 +4606,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <option value="Pouch Printing">Printing</option>
             <option value="Paper Bag">Branding</option>
             <option value="Sticker &amp; Label Printing">Digital Marketing</option>
-          </select>
-        </div>
+        </select>
+    </div>
 
-        <!-- Row 4: Multi-line Message Board text field -->
-        <div class="vb-input-wrapper full-row">
-          <textarea id="ctaMessage" rows="4" placeholder=" ">Your Message</textarea>
-        </div>
-        
-        <!-- Submit Button Row (Solid Black Left Aligned Box Style) -->
-        <div class="full-row text-left">
-          <button type="submit" class="vb-cta-submit">
+    <!-- Row 4: Multi-line Message Board text field -->
+    <div class="vb-input-wrapper full-row">
+        <textarea id="ctaMessage" rows="4" placeholder="Your Message"></textarea>
+    </div>
+    
+    <!-- Submit Button Row -->
+    <div class="full-row text-left">
+        <button type="submit" class="vb-cta-submit">
             <span>▶</span> SUBMIT
-          </button>
-        </div>
-      </form>
+        </button>
+    </div>
+</form>
     </div>
     
     <!-- FIXED RIGHT SIDE: EDGE-TO-EDGE HIGH-END IMAGE WRAPPER -->
@@ -4825,7 +4845,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 </style>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const ctaFormElement = document.getElementById("vbCtaForm");
 
+    if (ctaFormElement) {
+        ctaFormElement.addEventListener("submit", function(event) {
+            event.preventDefault(); // Halts default submission pathways immediately
+
+            // 1. WhatsApp Target Endpoint Configuration
+            const targetWhatsAppNumber = "917875838908";
+
+            // 2. Extract input values cleanly 
+            const name = document.getElementById("ctaName").value.trim();
+            const phone = document.getElementById("ctaPhone").value.trim();
+            const email = document.getElementById("ctaEmail").value.trim();
+            const company = document.getElementById("ctaCompany").value.trim();
+            const source = document.getElementById("ctaSource").value;
+            const service = document.getElementById("ctaService").value;
+            const message = document.getElementById("ctaMessage").value.trim() || "N/A";
+
+            // 3. Construct a beautiful, formatted text grid using markdown elements
+            const structuredMessage = 
+                `*New Quick Inquiry - VisualBox*\n` +
+                `----------------------------------\n` +
+                `👤 *Client Name:* ${name}\n` +
+                `📞 *Phone:* ${phone}\n` +
+                `📧 *Email:* ${email}\n` +
+                `🏢 *Company:* ${company}\n` +
+                `🔍 *Found Us Via:* ${source}\n` +
+                `⚙️ *Service Required:* ${service}\n` +
+                `----------------------------------\n` +
+                `📝 *Client Message:* ${message}`;
+
+            // 4. Transform string matrix into URL safe hex fragments
+            const encodedText = encodeURIComponent(structuredMessage);
+
+            // 5. Fire direct API routing frame (Seamless across mobile application apps and web panels)
+            const whatsappRedirectUrl = `https://api.whatsapp.com/send?phone=${targetWhatsAppNumber}&text=${encodedText}`;
+            window.open(whatsappRedirectUrl, '_blank');
+        });
+    }
+});
+</script>
 
 <script src="js/navbar.js"></script>
 

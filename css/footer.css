@@ -10,6 +10,7 @@
     color: #444444; /* Changed from transparent to prevent invisible text bugs */
     border-top: 1px solid #f0f0f0;
     overflow: hidden;
+    
 }
 
 /* --- Content & Grid Layout System --- */
@@ -19,7 +20,7 @@
     max-width: 1400px;
     margin: 0 auto;
     
-    padding: 110px 40px; /* Reduced desktop padding to eliminate extreme spacing gaps */
+    padding: 120px 60px; /* Reduced desktop padding to eliminate extreme spacing gaps */
 }
 
 .vb-footer-grid {
@@ -111,7 +112,7 @@
 .vb-footer-video {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 1;
 }
 
@@ -182,6 +183,16 @@
         gap: 8px; 
     }
 }
+
+
+@media (min-width:1600px){
+    .vb-footer-content{
+       padding: 200px 10px;
+    }
+}
+
+
+
 
 /* --- Floating Actions Controls Sidebar --- */
 .vb-floating-sidebar {

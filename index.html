@@ -3341,72 +3341,170 @@ gsap.from(".about-right > *",{
         .vb-clients-section { padding: 80px 0 !important; }
         .vb-clients-slider-outer-wrapper { padding: 0 20px !important; }
         .vb-slider-nav-btn { display: none !important; } /* Natively swipe-enabled on mobile monitors */
-        .vb-client-slider-window { overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-        -webkit-overflow-scrolling: touch; }
-        .vb-client-card { min-width: 180px !important; height: 95px !important; padding: 15px 20px !important; scroll-snap-align: start; }
-        .vb-client-track-container { gap: 16px !important; }
+        .vb-client-slider-window{
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+}
+
+.vb-client-slider-window::-webkit-scrollbar{
+    display:none;
+}
+
+.vb-client-track-container{
+    display:flex;
+    width:max-content;
+}
+
+.vb-client-card{
+    flex:0 0 auto;
+}
         
     }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+
     const track = document.getElementById("clientSliderTrack");
-    const sliderWindow = document.getElementById("clientSliderWindow");
-    const leftArrow = document.getElementById("clientScrollLeft");
-    const rightArrow = document.getElementById("clientScrollRight");
+    const slider = document.getElementById("clientSliderWindow");
+    const prev = document.getElementById("clientScrollLeft");
+    const next = document.getElementById("clientScrollRight");
 
-    if (track && sliderWindow && leftArrow && rightArrow) {
-        let currentTranslateX = 0;
-        let scrollSpeed = 0.8; 
-        let isPaused = false;
-        let frameId;
+    if (!track || !slider) return;
 
-        // Card step offset width equation calculations (Card 220px + Gap 24px)
-        const stepWidth = 220 + 24;
+    let translateX = 0;
+    let speed = 0.8;
+    let animation;
 
-        function runMarqueeLoop() {
-            if (!isPaused) {
-                currentTranslateX -= scrollSpeed;
+    let pauseDesktop = false;
 
-                const trackLoopLimit = track.scrollWidth / 2;
-                if (Math.abs(currentTranslateX) >= trackLoopLimit) {
-                    currentTranslateX = 0;
-                    track.style.transition = "none";
-                    track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-                    track.offsetHeight; // Flushes internal renderer tracking trees
-                } else {
-                    track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-                    track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-                }
+    const desktopLimit = track.scrollWidth / 2;
+
+    const step = 244; //220 + 24 gap
+
+    /*==========================
+      DESKTOP CONTINUOUS SLIDER
+    ==========================*/
+
+    function desktopLoop(){
+
+        if(window.innerWidth <=768) return;
+
+        if(!pauseDesktop){
+
+            translateX -= speed;
+
+            if(Math.abs(translateX)>=desktopLimit){
+                translateX = 0;
             }
-            frameId = requestAnimationFrame(runMarqueeLoop);
+
+            track.style.transform =
+            `translate3d(${translateX}px,0,0)`;
+
         }
 
-        rightArrow.addEventListener("click", () => {
-            currentTranslateX -= stepWidth;
-            const trackLoopLimit = track.scrollWidth / 2;
-            if (Math.abs(currentTranslateX) >= trackLoopLimit) currentTranslateX = 0;
-            track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-        });
+        animation=requestAnimationFrame(desktopLoop);
 
-        leftArrow.addEventListener("click", () => {
-            currentTranslateX += stepWidth;
-            if (currentTranslateX > 0) {
-                const trackLoopLimit = track.scrollWidth / 2;
-                currentTranslateX = -trackLoopLimit + stepWidth;
-            }
-            track.style.transform = `translate3d(${currentTranslateX}px, 0, 0)`;
-        });
+    }
 
-        sliderWindow.addEventListener("mouseenter", () => { isPaused = true; });
-        sliderWindow.addEventListener("mouseleave", () => { isPaused = false; });
+    desktopLoop();
 
-        if (window.innerWidth > 768) {
-            frameId = requestAnimationFrame(runMarqueeLoop);
+
+    slider.addEventListener("mouseenter",()=>{
+        if(window.innerWidth>768)
+        pauseDesktop=true;
+    });
+
+    slider.addEventListener("mouseleave",()=>{
+        if(window.innerWidth>768)
+        pauseDesktop=false;
+    });
+
+
+    next?.addEventListener("click",()=>{
+
+        translateX-=step;
+
+        if(Math.abs(translateX)>=desktopLimit){
+            translateX=0;
+        }
+
+        track.style.transform=
+        `translate3d(${translateX}px,0,0)`;
+
+    });
+
+    prev?.addEventListener("click",()=>{
+
+        translateX+=step;
+
+        if(translateX>0){
+            translateX=-desktopLimit+step;
+        }
+
+        track.style.transform=
+        `translate3d(${translateX}px,0,0)`;
+
+    });
+
+
+   
+
+    /*==========================
+    MOBILE CONTINUOUS SCROLL
+==========================*/
+
+let mobileAnimation;
+let mobilePaused = false;
+
+function mobileLoop() {
+
+    if (window.innerWidth > 768) return;
+
+    if (!mobilePaused) {
+
+        slider.scrollLeft += 0.5;   // Speed (0.3 - 1)
+
+        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+            slider.scrollLeft = 0;
         }
     }
+
+    mobileAnimation = requestAnimationFrame(mobileLoop);
+}
+
+if (window.innerWidth <= 768) {
+    mobileLoop();
+}
+
+
+/* Pause while user swipes */
+
+slider.addEventListener("touchstart", () => {
+    mobilePaused = true;
+});
+
+slider.addEventListener("touchend", () => {
+    setTimeout(() => {
+        mobilePaused = false;
+    }, 1500);
+});
+
+
+/* Desktop resize */
+
+window.addEventListener("resize", () => {
+
+    cancelAnimationFrame(mobileAnimation);
+
+    if (window.innerWidth <= 768) {
+        mobileLoop();
+    }
+
+});
+
 });
 </script>
 
@@ -3655,87 +3753,286 @@ document.addEventListener("DOMContentLoaded", () => {
     .vb-ind-track { gap: 24px; }
   }
 
-  @media(max-width: 768px) {
-    .vb-ind-marquee-window { 
-        overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-    }
-    .vb-ind-card { scroll-snap-align: start; }
+  @media (max-width:768px){
+
+.vb-ind-marquee-window{
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+}
+
+.vb-ind-marquee-window::-webkit-scrollbar{
+    display:none;
+}
+
+.vb-ind-track{
+    width:max-content;
+    transform:none !important;
+}
+
+.vb-ind-card{
+    flex:0 0 auto;
+}
+
 }
 
 
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+
     const track = document.getElementById("indSliderTrack");
     const windowWrapper = document.getElementById("indMarqueeWindow");
     const leftBtn = document.getElementById("indScrollLeft");
     const rightBtn = document.getElementById("indScrollRight");
 
-    if (track && windowWrapper && leftBtn && rightBtn) {
-      // Calculate half width once the DOM finishes compiling layout elements
-      const halfWidth = track.scrollWidth / 2;
-      
-      // FIXED: Start at the negative midpoint boundary to allow immediate rightward travel room
-      let positionX = -halfWidth; 
-      let speed = 1.2; 
-      let isPaused = false;
-      let animationFrameId;
+    if (!track || !windowWrapper) return;
 
-      const stepDistance = 160 + 35;
+    const halfWidth = track.scrollWidth / 2;
 
-      // 1. Pure High-Performance JS Scroll Loop Engine (Left-to-Right Overhaul)
-      function runMarquee() {
+    let positionX = -halfWidth;
+    let speed = 1.2;
+
+    let isPaused = false;
+    let desktopFrame;
+    let mobileFrame;
+    let mobilePaused = false;
+
+    const stepDistance = 195;
+
+    /*====================================
+        DESKTOP MARQUEE (UNCHANGED)
+    ====================================*/
+
+    function runMarquee() {
+
+        if (window.innerWidth <= 768) return;
+
         if (!isPaused) {
-          // FIXED: Increment instead of decrementing to change directional vector flow rightward
-          positionX += speed;
 
-          // FIXED: Reset loop back point when hitting zero margin boundaries
-          if (positionX >= 0) {
-            positionX = -halfWidth;
-            track.style.transition = "none";
-            track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-            track.offsetHeight; 
-          } else {
-            track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-            track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-          }
+            positionX += speed;
+
+            if (positionX >= 0) {
+
+                positionX = -halfWidth;
+
+                track.style.transition = "none";
+                track.style.transform =
+                    `translate3d(${positionX}px,0,0)`;
+
+                track.offsetHeight;
+
+            } else {
+
+                track.style.transition = "transform 0.5s cubic-bezier(0.25,1,0.5,1)";
+                track.style.transform =
+                    `translate3d(${positionX}px,0,0)`;
+
+            }
+
         }
-        animationFrameId = requestAnimationFrame(runMarquee);
-      }
 
-      // 2. Button Click Listeners (Directional Alignment Synced)
-      rightBtn.addEventListener("click", () => {
-        positionX += stepDistance;
-        if (positionX >= 0) positionX = -halfWidth;
-        track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-      });
+        desktopFrame = requestAnimationFrame(runMarquee);
 
-      leftBtn.addEventListener("click", () => {
-        positionX -= stepDistance;
-        if (positionX < -halfWidth) positionX = 0;
-        track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-      });
-
-      // 3. Hover Listeners to Pause/Resume the Track
-      windowWrapper.addEventListener("mouseenter", () => { isPaused = true; });
-      windowWrapper.addEventListener("mouseleave", () => { isPaused = false; });
-
-      // Fire script loop engine immediately
-      startMarquee();
-      
-      function startMarquee() {
-        if (window.innerWidth > 768) {
-          animationFrameId = requestAnimationFrame(runMarquee);
-        } else {
-          // Fallback mobile CSS keyframes loop adjustment selector rule swap
-          track.style.animation = "indMarqueeScroll 35s linear infinite reverse";
-          windowWrapper.style.overflowX = "auto";
-        }
-      }
     }
-  });
+
+
+    /*====================================
+        DESKTOP BUTTONS
+    ====================================*/
+
+    if (leftBtn && rightBtn) {
+
+        rightBtn.addEventListener("click", () => {
+
+            if (window.innerWidth <= 768) {
+
+                windowWrapper.scrollBy({
+                    left: 220,
+                    behavior: "smooth"
+                });
+
+                return;
+
+            }
+
+            positionX += stepDistance;
+
+            if (positionX >= 0)
+                positionX = -halfWidth;
+
+            track.style.transform =
+                `translate3d(${positionX}px,0,0)`;
+
+        });
+
+
+        leftBtn.addEventListener("click", () => {
+
+            if (window.innerWidth <= 768) {
+
+                windowWrapper.scrollBy({
+                    left: -220,
+                    behavior: "smooth"
+                });
+
+                return;
+
+            }
+
+            positionX -= stepDistance;
+
+            if (positionX < -halfWidth)
+                positionX = 0;
+
+            track.style.transform =
+                `translate3d(${positionX}px,0,0)`;
+
+        });
+
+    }
+
+
+    /*====================================
+        DESKTOP HOVER PAUSE
+    ====================================*/
+
+    windowWrapper.addEventListener("mouseenter", () => {
+
+        if (window.innerWidth > 768)
+            isPaused = true;
+
+    });
+
+    windowWrapper.addEventListener("mouseleave", () => {
+
+        if (window.innerWidth > 768)
+            isPaused = false;
+
+    });
+
+
+    /*====================================
+        MOBILE CONTINUOUS SCROLL
+    ====================================*/
+
+   /*====================================
+    MOBILE CONTINUOUS SCROLL
+====================================*/
+
+function mobileLoop() {
+
+    if (window.innerWidth > 768) return;
+
+    if (!mobilePaused) {
+
+        // Move content LEFT → RIGHT
+        windowWrapper.scrollLeft -= 0.35;
+
+        // When reached beginning, jump to end
+        if (windowWrapper.scrollLeft <= 0) {
+
+            windowWrapper.scrollLeft =
+                windowWrapper.scrollWidth -
+                windowWrapper.clientWidth;
+
+        }
+
+    }
+
+    mobileFrame = requestAnimationFrame(mobileLoop);
+
+}
+
+
+    function startMobile() {
+
+    cancelAnimationFrame(mobileFrame);
+
+    // Start from end
+    windowWrapper.scrollLeft =
+        windowWrapper.scrollWidth -
+        windowWrapper.clientWidth;
+
+    mobileLoop();
+
+}
+
+
+    /*====================================
+        TOUCH SUPPORT
+    ====================================*/
+
+    windowWrapper.addEventListener("touchstart", () => {
+
+        mobilePaused = true;
+
+    });
+
+    windowWrapper.addEventListener("touchend", () => {
+
+        setTimeout(() => {
+
+            mobilePaused = false;
+
+        }, 1200);
+
+    });
+
+
+    windowWrapper.addEventListener("mousedown", () => {
+
+        if (window.innerWidth <= 768)
+            mobilePaused = true;
+
+    });
+
+    windowWrapper.addEventListener("mouseup", () => {
+
+        if (window.innerWidth <= 768) {
+
+            setTimeout(() => {
+
+                mobilePaused = false;
+
+            }, 1200);
+
+        }
+
+    });
+
+
+    /*====================================
+        START
+    ====================================*/
+
+    function initializeSlider() {
+
+        cancelAnimationFrame(desktopFrame);
+        cancelAnimationFrame(mobileFrame);
+
+        if (window.innerWidth > 768) {
+
+            desktopFrame =
+                requestAnimationFrame(runMarquee);
+
+        } else {
+
+            track.style.transform = "none";
+
+            startMobile();
+
+        }
+
+    }
+
+    initializeSlider();
+
+    window.addEventListener("resize", initializeSlider);
+
+});
 </script>
 
 
@@ -4474,83 +4771,284 @@ document.addEventListener("DOMContentLoaded", () => {
     .vb-testimonials-top h2 { font-size: 38px; }
   }
 
-  @media (max-width: 768px) {
-    .vb-testimonials-section { padding: 80px 0; }
-    .vb-testimonials-top h2 { font-size: 32px; }
-    .vb-testimonials-top p { font-size: 15px; }
-    .vb-test-track { gap: 20px; }
-    .vb-test-card { min-width: 280px; scroll-snap-align: start; }
-    .vb-quote-icon { font-size: 90px; }
-    .vb-test-arrow-btn { display: none !important; } 
-    .vb-test-marquee { overflow-x: auto; scroll-snap-type: x mandatory; }
-  }
+  @media (max-width:768px){
+
+    .vb-testimonials-section{
+        padding:80px 0;
+    }
+
+    .vb-testimonials-top h2{
+        font-size:32px;
+    }
+
+    .vb-testimonials-top p{
+        font-size:15px;
+    }
+
+    .vb-test-arrow-btn{
+        display:none !important;
+    }
+
+    .vb-test-marquee{
+        overflow-x:auto;
+        overflow-y:hidden;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        cursor:grab;
+    }
+
+    .vb-test-marquee::-webkit-scrollbar{
+        display:none;
+    }
+
+    .vb-test-track{
+        width:max-content;
+        gap:20px;
+        transform:none !important;
+    }
+
+    .vb-test-card{
+        min-width:280px;
+        flex:0 0 auto;
+    }
+
+    .vb-quote-icon{
+        font-size:90px;
+    }
+
+}
 </style>
 
 <!-- DYNAMIC UNIFIED MARQUEE ENGINE SCRIPT -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const track = document.getElementById("testSliderTrack");
-    const windowFrame = document.getElementById("testMarqueeWindow");
-    const leftArrow = document.getElementById("testScrollLeft");
-    const rightArrow = document.getElementById("testScrollRight");
+    document.addEventListener("DOMContentLoaded",()=>{
 
-    if (track && windowFrame && leftArrow && rightArrow) {
-      let positionX = 0;
-      let scrollSpeed = 0.8; // Uniform baseline movement value tracking loop speed
-      let isTrackingPaused = false;
-      let animationFrameId;
+const track=document.getElementById("testSliderTrack");
+const wrapper=document.getElementById("testMarqueeWindow");
+const left=document.getElementById("testScrollLeft");
+const right=document.getElementById("testScrollRight");
 
-      // Custom safe variable calculation defining single card slide shift bounds (Card 340px + Gap 35px)
-      const stepDistance = 340 + 35;
+if(!track || !wrapper) return;
 
-      // 1. High Performance Native Loop Engine
-      function runTestimonialsMarquee() {
-        if (!isTrackingPaused) {
-          positionX -= scrollSpeed;
+const half=track.scrollWidth/2;
 
-          const boundaryLimit = track.scrollWidth / 2;
-          if (Math.abs(positionX) >= boundaryLimit) {
-            positionX = 0;
-            track.style.transition = "none";
-            track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-            track.offsetHeight; // Forces repaint refresh flush inside DOM environment
-          } else {
-            track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-            track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-          }
+let position=0;
+let speed=.8;
+
+let desktopPaused=false;
+let mobilePaused=false;
+
+let desktopFrame;
+let mobileFrame;
+
+const step=375;
+
+
+/*=========================
+DESKTOP
+=========================*/
+
+function desktopLoop(){
+
+    if(window.innerWidth<=768) return;
+
+    if(!desktopPaused){
+
+        position-=speed;
+
+        if(Math.abs(position)>=half){
+
+            position=0;
+
+            track.style.transition="none";
+            track.style.transform=`translate3d(${position}px,0,0)`;
+
+            track.offsetHeight;
+
+        }else{
+
+            track.style.transition="transform .5s cubic-bezier(.25,1,.5,1)";
+            track.style.transform=`translate3d(${position}px,0,0)`;
+
         }
-        animationFrameId = requestAnimationFrame(runTestimonialsMarquee);
-      }
 
-      // 2. Control Action Arrows Trigger Mapping
-      rightArrow.addEventListener("click", () => {
-        positionX -= stepDistance;
-        const boundaryLimit = track.scrollWidth / 2;
-        if (Math.abs(positionX) >= boundaryLimit) positionX = 0;
-        track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-      });
-
-      leftArrow.addEventListener("click", () => {
-        positionX += stepDistance;
-        if (positionX > 0) {
-          const boundaryLimit = track.scrollWidth / 2;
-          positionX = -boundaryLimit + stepDistance;
-        }
-        track.style.transform = `translate3d(${positionX}px, 0, 0)`;
-      });
-
-      // 3. Hover Actions Pauses/Resumes Track loop state
-      windowFrame.addEventListener("mouseenter", () => { isTrackingPaused = true; });
-      windowFrame.addEventListener("mouseleave", () => { isTrackingPaused = false; });
-
-      // Initialize the marquee runner setup
-      if (window.innerWidth > 768) {
-        animationFrameId = requestAnimationFrame(runTestimonialsMarquee);
-        windowFrame.addEventListener("mouseenter", () => { isTrackingPaused = true; });
-    windowFrame.addEventListener("mouseleave", () => { isTrackingPaused = false; });
-      }
     }
-  });
+
+    desktopFrame=requestAnimationFrame(desktopLoop);
+
+}
+
+
+/*=========================
+BUTTONS
+=========================*/
+
+right.addEventListener("click",()=>{
+
+    if(window.innerWidth<=768){
+
+        wrapper.scrollBy({
+            left:300,
+            behavior:"smooth"
+        });
+
+        return;
+    }
+
+    position-=step;
+
+    if(Math.abs(position)>=half)
+        position=0;
+
+    track.style.transform=`translate3d(${position}px,0,0)`;
+
+});
+
+
+left.addEventListener("click",()=>{
+
+    if(window.innerWidth<=768){
+
+        wrapper.scrollBy({
+            left:-300,
+            behavior:"smooth"
+        });
+
+        return;
+    }
+
+    position+=step;
+
+    if(position>0)
+        position=-half+step;
+
+    track.style.transform=`translate3d(${position}px,0,0)`;
+
+});
+
+
+wrapper.addEventListener("mouseenter",()=>{
+
+    if(window.innerWidth>768)
+        desktopPaused=true;
+
+});
+
+wrapper.addEventListener("mouseleave",()=>{
+
+    if(window.innerWidth>768)
+        desktopPaused=false;
+
+});
+
+
+/*=========================
+MOBILE RIGHT → LEFT
+=========================*/
+
+function mobileLoop(){
+
+    if(window.innerWidth>768) return;
+
+    if(!mobilePaused){
+
+        wrapper.scrollLeft += 0.35;
+
+        if(wrapper.scrollLeft >= wrapper.scrollWidth-wrapper.clientWidth){
+
+            wrapper.scrollLeft=0;
+
+        }
+
+    }
+
+    mobileFrame=requestAnimationFrame(mobileLoop);
+
+}
+
+
+function startMobile(){
+
+    cancelAnimationFrame(mobileFrame);
+
+    wrapper.scrollLeft=0;
+
+    mobileLoop();
+
+}
+
+
+/*=========================
+TOUCH
+=========================*/
+
+wrapper.addEventListener("touchstart",()=>{
+
+    mobilePaused=true;
+
+});
+
+wrapper.addEventListener("touchend",()=>{
+
+    setTimeout(()=>{
+
+        mobilePaused=false;
+
+    },1200);
+
+});
+
+
+wrapper.addEventListener("mousedown",()=>{
+
+    if(window.innerWidth<=768)
+        mobilePaused=true;
+
+});
+
+wrapper.addEventListener("mouseup",()=>{
+
+    if(window.innerWidth<=768){
+
+        setTimeout(()=>{
+
+            mobilePaused=false;
+
+        },1200);
+
+    }
+
+});
+
+
+/*=========================
+INIT
+=========================*/
+
+function init(){
+
+    cancelAnimationFrame(desktopFrame);
+    cancelAnimationFrame(mobileFrame);
+
+    if(window.innerWidth>768){
+
+        desktopFrame=requestAnimationFrame(desktopLoop);
+
+    }else{
+
+        track.style.transform="none";
+
+        startMobile();
+
+    }
+
+}
+
+init();
+
+window.addEventListener("resize",init);
+
+});
 </script>
 
 
